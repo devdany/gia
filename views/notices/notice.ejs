@@ -22,26 +22,54 @@
 <div class="about-area section-padding-bottom" style="margin-top: 40px;">
     <div class="container">
         <div class="row">
-            <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"></div>
-            <div class="col-sm-10">
-                <table class="table table-bordered table-hover" style="text-align: center">
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="padding-right: 5%">
+                <div style="text-align: right">
+                    <p>Total 3333</p>
+                </div>
+                <table class="table table-striped" style="text-align: center; border-bottom: 1px solid #ddd">
                     <tr>
-                        <th style="text-align: center">제목</th>
-                        <th style="text-align: center">작성일</th>
+                        <th style="text-align: center">No</th>
+                        <th style="text-align: center">Title</th>
+                        <th style="text-align: center">Writer</th>
+                        <th style="text-align: center">Date</th>
                     </tr>
                     <% noticeList.forEach(function(notice){ %>
                     <tr>
-                        <td>
+                        <td style="width: 10%">
+                            <%= notice.no%>
+                        </td>
+                        <td style="width: 60%">
                             <a href="/notice/detail/<%= notice.id %>">
                                 <%= notice.title %>
                             </a>
                         </td>
-                        <td>
+                        <td style="width: 10%">
+                            <%=notice.writer%>
+                        </td>
+                        <td style="width: 20%">
                             <%=notice.date%>
                         </td>
                     </tr>
                     <% }); %>
                 </table>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="single-widget-item">
+                    <div class="single-title">
+                        <h3>Recent Events</h3>
+                    </div>
+                    <div class="single-widget-container">
+                        <div class="recent-post-item">
+                            <div class="recent-post-image">
+                                <a href="#"><img src="/img/gallery/15.jpg" alt=""></a>
+                            </div>
+                            <div class="recent-post-text">
+                                <h4><a href="#">Alphabet Match Class</a></h4>
+                                <span><i class="fa fa-calendar"></i>March 25, 2016</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

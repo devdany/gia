@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var notice = require('../db/model/Notice');
+var dateformat = require('../lib/DateFormatConverter');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -41,8 +42,14 @@ router.get('/test', (req, res) => {
 })
 
 router.get('/notice', (req, res) => {
-    notice.findAll().then(result => {
-        res.render('notices/notice', {loginUser : req.session.loginUser, noticeList: result});
+    notice.findAll().then(async result => {
+        await Promise.all(result.map(value => {
+            value.dataValues.date = dateformat('yyyy-mm-dd',value.dataValues.date);
+        })).then(() => {
+
+            res.render('notices/notice', {loginUser : req.session.loginUser, noticeList: result});
+        })
+
     })
 
 })

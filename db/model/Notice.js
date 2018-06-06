@@ -11,6 +11,10 @@ const notice = connector.define('Notice', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    writer: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     content: {
         type: Sequelize.STRING,
         allowNull: false
