@@ -67,6 +67,7 @@
     <!-- Modernizr JS
     ============================================ -->
     <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <!--sweet alert-->
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -94,23 +95,27 @@
                     <div class="header-login-register">
                         <ul class="login">
                             <li>
+                                <%if(typeof loginUser === 'undefined'){%>
                                 <a href="#"><i class="fa fa-user"></i>Login</a>
                                 <div class="login-form">
                                     <h4>Admin</h4>
-                                    <form action="#" method="post">
+                                    <form action="/user/login" method="post">
                                         <div class="form-box">
                                             <i class="fa fa-user"></i>
-                                            <input type="text" name="user-name" placeholder="Username">
+                                            <input type="text" name="userId" placeholder="AdminId">
                                         </div>
                                         <div class="form-box">
                                             <i class="fa fa-lock"></i>
-                                            <input type="password" name="user-password" placeholder="Password">
+                                            <input type="password" name="password" placeholder="Password">
                                         </div>
                                         <div class="button-box">
                                             <button type="submit" class="login-btn">Login</button>
                                         </div>
                                     </form>
                                 </div>
+                                <%} else {%>
+                                <a href="/admin"><i class="fa fa-user"></i>Hello, <%=loginUser.id%>! Click here to admin page</a>
+                                <%}%>
                             </li>
                         </ul>
                     </div>
@@ -186,6 +191,9 @@
                                     </form>
                                 </div>
                             </div>
+                            <%if(typeof message !== 'undefined'){%>
+                            <input type="hidden" value="<%=message%>" id="signIn_set_alert">
+                            <%}%>
                             <!--End of Search Form-->
                         </div>
                     </div>

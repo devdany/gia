@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 const dbConnector = require('./db/Connector');
 dbConnector.authenticate()
@@ -15,6 +16,7 @@ dbConnector.authenticate()
 
 
 var indexRouter = require('./routes/index');
+var userRouter = require('./routes/users');
 
 var app = express();
 
@@ -27,8 +29,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'gia!636',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false}
+}))
 
+
+//router
 app.use('/', indexRouter);
+app.use('/user' , userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

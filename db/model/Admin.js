@@ -1,21 +1,21 @@
 const connector = require('../Connector');
 const Sequelize = require('sequelize');
 
-const notice = connector.define('Notice', {
+const admin = connector.define('Admin', {
     no: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    title: {
+    id: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    content: {
+    password: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    date: {
+    level: {
         type: Sequelize.STRING,
         allowNull: false
     }
@@ -25,4 +25,4 @@ const notice = connector.define('Notice', {
     timestamps: false
 });
 
-module.exports = notice;
+module.exports = admin;

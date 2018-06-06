@@ -220,9 +220,9 @@ body {
 /*----------------------------------------*/
 /*  2.1 Header Top
 /*----------------------------------------*/
-.header-top {background: #1bb4b9 none repeat scroll 0 0}
+.header-top {background: #231e61 none repeat scroll 0 0}
 .header-top-info span {
-    background: #f5b120 none repeat scroll 0 0;
+    background: #f57b20 none repeat scroll 0 0;
     color: #ffffff;
     display: inline-block;
     padding: 10px 13px 8px;
@@ -1384,7 +1384,7 @@ span.gallery-text {
 /*----------------------------------------*/
 /*  15. Footer Area
 /*----------------------------------------*/
-.footer-area {background: #1bb4b9 none repeat scroll 0 0;}
+.footer-area {background: #231e61 none repeat scroll 0 0;}
 .footer-info {line-height: 15px;}
 .footer-info > span {
     color: #ffffff;

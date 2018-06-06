@@ -1,0 +1,52 @@
+<% include ../include/header.ejs %>
+
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Notice</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li>Notice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--About Area Start-->
+<div class="about-area section-padding-bottom" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"></div>
+            <div class="col-sm-10">
+                <table class="table table-bordered table-hover" style="text-align: center">
+                    <tr>
+                        <th style="text-align: center">제목</th>
+                        <th style="text-align: center">작성일</th>
+                    </tr>
+                    <% noticeList.forEach(function(notice){ %>
+                    <tr>
+                        <td>
+                            <a href="/notice/detail/<%= notice.id %>">
+                                <%= notice.title %>
+                            </a>
+                        </td>
+                        <td>
+                            <%=notice.date%>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of About Area-->
+
+
+<% include ../include/footer.ejs %>
