@@ -90,7 +90,7 @@
                 <div class="col-md-5 col-sm-5">
                     <div class="header-login-register">
                         <ul class="login">
-                            <li style="float: left">
+                            <li>
                                 <%if(typeof loginUser === 'undefined'){%>
                                 <a href="#"><i class="fa fa-user"></i>Login</a>
                                 <div class="login-form">
@@ -110,15 +110,9 @@
                                     </form>
                                 </div>
                                 <%} else {%>
-                                <a href="/admin/index"><i class="fa fa-user"></i>Hello, <%=loginUser.id%>! Click here to admin page</a>
-
+                                <a href="/admin"><i class="fa fa-user"></i>Hello, <%=loginUser.id%>! Click here to admin page</a>
                                 <%}%>
                             </li>
-                            <%if(typeof loginUser !== 'undefined'){%>
-                            <li style="float: left; margin-left: 20px;">
-                                <a href="/user/logout"><i class="fa fa-unlock"></i>Log Out</a>
-                            </li>
-                            <%}%>
                         </ul>
                     </div>
                 </div>

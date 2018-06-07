@@ -17,6 +17,7 @@ dbConnector.authenticate()
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use(session({
 //router
 app.use('/', indexRouter);
 app.use('/user' , userRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

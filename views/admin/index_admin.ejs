@@ -1,7 +1,7 @@
-<% include ./include/header.ejs %>
+<% include ../include/header_admin.ejs %>
 <!--End of Header Area-->
 <!--Slider Area Start-->
-<div class="slider-area">
+<div class="slider-area admin_slider">
   <div class="preview-2">
     <div id="nivoslider" class="slides">
       <img src="/img/slider/main1.png" alt="" title="#slider-1-caption1"/>
@@ -15,14 +15,26 @@
               <div class="text-content hidden-xs">
                 <h1 class="title1">Education for Kids</h1>
                 <p class="sub-title">Donec sollicitudin lacus in felis luctus blandit. Ut hendrerit mattis justo<br> at susp, vivamus orci urna.</p>
-                <div class="banner-readmore">
-                  <a title="Read more" href="#">Enroll your child</a>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div id="buttonArea" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 50px; z-index: 100; position: relative; bottom: 300px; display: none; ">
+      <ul style="text-align: center">
+        <li class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <button class="btn btn-primary" id="slide_img">Image Change</button>
+        </li>
+
+        <li class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <button class="btn btn-primary" id="slide_1">Slide1 Text Change</button>
+        </li>
+
+        <li class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <button class="btn btn-primary" id="slide_2">Slide2 Text Change</button>
+        </li>
+      </ul>
     </div>
     <div id="slider-1-caption2" class="nivo-html-caption nivo-caption">
       <div class="banner-content slider-1">
@@ -32,9 +44,6 @@
               <div class="text-content slide-2 hidden-xs">
                 <h1 class="title1">Education for Kids</h1>
                 <p class="sub-title">Donec sollicitudin lacus in felis luctus blandit. Ut hendrerit mattis justo<br> at susp, vivamus orci urna.</p>
-                <div class="banner-readmore">
-                  <a title="Read more" href="#">Enroll your child</a>
-                </div>
               </div>
             </div>
           </div>
@@ -44,6 +53,8 @@
   </div>
 </div>
 <!--End of Slider Area-->
+
+
 <!--Activity Area Start-->
 <div class="activity-area">
   <div class="container">
@@ -204,9 +215,8 @@
   </div>
 </div>
 <!--End of Class Area-->
-
 <!--Service Area Start-->
-<div class="service-area section-padding" style="background-color: #F0F0F0;">
+<div class="service-area section-padding">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -250,10 +260,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 hidden-sm hidden-xs">
-        <div class="service-image">
+      <div class="col-md-4 hidden-sm hidden-xs" id="service_img_area">
+        <div class="service-image" id="service_image">
           <img src="/img/banner/2.jpg" alt="">
         </div>
+        <button class="btn btn-primary" style="position: relative; bottom: 280px; display: none; margin: auto; margin-bottom: -34px;" id="service_bt">Image Change</button>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="single-service-item-wrapper">
@@ -655,34 +666,24 @@
 </div>
 <!--End of Gallery Area-->
 
-<!--Google Map Area Start -->
-<div class="google-map-area">
-  <!--  Map Section -->
-  <div id="contacts" class="map-area">
-    <div id="googleMap" style="width:100%;height:451px;"></div>
-  </div>
-</div>
-<!--End of Google Map Area-->
-<% include ./include/footer.ejs %>
+<% include ../include/footer_admin.ejs %>
+
 <script>
-    function initialize() {
-        var mapOptions = {
-            zoom: 15,
-            scrollwheel: false,
-            center: new google.maps.LatLng(35.062195, 128.069394)
-        };
-        var map = new google.maps.Map(document.getElementById('googleMap'),
-            mapOptions);
 
+  $(".admin_slider").hover(function () {
 
-        var marker = new google.maps.Marker({
-            position: map.getCenter(),
-            animation:google.maps.Animation.BOUNCE,
-            icon: '/img/map-marker.png',
-            map: map
-        });
+     $(".slides").css('opacity', '0.5');
+     $("#buttonArea").css('display', 'block');
+  }, function () {
+      $(".slides").css('opacity', '1');
+      $("#buttonArea").css('display', 'none');
+  })
 
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
+  $("#service_img_area").hover(function () {
+      $("#service_image").css('opacity', '0.5');
+      $("#service_bt").css('display', 'block');
+  }, function () {
+      $("#service_image").css('opacity', '1');
+      $("#service_bt").css('display', 'none');
+  })
 </script>
