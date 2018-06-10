@@ -2,10 +2,13 @@ var express = require('express');
 var router = express.Router();
 var notice = require('../db/model/Notice');
 var dateformat = require('../lib/DateFormatConverter');
+var contents = require('../lib/contents');
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {loginUser : req.session.loginUser});
+  res.render('index', {loginUser : req.session.loginUser, contents: contents});
 });
 
 router.get('/greeting', (req, res) => {

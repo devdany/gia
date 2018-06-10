@@ -3357,3 +3357,7 @@ span.schedule-time {
     color: #231e61;
     border-color: #231e61;
 }
+
+.dz-max-files-reached {
+    background-color: red;
+}

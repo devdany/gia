@@ -4,8 +4,8 @@
 <div class="slider-area admin_slider">
   <div class="preview-2">
     <div id="nivoslider" class="slides">
-      <img src="/img/slider/main1.png" alt="" title="#slider-1-caption1"/>
-      <img src="/img/slider/main2.png" alt="" title="#slider-1-caption2"/>
+      <img src="/img/main1.png" alt="" title="#slider-1-caption1"/>
+      <img src="/img/main2.png" alt="" title="#slider-1-caption2"/>
     </div>
     <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
       <div class="banner-content slider-1">
@@ -13,37 +13,43 @@
           <div class="row">
             <div class="col-md-7 col-sm-7">
               <div class="text-content hidden-xs">
-                <h1 class="title1">Education for Kids</h1>
-                <p class="sub-title">Donec sollicitudin lacus in felis luctus blandit. Ut hendrerit mattis justo<br> at susp, vivamus orci urna.</p>
+                <h1 class="title1" id="slide1_title"><%=contents.slide1.title%></h1>
+                <p class="sub-title" id="slide1_text"><%=contents.slide1.text%></p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="buttonArea" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 50px; z-index: 100; position: relative; bottom: 300px; display: none; ">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg1"></div>
+    <div id="buttonArea" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="height: 50px; z-index: 100; position: relative; bottom: 300px; display: none;">
       <ul style="text-align: center">
-        <li class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <button class="btn btn-primary" id="slide_img">Image Change</button>
+        <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <button class="btn btn-primary img_change" name="slide1">Image1 Change</button>
         </li>
 
-        <li class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <button class="btn btn-primary" id="slide_1">Slide1 Text Change</button>
+        <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <button class="btn btn-primary img_change" name="slide2">Image2 Change</button>
         </li>
 
-        <li class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <button class="btn btn-primary" id="slide_2">Slide2 Text Change</button>
+        <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <button class="btn btn-primary" id="slide_text1_change" name="slide1">Slide1 Text Change</button>
+        </li>
+
+        <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <button class="btn btn-primary" id="slide_text2_change" name="slide2">Slide2 Text Change</button>
         </li>
       </ul>
     </div>
+
     <div id="slider-1-caption2" class="nivo-html-caption nivo-caption">
       <div class="banner-content slider-1">
         <div class="container">
           <div class="row">
             <div class="col-md-7 col-sm-7">
               <div class="text-content slide-2 hidden-xs">
-                <h1 class="title1">Education for Kids</h1>
-                <p class="sub-title">Donec sollicitudin lacus in felis luctus blandit. Ut hendrerit mattis justo<br> at susp, vivamus orci urna.</p>
+                <h1 class="title1" id="slide2_title"><%=contents.slide2.title%></h1>
+                <p class="sub-title" id="slide2_text"><%=contents.slide2.text%></p>
               </div>
             </div>
           </div>
@@ -260,11 +266,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 hidden-sm hidden-xs" id="service_img_area">
+      <div class="col-md-4 hidden-sm hidden-xs" id="service_img_area" style="height: 500px;">
         <div class="service-image" id="service_image">
-          <img src="/img/banner/2.jpg" alt="">
+          <img src="/img/service.png" alt="">
         </div>
-        <button class="btn btn-primary" style="position: relative; bottom: 280px; display: none; margin: auto; margin-bottom: -34px;" id="service_bt">Image Change</button>
+        <button class="btn btn-primary img_change" style="position: absolute; top:250px; left:140px; display: none; margin: auto; margin-bottom: -34px;" id="service_bt" name="service">Image Change</button>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="single-service-item-wrapper">
@@ -666,9 +672,85 @@
 </div>
 <!--End of Gallery Area-->
 
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title" id="modal_title"></h4>
+      </div>
+
+      <div class="modal-body form-group">
+        Title: <input type="text" class="form-control" id="modal_content_title"><br>
+        Text: <textarea class="form-control" id="modal_content_text"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="change_ok">확인</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="imageModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="top:130px;">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title" id="img_modal_title"></h4>
+      </div>
+
+      <div class="modal-body form-group">
+
+        <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+          <div class="dz-message needsclick">
+            <span style="color:#231e61">Drop Image here or click to upload.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% include ../include/footer_admin.ejs %>
 
 <script>
+    const sizes = {
+        slide1: '1920 x 740',
+        slide2: '1920 x 740',
+        service: '370 x 540',
+    }
+
+    Dropzone.options.myAwesomeDropzone = {
+        maxFiles: 1,
+        accept: function(file, done) {
+            done();
+        },
+        params:{
+          target: 'target'
+        },
+        paramName: 'photo',
+        init: function() {
+            this.on("maxfilesexceeded", function(file){
+                alert("No more files please!");
+            });
+
+            this.on('success', function(file, res) {
+                // 파일이 서버에 업로드가 완료 되었 을때
+
+                if(res === 'success'){
+                    $("#imageModal").modal('hide');
+                    location.reload();
+                }
+            });
+        }
+    };
 
   $(".admin_slider").hover(function () {
 
@@ -685,5 +767,62 @@
   }, function () {
       $("#service_image").css('opacity', '1');
       $("#service_bt").css('display', 'none');
+  })
+
+
+  $("#slide_text1_change").click(function () {
+      var title = $("#slide1_title").text();
+      var text = $("#slide1_text").text();
+      var target = this.name;
+
+      $("#modal_title").text(target);
+      $("#modal_content_title").val(title);
+      $("#modal_content_text").val(text);
+
+      $("#myModal").modal('show');
+  })
+
+  $("#slide_text2_change").click(function () {
+      var title = $("#slide2_title").text();
+      var text = $("#slide2_text").text();
+      var target = this.name;
+
+      $("#modal_title").text(target);
+      $("#modal_content_title").val(title);
+      $("#modal_content_text").val(text);
+
+      $("#myModal").modal('show');
+  })
+
+  $(".img_change").click(function () {
+      var target = this.name;
+      $("#img_modal_title").text(target+' ('+sizes[target]+')');
+      Dropzone.options.myAwesomeDropzone.params.target = target;
+
+      $("#imageModal").modal('show');
+  })
+
+
+  $("#change_ok").click(function () {
+      if (confirm('정말 변경 하시겠습니까?')) {
+          var title = $("#modal_content_title").val();
+          var content = $("#modal_content_text").val();
+          var target = $("#modal_title").text();
+
+          $.ajax({
+              url: '/admin/update',
+              type: 'POST',
+              data: {title: title, content: content, target:target}
+          }).done(function (result) {
+              if(result === 'success') {
+                  $("#"+target+"_title").text(title);
+                  $("#"+target+"_text").text(content);
+              }else{
+                  console.error(result);
+              }
+          }).fail(function (err) {
+              console.error(err);
+          });
+      }
   })
 </script>
