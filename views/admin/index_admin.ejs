@@ -4,8 +4,8 @@
 <div class="slider-area admin_slider">
   <div class="preview-2">
     <div id="nivoslider" class="slides">
-      <img src="/img/main1.png" alt="" title="#slider-1-caption1"/>
-      <img src="/img/main2.png" alt="" title="#slider-1-caption2"/>
+      <img src="/img/main1.png" alt="" title="#slider-1-caption1" id="slide1"/>
+      <img src="/img/main2.png" alt="" title="#slider-1-caption2" id="slide2"/>
     </div>
     <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
       <div class="banner-content slider-1">
@@ -308,6 +308,7 @@
 </div>
 <!--End of Service Area-->
 <!--Fun Factor Area Start-->
+<div class="factor-area">
 <div class="fun-factor-area">
   <div class="container">
     <div class="row">
@@ -349,6 +350,8 @@
       </div>
     </div>
   </div>
+</div>
+<button class="btn btn-primary img_change" style="display: none; position: relative; left: 46%; bottom: 140px; z-index: 900;" id="factor_bt" name="factor">Image Change</button>
 </div>
 <!--End of Fun Factor Area-->
 <!--Teachers Area Start-->
@@ -720,109 +723,6 @@
 
 <% include ../include/footer_admin.ejs %>
 
-<script>
-    const sizes = {
-        slide1: '1920 x 740',
-        slide2: '1920 x 740',
-        service: '370 x 540',
-    }
+<script src="/js/admin.js">
 
-    Dropzone.options.myAwesomeDropzone = {
-        maxFiles: 1,
-        accept: function(file, done) {
-            done();
-        },
-        params:{
-          target: 'target'
-        },
-        paramName: 'photo',
-        init: function() {
-            this.on("maxfilesexceeded", function(file){
-                alert("No more files please!");
-            });
-
-            this.on('success', function(file, res) {
-                // 파일이 서버에 업로드가 완료 되었 을때
-
-                if(res === 'success'){
-                    $("#imageModal").modal('hide');
-                    location.reload();
-                }
-            });
-        }
-    };
-
-  $(".admin_slider").hover(function () {
-
-     $(".slides").css('opacity', '0.5');
-     $("#buttonArea").css('display', 'block');
-  }, function () {
-      $(".slides").css('opacity', '1');
-      $("#buttonArea").css('display', 'none');
-  })
-
-  $("#service_img_area").hover(function () {
-      $("#service_image").css('opacity', '0.5');
-      $("#service_bt").css('display', 'block');
-  }, function () {
-      $("#service_image").css('opacity', '1');
-      $("#service_bt").css('display', 'none');
-  })
-
-
-  $("#slide_text1_change").click(function () {
-      var title = $("#slide1_title").text();
-      var text = $("#slide1_text").text();
-      var target = this.name;
-
-      $("#modal_title").text(target);
-      $("#modal_content_title").val(title);
-      $("#modal_content_text").val(text);
-
-      $("#myModal").modal('show');
-  })
-
-  $("#slide_text2_change").click(function () {
-      var title = $("#slide2_title").text();
-      var text = $("#slide2_text").text();
-      var target = this.name;
-
-      $("#modal_title").text(target);
-      $("#modal_content_title").val(title);
-      $("#modal_content_text").val(text);
-
-      $("#myModal").modal('show');
-  })
-
-  $(".img_change").click(function () {
-      var target = this.name;
-      $("#img_modal_title").text(target+' ('+sizes[target]+')');
-      Dropzone.options.myAwesomeDropzone.params.target = target;
-
-      $("#imageModal").modal('show');
-  })
-
-
-  $("#change_ok").click(function () {
-      if (confirm('정말 변경 하시겠습니까?')) {
-          var title = $("#modal_content_title").val();
-          var content = $("#modal_content_text").val();
-          var target = $("#modal_title").text();
-
-          $.ajax({
-              url: '/admin/update',
-              type: 'POST',
-              data: {title: title, content: content, target:target}
-          }).done(function (result) {
-              if(result === 'success') {
-                  $("#"+target+"_title").text(title);
-                  $("#"+target+"_text").text(content);
-              }else{
-                  console.error(result);
-              }
-          }).fail(function (err) {
-              console.error(err);
-          });
-      }
-  })
 </script>

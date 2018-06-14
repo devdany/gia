@@ -1,4 +1,4 @@
-<% include ../include/header.ejs %>
+<% include ../include/header_admin.ejs %>
 
 <div class="breadcrumb-banner-area">
     <div class="container">
@@ -31,11 +31,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="greeting_text_area">
                 <div class="about-text-container">
-                    <p><span>Welcome to Gyeongnam International Academy!</span> <br>We specialize in small-class English language immersion for ages Pre-K through Grade 6.<br>
-                        We also offer meaningful adult English language lessons.
-                    </p>
+                    <p><span id="greeting_text_title">Welcome to Gyeongnam International Academy!</span></p>
+                    <p>We specialize in small-class English language immersion for ages Pre-K through Grade 6.
+                    <p>We also offer meaningful adult English language lessons.</p>
                     <p>Breaking away from the traditional hagwon style by being both adaptive to our students learning speeds and stepping back from memorizational methods, GIA is something new when it comes to learning English in South Korea.</p>
                     <p>We are proud that the classes and curricula have been designed by ESL professionals in partnership with Gyeongnam International Foreign School, and continue to be reviewed and improved as the academy grows.</p>
                     <p>Students engage and learn with their teachers through proven and modern teaching techniques, from professionals with ESL backgrounds and proper certificates.</p>
@@ -43,10 +43,11 @@
                     <p>Join us!</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="skill-image">
-                    <img src="/img/greeting.png" alt="">
+            <div class="col-md-6" id="greeting_img_area">
+                <div class="skill-image" style="height: 442px;">
+                    <img src="/img/greeting.png" alt="" id="greeting">
                 </div>
+                <button class="btn btn-primary img_change"  id="greeting_bt" name="greeting" style="display: none; position: relative; left:40%; bottom: 250px; z-index: 999;">Image Change</button>
             </div>
         </div>
     </div>
@@ -54,7 +55,7 @@
 <!--End of About Area-->
 <!--Skill And Experience Area Start-->
 <div class="skill-and-experience-area">
-    <div class="container">
+    <div class="container" id="skill_area">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title-wrapper">
@@ -73,7 +74,7 @@
                             <span>Playing Science</span>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill1%>" style="width: <%=contents.greeting.skill.skill1%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill1%></span>
+                                    <span class="text-top" id="greeting_skill1"><%=contents.greeting.skill.skill1%></span>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
                             <span>Arts And Craft</span>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill2%>" style="width: <%=contents.greeting.skill.skill2%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill2%></span>
+                                    <span class="text-top" id="greeting_skill2"><%=contents.greeting.skill.skill2%></span>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +90,7 @@
                             <span>Creative Writing</span>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill3%>" style="width: <%=contents.greeting.skill.skill3%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill3%></span>
+                                    <span class="text-top" id="greeting_skill3"><%=contents.greeting.skill.skill3%></span>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +98,7 @@
                             <span>English Lessons</span>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill4%>" style="width: <%=contents.greeting.skill.skill4%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill4%></span>
+                                    <span class="text-top" id="greeting_skill4"><%=contents.greeting.skill.skill4%></span>
                                 </div>
                             </div>
                         </div>
@@ -108,26 +109,26 @@
                 <div class="experience-skill-wrapper">
                     <div class="skill-bars orange">
                         <div class="skill-bar-item">
-                            <span>Arts And Craft</span>
+                            <span>Playing Science</span>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill5%>" style="width: <%=contents.greeting.skill.skill5%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill5%></span>
+                                    <span class="text-top" id="greeting_skill5"><%=contents.greeting.skill.skill5%></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <span>Arts And Craft</span>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill6%>" style="width: <%=contents.greeting.skill.skill6%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
+                                    <span class="text-top" id="greeting_skill6"><%=contents.greeting.skill.skill6%></span>
                                 </div>
                             </div>
                         </div>
                         <div class="skill-bar-item">
                             <span>Creative Writing</span>
                             <div class="progress">
-                                <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill6%>" style="width: <%=contents.greeting.skill.skill6%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill6%></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <span>Playing Science</span>
-                            <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill7%>" style="width: <%=contents.greeting.skill.skill7%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill7%></span>
+                                    <span class="text-top" id="greeting_skill7"><%=contents.greeting.skill.skill7%></span>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +136,7 @@
                             <span>English Lessons</span>
                             <div class="progress">
                                 <div class="progress-bar wow fadeInLeft" data-progress="<%=contents.greeting.skill.skill8%>" style="width: <%=contents.greeting.skill.skill8%>;" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                                    <span class="text-top"><%=contents.greeting.skill.skill8%></span>
+                                    <span class="text-top" id="greeting_skill8"><%=contents.greeting.skill.skill8%></span>
                                 </div>
                             </div>
                         </div>
@@ -144,6 +145,7 @@
             </div>
         </div>
     </div>
+    <button class="btn btn-primary"  id="greeting_skill_bt" name="greeting" style="display: none; position: relative; left:45%; bottom: 150px; z-index: 999;">Skill Status Change</button>
 </div>
 <!--End of Skill And Experience Area-->
 <!--Teachers Column Carousel Start-->
@@ -282,4 +284,76 @@
 </div>
 <!--End of Teachers Column Carousel-->
 
-<% include ../include/footer.ejs %>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:150px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+                <div class="row">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type1: <input type="text" class="form-control" id="skill1" placeholder="30 ~ 100"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type5: <input type="text" class="form-control" id="skill5" placeholder="30 ~ 100"></div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type2: <input type="text" class="form-control" id="skill2" placeholder="30 ~ 100"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type6: <input type="text" class="form-control" id="skill6" placeholder="30 ~ 100"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type3: <input type="text" class="form-control" id="skill3" placeholder="30 ~ 100"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type7: <input type="text" class="form-control" id="skill7" placeholder="30 ~ 100"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type4: <input type="text" class="form-control" id="skill4" placeholder="30 ~ 100"></div>
+                    <div class="modal_skill col-xs-5 col-sm-5 col-md-5 col-lg-5">type8: <input type="text" class="form-control" id="skill8" placeholder="30 ~ 100"></div>
+                </div>
+            </div>
+
+            <br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="greeting_skill_ok">확인</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../include/footer_admin.ejs %>
+
+<script src="/js/admin.js">
+
+</script>

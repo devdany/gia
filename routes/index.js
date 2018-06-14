@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/greeting', (req, res) => {
-  res.render('about/greeting', {loginUser : req.session.loginUser});
+  res.render('about/greeting', {loginUser : req.session.loginUser, contents:contents});
 })
 
 router.get('/vm', (req, res) => {

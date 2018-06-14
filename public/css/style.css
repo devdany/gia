@@ -1077,7 +1077,7 @@ span.arrow a:after {
 .fun-factor-area:after {
     background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
     content: "";
-    height: 100%;
+    height: 254px;
     left: 0;
     position: absolute;
     top: 0;
@@ -1862,7 +1862,7 @@ span.gallery-text {
 /*  17.5 Home Three Fun Factor
 /*----------------------------------------*/
 .fun-factor-area.fun-factor-three {
-    background: rgba(0, 0, 0, 0) url("/img/banner/6.jpg") no-repeat scroll center center / cover ;
+    background: rgba(0, 0, 0, 0) url("/img/factor.png") no-repeat scroll center center / cover ;
 }
 .fun-factor-area.fun-factor-three:after {
     background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
@@ -3360,4 +3360,9 @@ span.schedule-time {
 
 .dz-max-files-reached {
     background-color: red;
+}
+
+.modal_skill{
+
+    float: left;
 }

@@ -1,4 +1,4 @@
-<% include ../include/header.ejs %>
+<% include ../include/header_admin.ejs %>
 
 <div class="breadcrumb-banner-area">
     <div class="container">
@@ -40,10 +40,11 @@
                     <p>The goal is to move students from BICS (Basic Interpersonal Communication Skills) to CALP (Cognitive Academic Language Proficiency), so they are prepared for any academic English they may encounter in school and work.</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="skill-image">
-                    <img src="/img/vm.png" alt="">
+            <div class="col-md-6" id="vm_img_area">
+                <div class="vm-image" style="height: 442px;">
+                    <img src="/img/vm.png" alt="" id="vm">
                 </div>
+                <button class="btn btn-primary img_change"  id="vm_bt" name="vm" style="display: none; position: relative; left:40%; bottom: 250px; z-index: 999;">Image Change</button>
             </div>
         </div>
     </div>
@@ -51,4 +52,30 @@
 <!--End of About Area-->
 
 
-<% include ../include/footer.ejs %>
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../include/footer_admin.ejs %>
+
+<script src="/js/admin.js"> </script>
