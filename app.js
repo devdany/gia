@@ -27,13 +27,13 @@ var userRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
 
 
-classModel.sync({force: true});
-teachers.sync({force: true});
-gallery.sync({force: true});
+classModel.sync({force: false});
+teachers.sync({force: false});
+gallery.sync({force: false});
 admin.sync({force: false});
-notice.sync({force: true});
-schedule.sync({force: true});
-message.sync({force: true});
+notice.sync({force: false});
+schedule.sync({force: false});
+message.sync({force: false});
 
 
 var app = express();

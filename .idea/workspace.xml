@@ -2,114 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e394c50-f5c9-4464-987c-b2cf01ddf622" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/db/model/Schedule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/jquery-calendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery-calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/classList_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/edit_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/gallery_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/message_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/message_detail_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/notice_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/notice_detail_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/register_class.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/register_schedule.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/teacherList_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/update_class.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/update_teacher.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/write_admin.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/inquiry/employment.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/notices/notice_detail.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/model/Class.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/model/Class.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/model/Gallery.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/model/Gallery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/contents.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/contents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/class/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/class/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/class/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/class/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/class/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/classes/title_20180614220348.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/classes/title_20180614220908.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/classes/tt_20180614221631.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/gallery/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/teacherIntro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/img-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teacher/img-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teachers/img_20180614204615.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/teachers/noimg_20180614204519.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/about/faculty.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/about/faculty.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/classInfo_admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/classInfo_admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/fee_admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/db/model/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/greeting_admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/greeting_admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/index_admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/index_admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/vm_admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/vm_admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admissions/fee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admissions/fee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/curriculum/classInfo.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/curriculum/classInfo.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/include/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/include/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/include/header_admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/include/header_admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/inquiry/contact.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/inquiry/contact.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/notices/notice.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/notices/notice.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/photos/gallery.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/photos/gallery.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624151850-1.8074477941117428" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624151854-8.542806655881973" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624151856-6.491570469033214" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624151858-8.05649520037699" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624151900-5.790696717377024" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152049-3.5735298112568925" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152051-5.334494997378167" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152053-8.92535050073851" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152054-7.306260324081468" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152344-2.5320861506271775" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152346-7.607337287914431" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624152348-2.328204782500154" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154637-4.374005302024999" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154639-1.9080996251940308" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154640-9.25897376856295" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154645-4.979697559054925" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154814-4.05584192223343" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154816-2.946011460984328" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154818-6.954090974583281" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180624154822-2.517189656023764" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/slider/9.jpg" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,26 +43,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="312" column="34" lean-forward="true" selection-start-line="312" selection-start-column="34" selection-end-line="312" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="init.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/img/teachers/init.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="init.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/img/classes/init.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="footer-logo.png" pinned="false" current-in-tab="false">
+      <file leaf-file-name="footer-logo.png" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/img/logo/footer-logo.png">
           <provider selected="true" editor-type-id="images" />
         </entry>
@@ -150,39 +53,28 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+            <state relative-caret-position="376">
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index_admin.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin/index_admin.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="173" column="78" lean-forward="true" selection-start-line="173" selection-start-column="78" selection-end-line="173" selection-end-column="78" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="main1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/img/slider/main1.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="44" column="28" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="28" />
-            </state>
-          </provider>
+      <file leaf-file-name="main2.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/img/slider/main2.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="logo.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/img/logo/logo.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -365,6 +257,20 @@
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
               <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zia" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="logo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zia" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="slider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zia" type="b2602c69:ProjectViewProjectNode" />
@@ -574,12 +480,12 @@
       <workItem from="1529753874822" duration="15153000" />
       <workItem from="1529818313501" duration="7689000" />
       <workItem from="1529837605018" duration="2862000" />
-      <workItem from="1529915222425" duration="7128000" />
+      <workItem from="1529915222425" duration="7446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177196000" />
+    <option name="totallyTimeSpent" value="177514000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-32" width="1920" height="978" extended-state="6" />
@@ -662,62 +568,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/model/Notice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="13" selection-end-line="31" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inquiry/employment.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/model/Class.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="42" selection-start-column="42" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/model/Admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="24" lean-forward="true" selection-end-line="27" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/notice_admin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-161">
-          <caret line="66" column="40" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/inquiry/contact.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/include/header_admin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="161" column="38" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/notices/notice.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/model/Gallery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -898,18 +748,42 @@
     <entry file="file://$PROJECT_DIR$/public/img/classes/init.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logo/footer-logo.png">
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/10.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/9.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/main1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/8.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/7.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/slider/main2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/logo/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/public/img/logo/logo-white.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/public/img/logo/footer-logo.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
   <component name="masterDetails">
