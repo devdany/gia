@@ -1,0 +1,204 @@
+<% include ../include/header_admin.ejs %>
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Gallery</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li>Gallery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Gallery Area Start-->
+<div class="gallery-area section-padding gallery-full-width">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filter-menu">
+                    <ul>
+                        <li class="filter" data-filter="all">All</li>
+                        <li class="filter" data-filter=".drawing">Drawing</li>
+                        <li class="filter" data-filter=".excursions">Excursions</li>
+                        <li class="filter" data-filter=".courses">Courses</li>
+                        <li class="filter" data-filter=".play">Play time</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="filter-items">
+                <%galleryList.forEach(function (gallery){%>
+                <div class="mix single-items <%=gallery.category%> excursions col-md-4 col-sm-6 col-xs-12 overlay-hover">
+                    <div class="overlay-effect">
+                        <a style="cursor: none"><img src="<%=gallery.img%>" alt=""></a>
+                        <div class="gallery-hover-effect">
+                            <!--<a class="gallery-icon venobox" href="<%=gallery.img%>"><i class="fa fa-image"></i></a>-->
+                            <a class="gallery-icon" id="<%=gallery.no%>"><i class="fa fa-remove"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+
+            <div class="col-md-12">
+                <div class="pagination-content">
+                    <div class="pagination-button">
+                        <ul class="pagination">
+                            <li>
+                                <a href="<%= paginate.href(true) %>" aria-label="Previous">
+                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <% pages.forEach(function(page){ %>
+                            <li class="<%= paginate.page == page.number ? 'current' : '' %>">
+                                <a href="<%= page.url %>"><%= page.number %></a>
+                            </li>
+                            <% }) %>
+
+                            <li>
+                                <a href="<%= paginate.href() %>">
+                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="button text-center">
+                    <a class="button-default button-yellow" id="addPhoto" style="cursor: pointer"><i class="fa fa-plus"></i>Add Photo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+                <input type="text" id="gallery_category" class="form-control" placeholder="Category"><br>
+                <input type="text" id="gallery_comment" class="form-control" placeholder="Comment"><br>
+                <h4>5 Images at a time</h4><br>
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="gallery_submit">확인</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Gallery Area-->
+<% include ../include/footer_admin.ejs %>
+
+<script>
+
+    Dropzone.options.myAwesomeDropzone = {
+        maxFiles: 5,
+        accept: function(file, done) {
+            done();
+        },
+        params:{
+            target: 'target'
+        },
+        paramName: 'photo',
+        init: function() {
+            this.on("maxfilesexceeded", function(file){
+                alert("No more files please!");
+            });
+
+            this.on('success', function(file, res) {
+                // 파일이 서버에 업로드가 완료 되었 을때
+            });
+            var _this = this;
+
+            $("#addPhoto").click(function () {
+                _this.removeAllFiles();
+            })
+        }
+    };
+
+    $("#addPhoto").click(function () {
+        $("#img_modal_title").text('gallery (800 x 686)');
+        Dropzone.options.myAwesomeDropzone.params.target = 'gallery'
+
+        $("#imageModal").modal('show');
+
+        $.ajax({
+            url: '/admin/initGalleryTemp',
+            type: 'POST'
+        }).done(function (result) {
+            if(result !== 'success') {
+                console.log(result);
+            }
+        }).fail(function (err) {
+            console.error(err);
+        });
+    })
+
+    $("#gallery_submit").click(function () {
+        var category = $("#gallery_category").val();
+        var comment = $("#gallery_comment").val();
+
+        $.ajax({
+            url: '/admin/addGallery',
+            type: 'POST',
+            data: {category: category, comment:comment}
+        }).done(function (result) {
+            if(result === 'success') {
+                $("#imageModal").modal('hide');
+                $("#gallery_category").val('');
+                $("#gallery_comment").val('');
+                alert('success!');
+                location.reload();
+            }else{
+                alert(result.message);
+            }
+        }).fail(function (err) {
+            console.error(err);
+        });
+    })
+
+    $(".gallery-icon").click(function () {
+        var no = this.id;
+
+        if(confirm('Are you sure delete photo?')){
+            $.ajax({
+                url: '/admin/deleteGallery',
+                type: 'POST',
+                data: {no: no}
+            }).done(function (result) {
+                if(result === 'success') {
+                    alert('success!');
+                    location.reload();
+                }else{
+                    alert(result.message);
+                }
+            }).fail(function (err) {
+                console.error(err);
+            });
+        }
+    })
+</script>

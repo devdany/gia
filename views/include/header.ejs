@@ -153,17 +153,15 @@
                                         </li>
                                         <li><a href="#">Curriculum <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub-menu">
-                                                <li><a href="/class/tiny">Tiny Tigers</a></li>
-                                                <li><a href="/class/grades">Grade 1 - Grade 6</a></li>
-                                                <li><a href="/class/graduates">TT Graduates</a></li>
-                                                <li><a href="/class/adult">Adults</a></li>
+                                                <%classes.forEach(function (classInfo){%>
+                                                <li><a href="/classInfo/<%=classInfo.no%>"><%=classInfo.name%></a></li>
+                                                <%})%>
                                             </ul>
                                         </li>
                                         <li><a href="#">Admissions<i class="fa fa-angle-down"></i></a>
                                             <ul class="sub-menu">
                                                 <li><a href="/fee">Tuition & Fees</a></li>
                                                 <li><a href="/application">Application</a></li>
-                                                <li><a href="/test">Test Schedule</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="/notice">Notices</a></li>
@@ -219,7 +217,6 @@
                                     <ul class="sub-menu">
                                         <li><a href="/fee">Tuition & Fees</a></li>
                                         <li><a href="/application">Application</a></li>
-                                        <li><a href="/test">Test Schedule</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="/notice">Notices</a></li>

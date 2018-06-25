@@ -1,0 +1,65 @@
+<% include ../include/header_admin.ejs %>
+
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Classes</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Classes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Class List Area Start-->
+<div class="class-list-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8">
+                <%classList.forEach(function(value){%>
+                <div class="class-list-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <a href="/admin/classInfo/<%=value.no%>"><img src='<%=value.picture%>' alt=""></a>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <div class="class-list-text">
+                                <h3><a href="/admin/classInfo/<%=value.no%>"><%=value.name%></a></h3>
+                                <div class="class-information">
+                                    <%if(value.target !== null){%>
+                                    <span>Age: <%=value.target%></span>
+                                    <%}%>
+                                    <%if(value.total !== null){%>
+                                    <span>Class Size: <%=value.total%></span>
+                                    <%}%>
+                                    <%if(value.startDate !== null){%>
+                                    <span>Start Date: <%=value.startDate%></span>
+                                    <%}%>
+                                </div>
+                                <%if(value.description){%>
+                                <p><%=value.description%></p>
+                                <%}%>
+                                <a href="/admin/classInfo/<%=value.no%>" class="button-default">Read More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Class List Area-->
+
+<% include ../include/footer_admin.ejs %>
+
+<script src="/js/admin.js">
+
+</script>

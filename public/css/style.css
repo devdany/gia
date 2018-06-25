@@ -3366,3 +3366,17 @@ span.schedule-time {
 
     float: left;
 }
+
+.selected-table:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.schedule_td{
+    width: 18%;
+}
+
+.schedule_attr:hover{
+    color: red;
+    cursor: pointer;
+}

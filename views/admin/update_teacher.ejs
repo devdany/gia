@@ -1,0 +1,117 @@
+<% include ../include/header_admin.ejs %>
+<!--Teacher Details Area Start-->
+<div class="teacher-details-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="register_teacher_img_area">
+                    <div class="teacher-details-image" style="height: 434px;">
+                        <img src="<%=teacher.picture%>" alt="" id="registerTeacher">
+                    </div>
+                    <button class="btn btn-primary img_change"  id="registerTeacher_bt" name="registerTeacher" style="display: none; position: relative; left:36%; bottom: 230px; z-index: 999;">Upload Img</button>
+                </div>
+                <div class="teacher-details-info">
+                    <h4><input type="text" placeholder="Name" class="form-control" id="teacher_name" value="<%=teacher.name%>"></h4>
+                    <input type="text" placeholder="Role" class="form-control" id="teacher_role" value="<%=teacher.role%>">
+                    <div class="teacher-info-text">
+                        <span><i class="fa fa-phone"></i><input type="text" placeholder="PhoneNumber" class="form-control" style="width: 90%; display: inline;" id="teacher_tel" value="<%=teacher.tel%>"></span>
+                        <span><i class="fa fa-envelope"></i><input type="text" placeholder="E-mail" class="form-control" style="width: 90%; display: inline;" id="teacher_email" value="<%=teacher.email%>"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="teacher-about-info">
+                    <div class="single-title">
+                        <h3>INFO</h3>
+                    </div>
+                    <div class="teacher-info-text">
+                        <span><i class="fa fa-graduation-cap"></i><input type="text" placeholder="Degree" class="form-control" style="width: 90%; display: inline;" id="teacher_degree" value="<%=teacher.degree%>"></span>
+                        <span><i class="fa fa-star"></i><input type="text" placeholder="Experience" class="form-control" style="width: 90%; display: inline;" id="teacher_experience" value="<%=teacher.experience%>"></span>
+                    </div>
+                    <div class="single-title">
+                        <h3>INTRODUCE</h3>
+                    </div>
+                    <textarea class="form-control" style="height: 200px;" id="teacher_introduce">
+
+                    </textarea>
+                </div>
+                <div style="width: 100%; text-align: center;">
+                    <button class="btn btn-primary" style="width: 150px; background-color: #f57b20; border: none;" id="registerTeacher_submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Teacher Details Area-->
+<input type="hidden" id="intro" value="<%=teacher.intro%>">
+<input type="hidden" id="isUpload" value="false">
+<input type="hidden" id="teacherNo" value="<%=teacher.no%>">
+
+
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../include/footer_admin.ejs %>
+
+
+<script src="/js/admin.js">
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        var intro = $("#intro").val();
+        $("#teacher_introduce").val(intro);
+    })
+
+    $("#registerTeacher_submit").click(function () {
+        if(confirm('Are you sure update teacher?')){
+            var name = $("#teacher_name").val();
+            var role = $("#teacher_role").val();
+            var tel = $("#teacher_tel").val();
+            var email = $("#teacher_email").val();
+            var degree = $("#teacher_degree").val();
+            var experience = $("#teacher_experience").val();
+            var introduce = $("#teacher_introduce").val();
+            var isUpload = $("#isUpload").val();
+            var no = $("#teacherNo").val();
+
+            $.ajax({
+                url: '/admin/updateTeacher',
+                type: 'POST',
+                data: {no: no, name: name, role: role, tel: tel, email:email, degree: degree, experience: experience, introduce: introduce, isUpload: isUpload}
+            }).done(function (result) {
+                if(result === 'success') {
+                    alert('success!')
+                    location.href = '/admin/teacherInfo/'+no;
+
+                }else{
+                    alert(result);
+                }
+            }).fail(function (err) {
+                console.error(err);
+            });
+        }
+
+    })
+</script>

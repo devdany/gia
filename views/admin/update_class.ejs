@@ -1,0 +1,212 @@
+<% include ../include/header_admin.ejs %>
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Register Class</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Class</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Class Details Area Start-->
+<div class="class-details-area section-padding-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8">
+                <div class="class-details-container">
+                    <h1><input type="text" placeholder="Class Title" class="form-control" style="width: 45%;" id="classTitle" value="<%=classInfo.name%>"></h1>
+                    <div id="register_img_area">
+                        <div class="class-details-carousel carousel-style-one" id="register_img" style="height: 501px;">
+                            <img src="<%=classInfo.picture%>" alt="" id="registerClass">
+                        </div>
+                        <button class="btn btn-primary img_change"  id="registerClass_bt" name="registerClass" style="display: none; position: relative; left:46%; bottom: 300px; z-index: 999;">Upload Img</button>
+                    </div>
+                </div>
+                <div class="class-details-tab">
+                    <div class="class-details-tab-menu">
+                        <ul role="tablist" class="nav nav-tabs">
+                            <li class="active" role="presentation"><a data-toggle="tab" role="tab" aria-controls="overview" href="#overview"><i class="fa fa-graduation-cap"></i>Overview</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="tab-content">
+                        <div id="overview" class="tab-pane active" role="tabpanel">
+                            <h3>COURSE DESCRIPTION</h3>
+                            <textarea class="form-control" style="height: 300px;" id="description">
+
+                            </textarea>
+                            <h3>LEARNING OUTCOMES  <i class="fa fa-plus-square" style="cursor: pointer" id="addOutcomes"></i></h3>
+                            <div class="tab-info">
+                                <%outcomes.forEach(function(overcome){%>
+                                <input type="text" class="form-control outcomes" placeholder="Write outcome for this class" style="margin-bottom: 15px;" value="<%=overcome%>">
+                                <%})%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="single-widget-item">
+                    <div class="single-title">
+                        <h3>Info Classes</h3>
+                    </div>
+                    <div class="single-widget-container">
+                        <ul class="class-infos">
+                            <li><i class="fa fa-calendar"></i><input type="text" placeholder="Start Date" class="form-control" style="width: 80%; display: inline" id="startDate" value="<%=classInfo.startDate%>"></li>
+                            <li><i class="fa fa-birthday-cake"></i><input type="text" placeholder="Years Old" class="form-control" style="width: 80%; display: inline" id="target" value="<%=classInfo.target%>"></li>
+                            <li><i class="fa fa-bank"></i><input type="text" placeholder="Class Size" class="form-control" style="width: 80%; display: inline" id="total" value="<%=classInfo.total%>"></li>
+                            <li><i class="fa fa-money"></i><input type="text" placeholder="Fee" class="form-control" style="width: 80%; display: inline" id="fee" value="<%=classInfo.fee%>"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="single-widget-item">
+                    <div class="single-title">
+                        <h3>Teachers</h3>
+                    </div>
+                    <div class="single-widget-container">
+                        <p>
+                            Main Teacher
+                        </p>
+                        <select class="form-control" id="mainTeacher">
+                            <% teachers.forEach(function(teacher){%>
+                            <%if(classInfo.mainTeacher == teacher.no){%>
+                            <option value="<%=teacher.no%>" selected><%=teacher.name%></option>
+                            <%}else{%>
+                            <option value="<%=teacher.no%>"><%=teacher.name%></option>
+                            <%}%>
+                            <%});%>
+                        </select>
+                        <br>
+
+                        <p>
+                            Sub Teacher
+                        </p>
+                        <%if(classInfo.subTeacher === ''){%>
+                        <select class="form-control" id="subTeacher">
+
+                            <option selected="selected" value="">Select sub-teacher</option>
+                            <% teachers.forEach(function(teacher){%>
+                            <option value="<%=teacher.no%>"><%=teacher.name%></option>
+                            <%});%>
+                        </select>
+                        <%}else{%>
+                        <select class="form-control" id="subTeacher">
+                            <% teachers.forEach(function(teacher){%>
+                            <%if(classInfo.subTeacher == teacher.no){%>
+                            <option value="<%=teacher.no%>" selected><%=teacher.name%></option>
+                            <%}else{%>
+                            <option value="<%=teacher.no%>"><%=teacher.name%></option>
+                            <%}%>
+                            <%});%>
+                        </select>
+                        <%}%>
+                    </div>
+                </div>
+                <div class="single-widget-item">
+                    <div class="single-title" style="text-align: center;">
+                        <button class="btn btn-primary" style="width: 150px; background-color: #f57b20; border: none;" id="updateClass_submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Class Details Area-->
+<!--Class Area Start-->
+
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="isUpload" value="false">
+<input type="hidden" id="classNo" value="<%=classInfo.no%>">
+
+<!--End of Class Area-->
+<% include ../include/footer_admin.ejs %>
+
+<script src="/js/admin.js">
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#description").val("<%=classInfo.description%>");
+    })
+    $("#addOutcomes").click(function () {
+        $(".tab-info").append(
+            `<input type="text" class="form-control outcomes" placeholder="Write outcome for this class" style="margin-bottom: 15px;">`
+        )
+    })
+    
+    $("#updateClass_submit").click(function () {
+        if(confirm('Are you sure update class?')){
+            var title = $("#classTitle").val();
+            var description = $("#description").val();
+            var outcomes = '';
+            $(".outcomes").each(function (outcome) {
+
+                if($(this).val() === undefined || $(this).val() === '' || $(this).val() ==='undefined'){
+                    return;
+                }
+                outcomes += $(this).val()+',';
+            })
+
+            outcomes = outcomes.slice(0, -1);
+
+            var startDate = $("#startDate").val();
+            var target = $("#target").val();
+            var total = $("#total").val();
+            var fee = $("#fee").val();
+
+            var mainTeacher = $("#mainTeacher option:selected").val();
+
+            var subTeacher = $("#subTeacher option:selected").val();
+            var isUpload = $("#isUpload").val();
+            var no = $("#classNo").val();
+
+            $.ajax({
+                url: '/admin/updateClass',
+                type: 'POST',
+                data: {no:no ,title: title, description: description, outcomes: outcomes, startDate:startDate, target: target, total: total, fee: fee, mainTeacher: mainTeacher, subTeacher: subTeacher, isUpload: isUpload}
+            }).done(function (result) {
+                if(result === 'success') {
+                    alert('success!');
+                    location.href = '/admin/classInfo/'+no;
+                }else{
+                    alert(result);
+                }
+            }).fail(function (err) {
+                console.error(err.message);
+            });
+        }
+    })
+</script>

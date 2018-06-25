@@ -1,4 +1,4 @@
-<% include ../include/header.ejs %>
+<% include ../include/header_admin.ejs %>
 
 <div class="breadcrumb-banner-area">
     <div class="container">
@@ -8,7 +8,7 @@
                     <h1 class="text-center">Notice</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
-                            <li><a href="/">Home</a></li>
+                            <li><a href="/admin/index">Home</a></li>
                             <li>Notice</li>
                         </ul>
                     </div>
@@ -39,7 +39,7 @@
                             <%= notice.no%>
                         </td>
                         <td style="width: 60%">
-                            <a href="/notice/detail/<%= notice.no%>">
+                            <a href="/admin/notice/detail/<%= notice.no %>">
                                 <%= notice.title %>
                             </a>
                         </td>
@@ -52,29 +52,32 @@
                     </tr>
                     <% }); %>
                 </table>
-                <div class="pagination-content">
-                    <div class="pagination-button">
-                        <ul class="pagination">
-                            <li>
-                                <a href="<%= paginate.href(true) %>" aria-label="Previous">
-                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <% pages.forEach(function(page){ %>
-                            <li class="<%= paginate.page == page.number ? 'current' : '' %>">
-                                <a href="<%= page.url %>"><%= page.number %></a>
-                            </li>
-                            <% }) %>
+                    <div class="pagination-content">
+                        <div class="pagination-button">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="<%= paginate.href(true) %>" aria-label="Previous">
+                                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <% pages.forEach(function(page){ %>
+                                <li class="<%= paginate.page == page.number ? 'current' : '' %>">
+                                    <a href="<%= page.url %>"><%= page.number %></a>
+                                </li>
+                                <% }) %>
 
-                            <li>
-                                <a href="<%= paginate.href() %>">
-                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="<%= paginate.href() %>">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </a>
+                                </li>
 
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+            </div>
+            <div style="text-align: center">
+                <a href="/admin/writeNotice" class="btn btn-primary">Write Notice</a>
             </div>
             <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="single-widget-item">
@@ -100,4 +103,4 @@
 <!--End of About Area-->
 
 
-<% include ../include/footer.ejs %>
+<% include ../include/footer_admin.ejs %>

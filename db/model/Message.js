@@ -1,25 +1,25 @@
 const connector = require('../Connector');
 const Sequelize = require('sequelize');
 
-const gallery = connector.define('Gallery', {
+const message = connector.define('Message', {
     no: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    img: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    date: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    category: {
+    name: {
         type: Sequelize.STRING,
         allowNull: true
     },
-    comment: {
+    email: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    subject: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    message: {
         type: Sequelize.STRING,
         allowNull: true
     }
@@ -29,4 +29,4 @@ const gallery = connector.define('Gallery', {
     timestamps: false
 });
 
-module.exports = gallery;
+module.exports = message;

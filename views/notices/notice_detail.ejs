@@ -1,0 +1,45 @@
+<% include ../include/header.ejs %>
+
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Notice Detail</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li>Notice Detail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about-area section-padding-bottom" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <%=notice.title%>
+                </div>
+                <div class="panel-body">
+                    <div style="padding-bottom: 10px">
+                        date :
+                       <%=notice.date%>
+                    </div>
+
+                    <%-notice.content%>
+
+                    <hr />
+                </div>
+            </div>
+            </div>
+
+            <a href="/notice" class="btn btn-default" style="margin-right: 15px;">to List</a>
+        </div>
+    </div>
+</div>
+<% include ../include/footer.ejs %>

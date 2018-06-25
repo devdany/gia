@@ -1,0 +1,146 @@
+<% include ../include/header_admin.ejs %>
+<!--End of Header Area-->
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area teachers">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Teacher</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Teacher Details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Teacher Details Area Start-->
+<div class="teacher-details-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="teacher-details-image">
+                    <img src="<%=teacher.picture%>" alt="">
+                </div>
+                <div class="teacher-details-info">
+                    <h4><%=teacher.name%></h4>
+                    <%if(teacher.role !== null){%>
+                    <span><%=teacher.role%></span>
+                    <%}%>
+                    <div class="teacher-info-text">
+                        <%if(teacher.tel !== null){%>
+                        <span><i class="fa fa-phone"></i><%=teacher.tel%></span>
+                        <%}%>
+                        <%if(teacher.email !== null){%>
+                        <span><i class="fa fa-envelope"></i>Email: <%=teacher.email%></span>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="teacher-about-info">
+                    <div class="single-title">
+                        <h3>About</h3>
+                    </div>
+                    <div class="teacher-info-text">
+                        <%if(teacher.degree !== null){%>
+                        <span><i class="fa fa-graduation-cap"></i>Degree: <%=teacher.degree%></span>
+                        <%}%>
+                        <%if(teacher.experience !== null){%>
+                        <span><i class="fa fa-star"></i>Experience: <%=teacher.experience%></span>
+                        <%}%>
+                    </div>
+                    <%if(teacher.intro !== null){%>
+                        <p><%=teacher.intro%></p>
+                    <%}%>
+                </div>
+                <div class="schedule-skill-wrapper section-padding-bottom">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-title">
+                                <h3>My Schedule</h3>
+                            </div>
+                            <!--<div class="schedule-text">
+                                <span>Monday <span class="schedule-time">9AM - 3PM</span></span>
+                                <span>Tuesday <span class="schedule-time">9AM - 3PM</span></span>
+                                <span>Wednesday <span class="schedule-time">8AM - 2PM</span></span>
+                                <span>Thursday <span class="schedule-time">8AM - 2PM</span></span>
+                                <span>Friday <span class="schedule-time">9AM - 3PM</span></span>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="single-title">
+                            <h3>My Classes</h3>
+                        </div>
+                    </div>
+
+                    <%myClass.forEach(function(value){%>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-class">
+                            <div class="single-class-image">
+                                <a href="/admin/classInfo/<%=value.no%>">
+                                    <img src="<%=value.picture%>" alt="">
+                                    <span class="class-date"><%=value.startDate%></span>
+                                </a>
+                            </div>
+                            <div class="single-class-text">
+                                <div class="class-des">
+                                    <h4><a href="/admin/classInfo/<%=value.no%>"><%=value.name%></a></h4>
+                                    <p><%=value.description%></p>
+                                </div>
+                                <div class="class-schedule">
+                                    <span>AGE: <%=value.target%></span>
+                                    <span>CLASS SIZE: <%=value.total%></span>
+                                    <span class="arrow"><a href="#"><i class="fa fa-angle-right"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%})%>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="/admin/updateTeacher/<%=teacher.no%>" class="btn btn-primary" style="width: 150px; background-color: #f57b20; border: none; margin-right: 5%;">Update</a>
+
+                    <button class="btn btn-danger" style="width: 150px; border: none;" id="deleteTeacher">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Teacher Details Area-->
+
+<input type="hidden" id="teacherNo" value="<%=teacher.no%>">
+
+<% include ../include/footer_admin.ejs %>
+
+<script>
+    $("#deleteTeacher").click(function () {
+        if(confirm('Are you sure delete teacher?')){
+            var no = $("#teacherNo").val();
+
+            $.ajax({
+                url: '/admin/deleteTeacher',
+                type: 'POST',
+                data: {no:no}
+            }).done(function (result) {
+                if(result === 'success') {
+                    alert('delete success!');
+                    location.href = '/admin/teacherList';
+                }else{
+                    alert(result);
+                }
+            }).fail(function (err) {
+                console.error(err);
+            });
+        }
+    })
+</script>

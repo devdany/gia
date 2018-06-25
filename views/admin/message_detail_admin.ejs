@@ -1,0 +1,53 @@
+<% include ../include/header_admin.ejs %>
+
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Message Detail</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Message Detail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about-area section-padding-bottom" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <%=messagede.subject%>
+                </div>
+                <div class="panel-body">
+                    <div style="padding-bottom: 10px">
+                        name :
+                       <%=messagede.name%>
+                        <br><br>
+                        E-mail :
+                        <%=messagede.email%>
+                    </div>
+
+                    <%-messagede.message%>
+
+                    <hr />
+                </div>
+            </div>
+            </div>
+
+            <a href="/admin/message" class="btn btn-default" style="margin-right: 15px;">to List</a>
+
+        </div>
+    </div>
+</div>
+<% include ../include/footer_admin.ejs %>
+
+<script>
+
+</script>

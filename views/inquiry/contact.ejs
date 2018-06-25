@@ -59,18 +59,18 @@
                         <h3>Send A Message</h3>
                     </div>
                     <div class="contact-form-container">
-                        <form action="mail.php" method="post">
+                        <form>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" placeholder="Your Name *">
+                                    <input type="text" name="name" id="name" placeholder="Your Name *">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" placeholder="Your Email *">
+                                    <input type="email" name="email" id="email" placeholder="Your Email *">
                                 </div>
                             </div>
-                            <input type="text" name="subject" placeholder="Subject *">
-                            <textarea name="message" class="yourmessage" placeholder="Your message"></textarea>
-                            <button type="submit" class="button-default button-yellow"><i class="fa fa-send"></i>Submit</button>
+                            <input type="text" name="subject" id="subject" placeholder="Subject *">
+                            <textarea name="message" class="yourmessage" placeholder="Your message" id="message"></textarea>
+                            <button class="button-default button-yellow" id="sendMessage"><i class="fa fa-send"></i>Submit</button>
                         </form>
                     </div>
                 </div>
@@ -102,4 +102,30 @@
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    $("#sendMessage").click(function () {
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var message = $("#message").val();
+        var subject = $("#subject").val();
+
+        $.ajax({
+            url: '/sendMessage',
+            type: 'POST',
+            data: {name: name, email: email, message: message, subject: subject}
+        }).done(function (result) {
+            if(result === 'success') {
+                alert('We got a your message. Thank you!');
+                $("#name").val('');
+                $("#email").val('');
+                $("#message").val('');
+                $("#subject").val('');
+            }else{
+                alert(result);
+            }
+        }).fail(function (err) {
+            console.error(err);
+        });
+
+    })
 </script>

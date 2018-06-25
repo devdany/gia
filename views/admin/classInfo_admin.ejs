@@ -8,8 +8,8 @@
                     <h1 class="text-center">Classes</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
-                            <li><a href="/">Home</a></li>
-                            <li>Class</li>
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Class Details</li>
                         </ul>
                     </div>
                 </div>
@@ -19,17 +19,15 @@
 </div>
 <!--End of Breadcrumb Banner Area-->
 <!--Class Details Area Start-->
+
 <div class="class-details-area section-padding-top">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-8">
                 <div class="class-details-container">
-                    <h1><input type="text" placeholder="Class Title" class="form-control" style="width: 45%;" id="classTitle"></h1>
-                    <div id="register_img_area">
-                        <div class="class-details-carousel carousel-style-one" id="register_img" style="height: 501px;">
-                            <img src="/img/classes/init.png" alt="" id="registerClass">
-                        </div>
-                        <button class="btn btn-primary img_change"  id="registerClass_bt" name="registerClass" style="display: none; position: relative; left:46%; bottom: 300px; z-index: 999;">Upload Img</button>
+                    <h1><%=classInfo.name%></h1>
+                    <div class="class-details-carousel carousel-style-one" style="height: 501px;">
+                        <img src="<%=classInfo.picture%>" alt="">
                     </div>
                 </div>
                 <div class="class-details-tab">
@@ -41,15 +39,18 @@
                     <div class="clearfix"></div>
                     <div class="tab-content">
                         <div id="overview" class="tab-pane active" role="tabpanel">
+                            <%if(classInfo.description!== null){%>
                             <h3>COURSE DESCRIPTION</h3>
-                            <textarea class="form-control" style="height: 300px;" id="description">
-
-                            </textarea>
-                            <h3>LEARNING OUTCOMES  <i class="fa fa-plus-square" style="cursor: pointer" id="addOutcomes"></i></h3>
+                            <p><%=classInfo.description%></p>
+                            <%}%>
+                            <h3>LEARNING OUTCOMES</h3>
                             <div class="tab-info">
-                                <input type="text" class="form-control outcomes" placeholder="Write outcome for this class" style="margin-bottom: 15px;">
+                                <%outcomes.forEach(function(outcome){%>
+                                <span class="icon"><%=outcome%></span>
+                                <%})%>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -60,10 +61,18 @@
                     </div>
                     <div class="single-widget-container">
                         <ul class="class-infos">
-                            <li><i class="fa fa-calendar"></i><input type="text" placeholder="Start Date" class="form-control" style="width: 80%; display: inline" id="startDate"></li>
-                            <li><i class="fa fa-birthday-cake"></i><input type="text" placeholder="Years Old" class="form-control" style="width: 80%; display: inline" id="target"></li>
-                            <li><i class="fa fa-bank"></i><input type="text" placeholder="Class Size" class="form-control" style="width: 80%; display: inline" id="total"></li>
-                            <li><i class="fa fa-money"></i><input type="text" placeholder="Fee" class="form-control" style="width: 80%; display: inline" id="fee"></li>
+                            <%if(classInfo.startDate !== null){%>
+                            <li><i class="fa fa-calendar"></i>Start Date: <%=classInfo.startDate%></li>
+                            <%}%>
+                            <%if(classInfo.target !== null){%>
+                            <li><i class="fa fa-birthday-cake"></i>Years Old: <%=classInfo.target%></li>
+                            <%}%>
+                            <%if(classInfo.total !== null){%>
+                            <li><i class="fa fa-bank"></i>Class Size: <%=classInfo.total%></li>
+                            <%}%>
+                            <%if(classInfo.fee !== null){%>
+                            <li><i class="fa fa-money"></i>Fee: <%=classInfo.fee%></li>
+                            <%}%>
                         </ul>
                     </div>
                 </div>
@@ -72,110 +81,62 @@
                         <h3>Teachers</h3>
                     </div>
                     <div class="single-widget-container">
-                        <p>
-                            Main Teacher
-                        </p>
-                        <select class="form-control" id="mainTeacher">
-                            <option selected="selected" value="">Select main-teacher</option>
-                            <% teachers.forEach(function(teacher){%>
-                            <option value="<%=teacher.name%>"><%=teacher.name%></option>
-                            <%});%>
-                        </select>
-                        <br>
-                        <p>
-                            Sub Teacher
-                        </p>
-                        <select class="form-control" id="subTeacher">
-                            <option selected="selected" value="">Select sub-teacher</option>
-                            <% teachers.forEach(function(teacher){%>
-                            <option value="<%=teacher.name%>"><%=teacher.name%></option>
-                            <%});%>
-                        </select>
+                        <div class="teacher-info-widget">
+                            <div class="widget-image">
+                                <a href="/admin/teachaerInfo/<%=mainTeacher.no%>"><img src="<%=mainTeacher.picture%>" alt=""></a>
+                            </div>
+                            <div class="widget-infos">
+                                <h4><a href="/admin/teachaerInfo/<%=mainTeacher.no%>"><%=mainTeacher.name%></a></h4>
+                                <p>Main Teacher</p>
+                            </div>
+                        </div>
+                        <%if(subTeacher !== null){%>
+                        <div class="teacher-info-widget">
+                            <div class="widget-image">
+                                <a href="/admin/teachaerInfo/<%=subTeacher.no%>"><img src="<%=subTeacher.picture%>" alt=""></a>
+                            </div>
+                            <div class="widget-infos">
+                                <h4><a href="/admin/teachaerInfo/<%=subTeacher.no%>"><%=subTeacher.name%></a></h4>
+                                <p>Sub Teacher</p>
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
+                    <div class="single-widget-item">
+                        <div style="text-align: center;">
+                            <a href="/admin/updateClass/<%=classInfo.no%>" class="btn btn-primary" style="width: 150px; background-color: #f57b20; border: none;">Update</a>
+                            <br><br>
+                            <button class="btn btn-danger" style="width: 150px; border: none;" id="deleteClass">Delete</button>
+                        </div>
                     </div>
                 </div>
-                <div class="single-widget-item">
-                    <div class="single-title" style="text-align: center;">
-                        <button class="btn btn-primary" style="width: 150px; background-color: #f57b20; border: none;" id="registerClass_submit">Submit</button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
 </div>
+<input type="hidden" value = "<%=classInfo.no%>" id="classNo">
 <!--End of Class Details Area-->
 <!--Class Area Start-->
 
-<div class="modal fade" id="imageModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-        <!-- Modal content-->
-        <div class="modal-content" style="top:130px;">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title" id="img_modal_title"></h4>
-            </div>
-
-            <div class="modal-body form-group">
-
-                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
-                    <div class="dz-message needsclick">
-                        <span style="color:#231e61">Drop Image here or click to upload.</span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!--End of Class Area-->
+
 <% include ../include/footer_admin.ejs %>
-
-<script src="/js/admin.js">
-
-</script>
-
 <script>
-    $("#addOutcomes").click(function () {
-        $(".tab-info").append(
-            `<input type="text" class="form-control outcomes" placeholder="Write outcome for this class" style="margin-bottom: 15px;">`
-        )
-    })
-    
-    $("#registerClass_submit").click(function () {
-        if(confirm('Are you sure register class?')){
-            var title = $("#classTitle").val();
-            var description = $("#description").val();
-            var outcomes = '';
-            $(".outcomes").each(function (outcome) {
-
-                if($(this).val() === undefined || $(this).val() === '' || $(this).val() ==='undefined'){
-                    return;
-                }
-                outcomes += $(this).val()+',';
-            })
-
-            outcomes = outcomes.slice(0, -1);
-
-            var startDate = $("#startDate").val();
-            var target = $("#target").val();
-            var total = $("#total").val();
-            var fee = $("#fee").val();
-
-            var mainTeacher = $("#mainTeacher option:selected").val();
-
-            var subTeacher = $("#subTeacher option:selected").val();
+    $("#deleteClass").click(function () {
+        if(confirm('Are you sure delete class?')){
+            var no = $("#classNo").val();
 
             $.ajax({
-                url: '/admin/registerClass',
+                url: '/admin/deleteClass',
                 type: 'POST',
-                data: {title: title, description: description, outcomes: outcomes, startDate:startDate, target: target, total: total, fee: fee, mainTeacher: mainTeacher, subTeacher: subTeacher}
+                data: {no:no}
             }).done(function (result) {
                 if(result === 'success') {
-                    alert('success!');
-                    //location.reload();
+                    alert('delete success!');
+                    location.href = '/admin/classList';
                 }else{
-                    console.error(result);
+                    alert(result);
                 }
             }).fail(function (err) {
                 console.error(err);

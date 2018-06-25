@@ -1,0 +1,102 @@
+<% include ../include/header_admin.ejs %>
+
+<div class="breadcrumb-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Write Notice</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Write Notice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="about-area section-padding-bottom" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <form action="" method="post" enctype="multipart/form-data">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Title</th>
+                        <td><input type="text" name="title" class="form-control" id="notice_title"/></td>
+                    </tr>
+                    <tr>
+                        <th>Notice</th>
+                        <td>
+                            <textarea name="content" class="form-control" id="summernote"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div style="text-align: center">
+                <button class="btn btn-primary" id="write_notice">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../include/footer_admin.ejs %>
+
+<!-- 스타일관련 -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
+<!-- 자바스크립트관련 -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
+<!-- 한글관련 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-ko-KR.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        $('#summernote').summernote({
+            lang: 'ko-KR',
+            height: 300,
+            callbacks : {
+                onImageUpload: function(files) {
+                    sendFile(files[0]);
+                }
+            }
+        });
+
+        function sendFile(file, editor, welEditable) {
+            data = new FormData();
+            data.append("noticeImg", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: '/admin/notice/ajax_summernote/',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    $("#summernote").summernote("insertImage", url);
+                }
+            })
+        }
+    });
+
+    $("#write_notice").click(function () {
+        var title = $("#notice_title").val();
+        var content = $("#summernote").val();
+
+        $.ajax({
+            url: '/admin/writeNotice',
+            type: 'POST',
+            data: {title:title, content:content}
+        }).done(function (result) {
+            if(result.message === 'success') {
+                alert('write success!');
+                location.href = '/admin/notice/detail/'+result.no;
+            }else{
+                alert(result);
+            }
+        }).fail(function (err) {
+            console.error(err);
+        });
+
+    })
+</script>

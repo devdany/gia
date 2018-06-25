@@ -30,33 +30,15 @@
             <div class="col-md-12">
                 <table class="table table-bordered" style="margin-top: 5%; margin-bottom: 10%; text-align: center;">
                     <tr>
-                        <th style="text-align: center">Grade</th>
+                        <th style="text-align: center">ClassName</th>
                         <th style="text-align: center">Tuition</th>
                     </tr>
+                    <%classes.forEach(function(classInfo){%>
                     <tr>
-                        <td>Grade 1 – Grade 2 (4 times a week)</td>
-                        <td>180,000 won per month</td>
+                        <td><%=classInfo.name%></td>
+                        <td><%=classInfo.fee%> won per month</td>
                     </tr>
-                    <tr>
-                        <td>Grade 3 – Grade 4 (3 times a week)</td>
-                        <td>230,000 won per month</td>
-                    </tr>
-                    <tr>
-                        <td>Grade 3 – Grade 4 (2 times a week)</td>
-                        <td>180,000 won per month</td>
-                    </tr>
-                    <tr>
-                        <td>Grade 5 – Grade 6 (3 times a week)</td>
-                        <td>230,000 won per month</td>
-                    </tr>
-                    <tr>
-                        <td>Grade 5 – Grade 6 (2 times a week)</td>
-                        <td>180,000 won per month</td>
-                    </tr>
-                    <tr>
-                        <td>Adult Class (2 times a week)</td>
-                        <td>200,000 won per month</td>
-                    </tr>
+                    <%})%>
                 </table>
             </div>
         </div>

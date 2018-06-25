@@ -35,10 +35,6 @@ const classModel = connector.define('Class', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    schedule: {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
     outcomes: {
         type: Sequelize.STRING,
         allowNull: true

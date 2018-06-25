@@ -1,4 +1,4 @@
-<% include ../include/header.ejs %>
+<% include ../include/header_admin.ejs %>
 
 <div class="breadcrumb-banner-area">
     <div class="container">
@@ -8,7 +8,7 @@
                     <h1 class="text-center">Notice</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
-                            <li><a href="/">Home</a></li>
+                            <li><a href="/admin/index">Home</a></li>
                             <li>Notice</li>
                         </ul>
                     </div>
@@ -24,57 +24,60 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div style="text-align: right">
-                    <p>Total <%=noticeCount%></p>
+                    <p>Total <%=messageCount%></p>
                 </div>
                 <table class="table table-striped" style="text-align: center; border-bottom: 1px solid #ddd">
                     <tr>
                         <th style="text-align: center">No</th>
-                        <th style="text-align: center">Title</th>
-                        <th style="text-align: center">Writer</th>
-                        <th style="text-align: center">Date</th>
+                        <th style="text-align: center">Subject</th>
+                        <th style="text-align: center">name</th>
+                        <th style="text-align: center">email</th>
                     </tr>
-                    <% noticeList.forEach(function(notice){ %>
+                    <% messageList.forEach(function(message){ %>
                     <tr>
                         <td style="width: 10%">
-                            <%= notice.no%>
+                            <%= message.no%>
                         </td>
                         <td style="width: 60%">
-                            <a href="/notice/detail/<%= notice.no%>">
-                                <%= notice.title %>
+                            <a href="/admin/message/detail/<%= message.no %>">
+                                <%= message.subject %>
                             </a>
                         </td>
                         <td style="width: 10%">
-                            <%=notice.writer%>
+                            <%=message.name%>
                         </td>
                         <td style="width: 20%">
-                            <%=notice.date%>
+                            <%=message.email%>
                         </td>
                     </tr>
                     <% }); %>
                 </table>
-                <div class="pagination-content">
-                    <div class="pagination-button">
-                        <ul class="pagination">
-                            <li>
-                                <a href="<%= paginate.href(true) %>" aria-label="Previous">
-                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <% pages.forEach(function(page){ %>
-                            <li class="<%= paginate.page == page.number ? 'current' : '' %>">
-                                <a href="<%= page.url %>"><%= page.number %></a>
-                            </li>
-                            <% }) %>
+                    <div class="pagination-content">
+                        <div class="pagination-button">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="<%= paginate.href(true) %>" aria-label="Previous">
+                                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <% pages.forEach(function(page){ %>
+                                <li class="<%= paginate.page == page.number ? 'current' : '' %>">
+                                    <a href="<%= page.url %>"><%= page.number %></a>
+                                </li>
+                                <% }) %>
 
-                            <li>
-                                <a href="<%= paginate.href() %>">
-                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="<%= paginate.href() %>">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </a>
+                                </li>
 
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+            </div>
+            <div style="text-align: center">
+                <a href="/admin/writeNotice" class="btn btn-primary">Write Notice</a>
             </div>
             <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div class="single-widget-item">
@@ -100,4 +103,4 @@
 <!--End of About Area-->
 
 
-<% include ../include/footer.ejs %>
+<% include ../include/footer_admin.ejs %>

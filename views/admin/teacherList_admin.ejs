@@ -1,4 +1,5 @@
-<% include ../include/header.ejs %>
+<% include ../include/header_admin.ejs %>
+<!--End of Header Area-->
 <!--Breadcrumb Banner Area Start-->
 <div class="breadcrumb-banner-area teachers">
     <div class="container">
@@ -8,7 +9,7 @@
                     <h1 class="text-center">Teachers</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
-                            <li><a href="/">Home</a></li>
+                            <li><a href="/admin/index">Home</a></li>
                             <li>Teachers</li>
                         </ul>
                     </div>
@@ -26,7 +27,7 @@
             <div class="col-md-3 col-sm-4">
                 <div class="single-teachers-column text-center">
                     <div class="teachers-image-column">
-                        <a href="/teacherInfo/<%=teacher.no%>">
+                        <a href="/admin/teacherInfo/<%=teacher.no%>">
                             <img src="<%=teacher.picture%>" alt="">
                             <span class="image-hover">
                                         <span><i class="fa fa-edit"></i>View Profile</span>
@@ -49,4 +50,5 @@
     </div>
 </div>
 <!--End of Teacher Fullwidth Area-->
-<% include ../include/footer.ejs %>
+
+<% include ../include/footer_admin.ejs %>

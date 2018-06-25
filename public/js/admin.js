@@ -10,7 +10,8 @@ const sizes = {
     greeting: '570 x 442',
     vm: '570 x 442',
     registerClass: '870 x 501',
-    registerTeacher: '600 x 705'
+    registerTeacher: '600 x 705',
+    teacherIntro: '570 x 670'
 }
 
 
@@ -36,6 +37,7 @@ Dropzone.options.myAwesomeDropzone = {
             var temp = res.split(',');
             var target = temp[0];
             var url = temp[1];
+            $("#isUpload").val('true');
             if(target ==='slide1' || target==='slide2'){
                 location.reload();
             }else{
@@ -237,6 +239,69 @@ $("#register_teacher_img_area").hover(function () {
 }, function () {
     $(".teacher-details-image").css('opacity', '1');
     $("#registerTeacher_bt").css('display', 'none');
+})
+
+$(".selected-table").click(function () {
+    $("#schedule_code").val(this.id);
+    $("#myModal").modal('show');
+})
+
+$("#add_schedule_submit").click(function () {
+    if (confirm('정말 시간표를 추가 하시겠습니까?')) {
+        var code = $("#schedule_code").val();
+        var teacher = $("#schedule_teacher option:selected").val();
+        var classname = $("#schedule_class option:selected").val();
+
+        $.ajax({
+            url: '/admin/addSchedule',
+            type: 'POST',
+            data: {code: code, teacher: teacher, classname:classname}
+        }).done(function (result) {
+            if(result.message === 'success') {
+                $("#"+code).append(
+                    `<span class="schedule_attr" id="${result.no}">${classname} - ${teacher}</span><br>`
+                )
+                alert('success!');
+            }else{
+                alert(result);
+            }
+        }).fail(function (err) {
+            console.error(err);
+        });
+    }
+})
+
+$("#teacher_service_area").hover(function(){
+    $("#teacher_bt").css('display', 'block')
+    $("#teacher_imgs").css('opacity', '0.5')
+}, function () {
+    $("#teacher_bt").css('display', 'none')
+    $("#teacher_imgs").css('opacity', '1.0')
+})
+
+$(document).on('click', '.schedule_attr', function (e) {
+    var id = this.id;
+    var _this = $(this);
+    if(confirm('Are you sure delete schedule?')){
+        $('#myModal').modal('hide')
+        $.ajax({
+            url: '/admin/deleteSchedule',
+            type: 'POST',
+            data: {no: id}
+        }).done(function (result) {
+            if(result === 'success') {
+                _this.remove();
+                alert('success!');
+            }else{
+                alert(result);
+            }
+        }).fail(function (err) {
+            console.error(err);
+        });
+    }else{
+        $('#myModal').modal('hide')
+    }
+
 })
 
 

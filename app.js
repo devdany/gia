@@ -5,6 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const classModel = require('./db/model/Class');
+const teachers = require('./db/model/Teachers');
+const gallery = require('./db/model/Gallery');
+const admin = require('./db/model/Admin');
+const notice = require('./db/model/Notice');
+const schedule = require('./db/model/Schedule');
+const message = require('./db/model/Message');
 
 const dbConnector = require('./db/Connector');
 dbConnector.authenticate()
@@ -15,10 +22,19 @@ dbConnector.authenticate()
         console.log(err);
     })
 
-
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
+
+
+classModel.sync({force: true});
+teachers.sync({force: true});
+gallery.sync({force: true});
+admin.sync({force: false});
+notice.sync({force: true});
+schedule.sync({force: true});
+message.sync({force: true});
+
 
 var app = express();
 
@@ -30,11 +46,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'gia!636',
@@ -48,6 +61,8 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/user' , userRouter);
 app.use('/admin', adminRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
