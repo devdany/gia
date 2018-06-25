@@ -19,8 +19,14 @@ router.get('/', function(req, res) {
             gallery.findAll({
                 limit: 12,
                 order: [['no', 'DESC']]
-            }).then(galleryList => {
-                res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList});
+            }).then(async galleryList => {
+                let totals = 0;
+                await Promise.all(classes.map(value => {
+                    totals += value.total;
+                })).then(() => {
+                    res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals});
+                })
+
             })
         })
     })
