@@ -506,7 +506,7 @@ router.get('/notice',paginate.middleware(pageInfo.limit, 50),loginRequired, asyn
     const pageCount = Math.ceil(noticeCount / req.query.limit);
     const pages = paginate.getArrayPages(req)(pageInfo.pageNum, pageCount, req.query.page);
 
-    if(req.query.page > pageCount){
+    if(req.query.page > pageCount  && pageCount !==0 ){
         res.redirect('/admin/notice?page='+pageCount+'&limit='+pageInfo.limit)
     }
 
@@ -589,7 +589,7 @@ router.get('/gallery',paginate.middleware(galleryPageInfo.limit, 50), loginRequi
     const pageCount = Math.ceil(galleryCount / req.query.limit);
     const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
 
-    if(req.query.page > pageCount){
+    if(req.query.page > pageCount  && pageCount !==0 ){
         res.redirect('/admin/gallery?page='+pageCount+'&limit='+galleryPageInfo.limit)
     }
 
@@ -708,7 +708,7 @@ router.get('/message',paginate.middleware(pageInfo.limit, 50), loginRequired, as
     const pageCount = Math.ceil(messageCount / req.query.limit);
     const pages = paginate.getArrayPages(req)(pageInfo.pageNum, pageCount, req.query.page);
 
-    if(req.query.page > pageCount){
+    if(req.query.page > pageCount  && pageCount !==0){
         res.redirect('/admin/message?page='+pageCount+'&limit='+pageInfo.limit)
     }
 
