@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e394c50-f5c9-4464-987c-b2cf01ddf622" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/banner/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/factor.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/factor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/greeting.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/greeting.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/about/greeting.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/about/greeting.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/gallery/gallery-20180626150133-8.609146433791544" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -495,12 +486,12 @@
       <workItem from="1529837605018" duration="2862000" />
       <workItem from="1529915222425" duration="9790000" />
       <workItem from="1529976914311" duration="920000" />
-      <workItem from="1529990278582" duration="2641000" />
+      <workItem from="1529990278582" duration="2878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183419000" />
+    <option name="totallyTimeSpent" value="183656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-32" width="1920" height="978" extended-state="0" />
