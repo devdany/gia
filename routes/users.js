@@ -4,6 +4,7 @@ var admin = require('../db/model/Admin');
 var classModel  =require('../db/model/Class');
 var teacher = require('../db/model/Teachers');
 var gallery = require('../db/model/Gallery');
+var contents = require('../lib/contents');
 
 /* GET users listing. */
 router.post('/login', (req, res) => {
@@ -21,17 +22,24 @@ router.post('/login', (req, res) => {
                     where: {
                         id: userId,
                     }
-                }).then(result => {
-                    if(result === null){
-                        res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, message: 'This admin ID failed verification.'});
-                    }
-                    else if(passwd !== result.dataValues.password){
-                        res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, message: 'Password is incorrect.'});
-                    }
-                    else{
-                        req.session.loginUser = result.dataValues;
-                        res.redirect('/');
-                    }
+                }).then(async result => {
+
+                    let totals = 0;
+                    await Promise.all(classes.map(value => {
+                        totals += value.total;
+                    })).then(() => {
+                        if(result === null){
+                            res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals, message: 'This admin ID failed verification.'});
+                        }else if(passwd !== result.dataValues.password){
+                            res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals, message: 'Password is incorrect.'});
+                        }else{
+                            req.session.loginUser = result.dataValues;
+                            res.redirect('/');
+                        }
+                    })
+
+
+
                 })
             })
         })
