@@ -42,7 +42,7 @@ Dropzone.options.myAwesomeDropzone = {
                 location.reload();
             } else {
                 var unique = $.now();
-                $('#'+target).attr('src', 'http://localhost:3000/img/'+url+'?'+unique);
+                $('#'+target).attr('src', '/img/'+url+'?'+unique);
             }
 
         });
