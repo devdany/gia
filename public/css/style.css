@@ -177,6 +177,7 @@ body {
     text-align: center;
     width: 109px;
 }
+
 .section-title-wrapper:after {
     background: #ffffff none repeat scroll 0 0;
     bottom: -6px;
@@ -1066,7 +1067,7 @@ span.arrow a:after {
     font-size: 15px;
 }
 .fun-factor-area {
-    background: url("/img/banner/3.jpg");
+    background: url("/img/factor.png");
 	background-size:cover;
 	background-position:center center;
 	background-repeat:no-repeat;

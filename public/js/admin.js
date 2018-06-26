@@ -38,9 +38,9 @@ Dropzone.options.myAwesomeDropzone = {
             var target = temp[0];
             var url = temp[1];
             $("#isUpload").val('true');
-            if(target ==='slide1' || target==='slide2'){
+            if(target ==='slide1' || target==='slide2' || target==='factor'){
                 location.reload();
-            }else{
+            } else {
                 var unique = $.now();
                 $('#'+target).attr('src', 'http://localhost:3000/img/'+url+'?'+unique);
             }

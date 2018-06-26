@@ -34,9 +34,13 @@ router.get('/', function(req, res) {
 
 router.get('/greeting', (req, res) => {
     classModel.findAll().then(classes => {
-        res.render('about/greeting', {loginUser : req.session.loginUser, contents:contents, classes: classes});
+        teacher.findAll({
+            limit:4,
+            order:[['no', 'DESC']]
+        }).then(teachers => {
+            res.render('about/greeting', {loginUser : req.session.loginUser, contents:contents, classes: classes, teachers: teachers});
+        })
     })
-
 })
 
 router.get('/vm', (req, res) => {
