@@ -9,6 +9,8 @@ const schedule = require('../db/model/Schedule');
 const gallery = require('../db/model/Gallery');
 const message = require('../db/model/Message')
 var paginate = require('express-paginate');
+const path = require('path');
+const refdir = path.join(__dirname, '../public/ref');
 
 /* GET home page. */
 
@@ -107,6 +109,11 @@ router.get('/application', (req, res) => {
     classModel.findAll().then(classes => {
         res.render('admissions/application', {loginUser: req.session.loginUser, classes: classes});
     })
+})
+
+router.get('/downloadApplication', (req, res) => {
+    const applicationFile = refdir+'/application.pdf';
+    res.download(applicationFile);
 })
 
 router.get('/test', (req, res) => {

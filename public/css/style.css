@@ -342,16 +342,29 @@ ul.register li:hover .register-form, ul.login li:hover .login-form {
 /*----------------------------------------*/
 /*  2.2 Header Logo Menu
 /*----------------------------------------*/
-.header-logo-menu.stick {
-    background: #fff;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-    padding: 0;
-    position: fixed;
-    top: 0;
+/*header.stick {*/
+    /*background: #fff;*/
+    /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);*/
+    /*padding: 0;*/
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+    /*z-index: 999999;*/
+    /*-webkit-transition: all 0.3s ease 0s;*/
+    /*transition: all 0.3s ease 0s*/
+/*}*/
+header.header{
+    position:fixed;
+    top:0;
+    left:0;
     width: 100%;
-    z-index: 999999;
-    -webkit-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s
+    z-index: 9999;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+.slider-area{
+    padding-top:180px;
 }
 /*----------------------------------------*/
 /*  2.2.1 Header Logo
@@ -615,22 +628,54 @@ ul.register li:hover .register-form, ul.login li:hover .login-form {
     text-align: center
 }
 .single-activity-icon {
-    border: 1px solid #231e61;
-    border-radius: 50%;
+   /* border: 1px solid #231e61;*/
+    /*border-radius: 50%;*/
     color: #231e61;
     display: inline-table;
     font-size: 72px;
-    height: 162px;
+    height: 165px;
     margin-bottom: 25px;
     text-align: center;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    width: 162px;
+    width: 165px;
 }
+
+#act1{
+    background-image: url("/img/act1.png");
+}
+#act1:hover{
+    background-image: url("/img/act1_h.png");
+}
+
+
+#act2{
+    background-image: url("/img/act2.png");
+}
+#act2:hover{
+    background-image: url("/img/act2_h.png");
+}
+
+
+#act3{
+    background-image: url("/img/act3.png");
+}
+#act3:hover{
+    background-image: url("/img/act3_h.png");
+}
+
+#act4{
+    background-image: url("/img/act4.png");
+}
+#act4:hover{
+    background-image: url("/img/act4_h.png");
+}
+
 .single-activity-icon i {
     display: table-cell;
     vertical-align: middle;
 }
+/*
 .single-activity:hover .single-activity-icon {
     background: #231e61 none repeat scroll 0 0;
     color: #ffffff;
@@ -658,7 +703,7 @@ ul.register li:hover .register-form, ul.login li:hover .login-form {
 .activity:nth-child(4) .single-activity:hover .single-activity-icon {
     background: #28a8e3 none repeat scroll 0 0;
     color: #ffffff;
-}
+}*/
 .single-activity h4 {
     color: #231e61;
     font-size: 18px;
@@ -666,8 +711,8 @@ ul.register li:hover .register-form, ul.login li:hover .login-form {
     margin-bottom: 17px;
 }
 .activity:nth-child(2) .single-activity h4 {color: #f57b20;}
-.activity:nth-child(3) .single-activity h4 {color: #93c524;}
-.activity:nth-child(4) .single-activity h4 {color: #28a8e3;}
+.activity:nth-child(3) .single-activity h4 {color: #231e61;}
+.activity:nth-child(4) .single-activity h4 {color: #f57b20;}
 .single-activity > p {margin-bottom: 0;}
 /*----------------------------------------*/
 /*  5. Advertise Area

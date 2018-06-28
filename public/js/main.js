@@ -11,7 +11,7 @@
             var window_width = $(window).width();
             var head_w = $('.sticker').height();
             if (window_width >= 10) {
-                if(wind_scr < 180){
+                if(wind_scr < 1000){
                     if($('.sticker').data('stick') === true){
                         $('.sticker').data('stick', false);
                         $('.sticker').stop(true).animate({opacity : 0}, 300, function(){
@@ -30,7 +30,7 @@
                 }
             }
         });
-    };	
+    };
     
 /*----------------------------
     Toogle Search
