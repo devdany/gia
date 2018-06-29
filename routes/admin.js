@@ -462,7 +462,8 @@ router.post('/addSchedule', loginRequired, (req, res) => {
         schedule.create({
             code: req.body.code,
             teacher: req.body.teacher,
-            classname: req.body.classname
+            classname: req.body.classname,
+            teacher2: req.body.teacher2
         }).then(result => {
             res.send({message: 'success', no: result.no});
         }).catch(err => {

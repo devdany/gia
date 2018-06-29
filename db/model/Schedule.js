@@ -14,10 +14,6 @@ const schedule = connector.define('Schedule', {
     classname: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    teacher: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
 },{
     freezeTableName: true,

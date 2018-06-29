@@ -1,0 +1,92 @@
+<% include ../include/header.ejs %>
+<!--End of Header Area-->
+<!--Breadcrumb Banner Area Start-->
+<div class="breadcrumb-banner-area teachers">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Teachers</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li>Teacher Details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--Teacher Details Area Start-->
+<div class="teacher-details-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="teacher-details-image">
+                    <img src="<%=teacher.picture%>" alt="">
+                    <div class="social-links">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="teacher-details-info">
+                    <h4><%=teacher.name%></h4>
+                    <span><%=teacher.role%></span>
+                    <div class="teacher-info-text">
+                        <span><i class="fa fa-phone"></i>Phone: <%=teacher.tel%></span>
+                        <span><i class="fa fa-envelope"></i>Email: <%=teacher.email%></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="teacher-about-info">
+                    <div class="single-title">
+                        <h3>About</h3>
+                    </div>
+                    <div class="teacher-info-text">
+                        <span><i class="fa fa-graduation-cap"></i>Degree: <%=teacher.degree%></span>
+                        <span><i class="fa fa-star"></i>Experience: <%=teacher.experience%></span>
+                    </div>
+                    <p><%=teacher.intro%></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="single-title">
+                            <h3>My Classes</h3>
+                        </div>
+                    </div>
+                    <%myClasses.forEach(function(myClass){%>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-class">
+                            <div class="single-class-image">
+                                <a href="#">
+                                    <img src="<%=myClass.picture%>" alt="">
+                                    <span class="class-date"><%=myClass.startDate%></span>
+                                </a>
+                            </div>
+                            <div class="single-class-text">
+                                <div class="class-des">
+                                    <h4><a href="#"><%=myClass.name%></a></h4>
+                                    <p><%=myClass.description%></p>
+                                </div>
+                                <div class="class-schedule">
+                                    <span>AGE: <%=myClass.target%></span>
+                                    <span>CLASS SIZE: <%=myClass.total%></span>
+                                    <span class="arrow"><a href="#"><i class="fa fa-angle-right"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%})%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Teacher Details Area-->
+
+<% include ../include/footer.ejs %>

@@ -1,6 +1,6 @@
 <% include ../include/header_admin.ejs %>
 <!--Breadcrumb Banner Area Start-->
-<div class="breadcrumb-banner-area">
+<div class="breadcrumb-banner-area body-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -73,20 +73,20 @@
                     </div>
                     <div class="single-widget-container">
                         <p>
-                            Main Teacher
+                            Teacher1
                         </p>
                         <select class="form-control" id="mainTeacher">
-                            <option selected="selected" value="">Select main-teacher</option>
+                            <option selected="selected" value="">Select teacher1</option>
                             <% teachers.forEach(function(teacher){%>
                             <option value="<%=teacher.no%>"><%=teacher.name%></option>
                             <%});%>
                         </select>
                         <br>
                         <p>
-                            Sub Teacher
+                            Teacher2
                         </p>
                         <select class="form-control" id="subTeacher">
-                            <option selected="selected" value="">Select sub-teacher</option>
+                            <option selected="selected" value="">Select teacher2</option>
                             <% teachers.forEach(function(teacher){%>
                             <option value="<%=teacher.no%>"><%=teacher.name%></option>
                             <%});%>
@@ -173,7 +173,7 @@
             }).done(function (result) {
                 if(result === 'success') {
                     alert('success!');
-                    //location.reload();
+                    location.reload();
                 }else{
                     console.error(result);
                 }

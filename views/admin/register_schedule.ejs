@@ -1,6 +1,6 @@
 <% include ../include/header_admin.ejs %>
 <!--Breadcrumb Banner Area Start-->
-<div class="breadcrumb-banner-area">
+<div class="breadcrumb-banner-area body-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -176,13 +176,6 @@
                     <%});%>
                 </select>
                 <br>
-                <h4>Teacher</h4>
-                <select class="form-control" id="schedule_teacher" style="margin-top: 15px;">
-                    <option selected="selected" value="">Select Teacher</option>
-                    <% teachers.forEach(function(teacher){%>
-                    <option value="<%=teacher.name%>"><%=teacher.name%></option>
-                    <%});%>
-                </select>
                 <input type="hidden" value="" id="schedule_code">
             </div>
             <div class="modal-footer">
@@ -206,10 +199,9 @@
     <%schedules.forEach(function(schedule){%>
         var code = '<%=schedule.code%>';
         var classname = '<%=schedule.classname%>';
-        var teacher = '<%=schedule.teacher%>';
 
         $("#"+code).append(
-            `<sapn class="schedule_attr" id="<%=schedule.no%>">${classname} - ${teacher}</sapn><br>`
+            `<sapn class="schedule_attr" id="<%=schedule.no%>">${classname}</sapn><br>`
         )
     <%})%>
 </script>

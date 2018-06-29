@@ -53,9 +53,10 @@
                     <div class="single-activity-icon" id="act1">
 
                     </div>
-                    <h4>Funny Games</h4>
-                    <p>Fusce pretium, est at aliquam semper, leo ante facilisis risus in feugiat ipsum augue pellent
-                        esque metu.</p>
+                    <h4>Speaking</h4>
+                    <p>Students conquer their shyness
+                        and feel comfortable.
+                        Speaking English infront of others.</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 activity">
@@ -63,9 +64,9 @@
                     <div class="single-activity-icon" id="act2">
 
                     </div>
-                    <h4>Toys</h4>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's</p>
+                    <h4>Reading</h4>
+                    <p>Learning new vocabulary and
+                        content comes from reading funny!</p>
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 activity">
@@ -73,9 +74,12 @@
                     <div class="single-activity-icon" id="act3">
 
                     </div>
-                    <h4>Activities</h4>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets release containing Lorem
-                        Ipsum passages</p>
+                    <h4>Listening</h4>
+                    <p>This passive skill is strong in many
+                        Korean Learners but using integrated
+                        techniques, it will become important in
+                        conversation.
+                    </p>
                 </div>
             </div>
             <div class="col-md-3 hidden-sm activity">
@@ -83,9 +87,11 @@
                     <div class="single-activity-icon" id="act4">
 
                     </div>
-                    <h4>Education</h4>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                        looking at layout</p>
+                    <h4>Writing</h4>
+                    <p>Although this academic skill
+                        is often the most challenging,
+                        it is mandatory to master writing in
+                        today’s global world.</p>
                 </div>
             </div>
         </div>
@@ -338,10 +344,22 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filter-menu">
+                    <ul>
+                        <li class="filter" data-filter="all">All</li>
+                        <%categories.forEach(function(category){%>
+                        <li class="filter" data-filter=".<%=category.DISTINCT%>"><%=category.DISTINCT%></li>
+                        <%})%>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="row gallery-row">
             <div class="filter-items">
                 <%galleryList.forEach(function (gallery){%>
-                <div class="mix single-items <%=gallery.category%> col-md-4 col-sm-6 col-xs-12 overlay-hover">
+                <div class="mix single-items <%=gallery.category%> col-md-3 col-sm-6 col-xs-12 overlay-hover">
                     <div class="overlay-effect">
                         <a><img src="<%=gallery.img%>" alt=""></a>
                         <div class="gallery-hover-effect">

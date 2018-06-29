@@ -11,24 +11,35 @@ const message = require('../db/model/Message')
 var paginate = require('express-paginate');
 const path = require('path');
 const refdir = path.join(__dirname, '../public/ref');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 /* GET home page. */
 
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     classModel.findAll().then(classes => {
         teacher.findAll().then(teachers => {
-            gallery.findAll({
-                limit: 12,
-                order: [['no', 'DESC']]
-            }).then(async galleryList => {
-                let totals = 0;
-                await Promise.all(classes.map(value => {
-                    totals += value.total;
-                })).then(() => {
-                    res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals});
+            gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
+                gallery.findAll({
+                    limit: 12,
+                    order: [['no', 'DESC']]
+                }).then(async galleryList => {
+                    let totals = 0;
+                    await Promise.all(classes.map(value => {
+                        totals += value.total;
+                    })).then(() => {
+                        res.render('index', {
+                            loginUser: req.session.loginUser,
+                            contents: contents,
+                            classes: classes,
+                            teachers: teachers,
+                            galleryList: galleryList,
+                            totals: totals,
+                            categories: categories
+                        });
+                    })
                 })
-
             })
         })
     })
@@ -37,17 +48,22 @@ router.get('/', function(req, res) {
 router.get('/greeting', (req, res) => {
     classModel.findAll().then(classes => {
         teacher.findAll({
-            limit:4,
-            order:[['no', 'DESC']]
+            limit: 4,
+            order: [['no', 'DESC']]
         }).then(teachers => {
-            res.render('about/greeting', {loginUser : req.session.loginUser, contents:contents, classes: classes, teachers: teachers});
+            res.render('about/greeting', {
+                loginUser: req.session.loginUser,
+                contents: contents,
+                classes: classes,
+                teachers: teachers
+            });
         })
     })
 })
 
 router.get('/vm', (req, res) => {
     classModel.findAll().then(classes => {
-        res.render('about/vm', {loginUser : req.session.loginUser, classes: classes});
+        res.render('about/vm', {loginUser: req.session.loginUser, classes: classes});
     })
 
 })
@@ -55,41 +71,72 @@ router.get('/vm', (req, res) => {
 router.get('/faculty', (req, res) => {
     classModel.findAll().then(classes => {
         teacher.findAll().then(teachers => {
-            res.render('about/faculty', {loginUser : req.session.loginUser, teachers : teachers, classes: classes});
+            res.render('about/faculty', {loginUser: req.session.loginUser, teachers: teachers, classes: classes});
         })
     })
 
 })
 
+router.get('/teacherInfo/:id', (req, res) => {
+    classModel.findAll().then(classes => {
+        teacher.findOne({
+            where: {
+                no: req.params.id
+            }
+        }).then(result => {
+            classModel.findAll({
+                where: {
+                    [Op.or]: [{mainTeacher: result.no}, {subTeacher: result.no}]
+                }
+            }).then(myClasses => {
+                res.render('about/teacherInfo', {
+                    loginUser: req.session.loginUser,
+                    teacher: result,
+                    classes: classes,
+                    myClasses: myClasses
+                })
+            })
+        })
+    })
+})
+
 router.get('/location', (req, res) => {
     classModel.findAll().then(classes => {
-        res.render('about/location', {loginUser : req.session.loginUser, classes:classes});
+        res.render('about/location', {loginUser: req.session.loginUser, classes: classes});
     })
 
 })
 router.get('/classInfo/:id', (req, res) => {
     classModel.findAll().then(classes => {
         classModel.findOne({
-            where:{
+            where: {
                 no: req.params.id
             }
         }).then(classInfo => {
             teacher.findOne({
-                where:{
+                where: {
                     no: classInfo.mainTeacher
                 }
             }).then(mainTeacher => {
                 teacher.findOne({
-                    where:{
-                        no:classInfo.subTeacher
+                    where: {
+                        no: classInfo.subTeacher
                     }
                 }).then(subTeacher => {
                     schedule.findAll({
-                        where:{
+                        where: {
                             classname: classInfo.name
                         }
                     }).then(schedules => {
-                        res.render('curriculum/classInfo', {loginUser: req.session.loginUser, classInfo: classInfo, outcomes:classInfo.outcomes.split(','), mainTeacher: mainTeacher, subTeacher:subTeacher, classes:classes, schedules:schedules})
+                        res.render('curriculum/classInfo', {
+                            loginUser: req.session.loginUser,
+                            classInfo: classInfo,
+                            outcomes: classInfo.outcomes.split(','),
+                            mainTeacher: mainTeacher,
+                            subTeacher: subTeacher,
+                            classes: classes,
+                            schedules: schedules
+                        })
                     })
                 })
             })
@@ -100,7 +147,7 @@ router.get('/classInfo/:id', (req, res) => {
 
 router.get('/fee', (req, res) => {
     classModel.findAll().then(classes => {
-        res.render('admissions/fee', {loginUser : req.session.loginUser, classes: classes});
+        res.render('admissions/fee', {loginUser: req.session.loginUser, classes: classes});
     })
 
 })
@@ -112,7 +159,7 @@ router.get('/application', (req, res) => {
 })
 
 router.get('/downloadApplication', (req, res) => {
-    const applicationFile = refdir+'/application.pdf';
+    const applicationFile = refdir + '/application.pdf';
     res.download(applicationFile);
 })
 
@@ -123,19 +170,17 @@ router.get('/test', (req, res) => {
 })
 
 var pageInfo = {
-    limit : 10,
-    pageNum : 5
+    limit: 10,
+    pageNum: 5
 }
 
-router.get('/notice',paginate.middleware(pageInfo.limit, 50), (req, res) => {
+router.get('/notice', paginate.middleware(pageInfo.limit, 50), (req, res) => {
     classModel.findAll().then(async classes => {
-        var start = ((req.query.page-1) * pageInfo.limit);
-        console.log(start);
-        console.log(req.query.limit);
+        var start = ((req.query.page - 1) * pageInfo.limit);
 
         const [result, noticeCount] = await Promise.all([
             notice.findAll({
-                limit:req.query.limit,
+                limit: req.query.limit,
                 offset: start,
                 order: [['no', 'DESC']]
             }),
@@ -145,47 +190,61 @@ router.get('/notice',paginate.middleware(pageInfo.limit, 50), (req, res) => {
         const pageCount = Math.ceil(noticeCount / req.query.limit);
         const pages = paginate.getArrayPages(req)(pageInfo.pageNum, pageCount, req.query.page);
 
-        if(req.query.page > pageCount  && pageCount !==0){
-            res.redirect('/admin/notice?page='+pageCount+'&limit='+pageInfo.limit)
+        if (req.query.page > pageCount && pageCount !== 0) {
+            res.redirect('/admin/notice?page=' + pageCount + '&limit=' + pageInfo.limit)
         }
 
         await Promise.all(result.map(value => {
             value.dataValues.date = dateformat('yyyy-mm-dd', value.dataValues.date);
         })).then(() => {
-            res.render('notices/notice', {loginUser: req.session.loginUser, noticeList: result, pages:pages, pageCount:pageCount, classes: classes, noticeCount: noticeCount});
+            res.render('notices/notice', {
+                loginUser: req.session.loginUser,
+                noticeList: result,
+                pages: pages,
+                pageCount: pageCount,
+                classes: classes,
+                noticeCount: noticeCount
+            });
         })
     })
 
 })
 
 var galleryPageInfo = {
-    limit : 12,
-    pageNum : 5
+    limit: 12,
+    pageNum: 5
 }
 
 
-router.get('/gallery',paginate.middleware(galleryPageInfo.limit, 50), (req, res) => {
+router.get('/gallery', paginate.middleware(galleryPageInfo.limit, 50), (req, res) => {
     classModel.findAll().then(async classes => {
-        var start = ((req.query.page-1) * pageInfo.limit);
+        var start = ((req.query.page - 1) * pageInfo.limit);
 
         const [result, galleryCount] = await Promise.all([
             gallery.findAll({
                 order: [['no', 'DESC']],
-                limit:req.query.limit,
+                limit: req.query.limit,
                 offset: start
             }),
             gallery.count()
         ]);
 
-        gallery.aggregate('category', 'DISTINCT', {plain:false}).then(categories => {
+        gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
             const pageCount = Math.ceil(galleryCount / req.query.limit);
             const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
 
-            if(req.query.page > pageCount && pageCount !==0){
-                res.redirect('/admin/gallery?page='+pageCount+'&limit='+galleryPageInfo.limit)
+            if (req.query.page > pageCount && pageCount !== 0) {
+                res.redirect('/admin/gallery?page=' + pageCount + '&limit=' + galleryPageInfo.limit)
             }
 
-            res.render('photos/gallery', {loginUser: req.session.loginUser, galleryList: result, pages:pages, pageCount:pageCount, classes: classes, categories:categories});
+            res.render('photos/gallery', {
+                loginUser: req.session.loginUser,
+                galleryList: result,
+                pages: pages,
+                pageCount: pageCount,
+                classes: classes,
+                categories: categories
+            });
 
         })
     })
@@ -214,12 +273,10 @@ router.get('/notice/detail/:id', (req, res) => {
                 no: id
             }
         }).then(result => {
-            res.render('notices/notice_detail', {
-                loginUser: req.session.loginUser,
-                notice: result,
-                classes: classes
-            })
+            result.dataValues.date = dateformat('yyyy-mm-dd', result.dataValues.date);
+            res.render('notices/notice_detail', {loginUser: req.session.loginUser, notice: result, classes: classes});
         })
+
     })
 })
 

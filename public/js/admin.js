@@ -249,17 +249,16 @@ $(".selected-table").click(function () {
 $("#add_schedule_submit").click(function () {
     if (confirm('정말 시간표를 추가 하시겠습니까?')) {
         var code = $("#schedule_code").val();
-        var teacher = $("#schedule_teacher option:selected").val();
         var classname = $("#schedule_class option:selected").val();
 
         $.ajax({
             url: '/admin/addSchedule',
             type: 'POST',
-            data: {code: code, teacher: teacher, classname:classname}
+            data: {code: code, classname:classname}
         }).done(function (result) {
             if(result.message === 'success') {
                 $("#"+code).append(
-                    `<span class="schedule_attr" id="${result.no}">${classname} - ${teacher}</span><br>`
+                    `<span class="schedule_attr" id="${result.no}">${classname}</span><br>`
                 )
                 alert('success!');
             }else{

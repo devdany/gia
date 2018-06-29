@@ -1,6 +1,6 @@
 <% include ../include/header.ejs %>
 <!--Breadcrumb Banner Area Start-->
-<div class="breadcrumb-banner-area">
+<div class="breadcrumb-banner-area body-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -221,7 +221,7 @@
                             </div>
                             <div class="widget-infos">
                                 <h4><a href="/admin/teachaerInfo/<%=mainTeacher.no%>"><%=mainTeacher.name%></a></h4>
-                                <p>Main Teacher</p>
+                                <p>Teacher1</p>
                             </div>
                         </div>
                         <%if(subTeacher !== null){%>
@@ -231,24 +231,10 @@
                             </div>
                             <div class="widget-infos">
                                 <h4><a href="/admin/teachaerInfo/<%=subTeacher.no%>"><%=subTeacher.name%></a></h4>
-                                <p>Sub Teacher</p>
+                                <p>Teacher2</p>
                             </div>
                         </div>
                         <%}%>
-                    </div>
-                </div>
-                <div class="single-widget-item">
-                    <div class="single-title">
-                        <h3>Register Classes</h3>
-                    </div>
-                    <div class="single-widget-container">
-                        <form action="#" method="post">
-                            <input type="text" name="class" placeholder="Class Name">
-                            <input type="text" name="name" placeholder="Your Name">
-                            <input type="email" name="email" placeholder="Your Email">
-                            <textarea name="Message" placeholder="Message"></textarea>
-                            <button type="submit" class="button-default button-yellow" style="float:left;">Send</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -264,10 +250,9 @@
     <%schedules.forEach(function(schedule){%>
     var code = '<%=schedule.code%>';
     var classname = '<%=schedule.classname%>';
-    var teacher = '<%=schedule.teacher%>';
 
     $("#"+code).append(
-        `<sapn>${classname} - ${teacher}</sapn><br>`
+        `<sapn>${classname}</sapn><br>`
     )
     <%})%>
 </script>

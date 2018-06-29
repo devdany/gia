@@ -1,6 +1,6 @@
 <% include ../include/header_admin.ejs %>
 <!--Breadcrumb Banner Area Start-->
-<div class="breadcrumb-banner-area">
+<div class="breadcrumb-banner-area body-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -87,7 +87,7 @@
                             </div>
                             <div class="widget-infos">
                                 <h4><a href="/admin/teachaerInfo/<%=mainTeacher.no%>"><%=mainTeacher.name%></a></h4>
-                                <p>Main Teacher</p>
+                                <p>Teacher1</p>
                             </div>
                         </div>
                         <%if(subTeacher !== null){%>
@@ -97,7 +97,7 @@
                             </div>
                             <div class="widget-infos">
                                 <h4><a href="/admin/teachaerInfo/<%=subTeacher.no%>"><%=subTeacher.name%></a></h4>
-                                <p>Sub Teacher</p>
+                                <p>Teacher2</p>
                             </div>
                         </div>
                         <%}%>
