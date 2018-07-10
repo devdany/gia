@@ -130,13 +130,13 @@
                     <div class="single-class">
                         <div class="single-class-image">
                             <a href="#">
-                                <img src="/img/class/10.jpg" alt="">
+                                <img src="<%= classInfo.picture%>" alt="">
                                 <span class="class-date"><%= classInfo.startDate %></span>
                             </a>
                         </div>
                         <div class="single-class-text">
                             <div class="class-des">
-                                <h4><a href="#"><%= classInfo.name %></a></h4>
+                                <h4><a href="/classInfo/<%=classInfo.no%>"><%= classInfo.name %></a></h4>
                                 <p><%= classInfo.description %>&nbsp;</p>
                             </div>
                             <div class="class-schedule">
