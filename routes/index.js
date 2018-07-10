@@ -27,7 +27,7 @@ router.get('/', function (req, res) {
                 }).then(async galleryList => {
                     let totals = 0;
                     await Promise.all(classes.map(value => {
-                        totals += value.total;
+                        totals += parseInt(value.total);
                     })).then(() => {
                         res.render('index', {
                             loginUser: req.session.loginUser,
