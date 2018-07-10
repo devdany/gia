@@ -217,7 +217,7 @@ var galleryPageInfo = {
 
 router.get('/gallery', paginate.middleware(galleryPageInfo.limit, 50), (req, res) => {
     classModel.findAll().then(async classes => {
-        var start = ((req.query.page - 1) * pageInfo.limit);
+        var start = ((req.query.page - 1) * galleryPageInfo.limit);
 
         const [result, galleryCount] = await Promise.all([
             gallery.findAll({
