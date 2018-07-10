@@ -21,79 +21,63 @@
 <!--About Area Start-->
 <div class="about-area section-padding-bottom" style="margin-top: 40px;">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="table_box">
+            <table class="member_table">
+                <colgroup>
+                    <col style="width:70%;">
+                    <col style="width:15%;text-align: center;">
+                    <col style="width:15%;text-align: center;">
+
+                </colgroup>
                 <div style="text-align: right">
                     <p>Total <%=noticeCount%></p>
                 </div>
-                <table class="table table-striped" style="text-align: center; border-bottom: 1px solid #ddd">
-                    <tr>
-                        <th style="text-align: center">No</th>
-                        <th style="text-align: center">Title</th>
-                        <th style="text-align: center">Writer</th>
-                        <th style="text-align: center">Date</th>
-                    </tr>
-                    <% noticeList.forEach(function(notice){ %>
-                    <tr>
-                        <td style="width: 10%">
-                            <%= notice.no%>
-                        </td>
-                        <td style="width: 60%">
-                            <a href="/notice/detail/<%= notice.no%>">
-                                <%= notice.title %>
+                <thead>
+                <tr style="border-bottom: none;">
+                    <th><span class="table_head">Title</span></th>
+                    <th><span class="table_head">Writer</span></th>
+                    <th><span class="table_head">Date</span></th>
+                </tr>
+                </thead>
+                <tbody id="tableList">
+
+                <% noticeList.forEach(function(notice){ %>
+                <tr class="table_row">
+                    <td style="text-align: left; padding-left: 40px;">
+                        <a href="/notice/detail/<%= notice.no%>"><%= notice.title %></a>
+                    </td>
+                    <td style="text-align: center">
+                        <%=notice.writer%>
+                    </td>
+                    <td style="text-align: center"><%=notice.date%></td>
+                </tr>
+                <%})%>
+
+                </tbody>
+            </table> <!-- END member_table-->
+            <div class="pagination-content">
+                <div class="pagination-button">
+                    <ul class="pagination">
+                        <li>
+                            <a href="<%= paginate.href(true) %>" aria-label="Previous">
+                                <i class="fa fa-caret-left" aria-hidden="true"></i>
                             </a>
-                        </td>
-                        <td style="width: 10%">
-                            <%=notice.writer%>
-                        </td>
-                        <td style="width: 20%">
-                            <%=notice.date%>
-                        </td>
-                    </tr>
-                    <% }); %>
-                </table>
-                <div class="pagination-content">
-                    <div class="pagination-button">
-                        <ul class="pagination">
-                            <li>
-                                <a href="<%= paginate.href(true) %>" aria-label="Previous">
-                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <% pages.forEach(function(page){ %>
-                            <li class="<%= paginate.page == page.number ? 'current' : '' %>">
-                                <a href="<%= page.url %>"><%= page.number %></a>
-                            </li>
-                            <% }) %>
+                        </li>
+                        <% pages.forEach(function(page){ %>
+                        <li class="<%= paginate.page == page.number ? 'current' : '' %>">
+                            <a href="<%= page.url %>"><%= page.number %></a>
+                        </li>
+                        <% }) %>
 
-                            <li>
-                                <a href="<%= paginate.href() %>">
-                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                        <li>
+                            <a href="<%= paginate.href() %>">
+                                <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>
-            <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="single-widget-item">
-                    <div class="single-title">
-                        <h3>Recent Events</h3>
-                    </div>
-                    <div class="single-widget-container">
-                        <div class="recent-post-item">
-                            <div class="recent-post-image">
-                                <a href="#"><img src="/img/gallery/15.jpg" alt=""></a>
-                            </div>
-                            <div class="recent-post-text">
-                                <h4><a href="#">Alphabet Match Class</a></h4>
-                                <span><i class="fa fa-calendar"></i>March 25, 2016</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </div>

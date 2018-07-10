@@ -149,6 +149,7 @@
 
 <input type="hidden" id="isUpload" value="false">
 <input type="hidden" id="classNo" value="<%=classInfo.no%>">
+<input type="hidden" id="description" value="<%=classInfo.description%>">;
 
 <!--End of Class Area-->
 <% include ../include/footer_admin.ejs %>
@@ -158,15 +159,20 @@
 </script>
 
 <script>
+
+    var description = $("#description").val();
+
     $(document).ready(function () {
-        $("#description").val("<%=classInfo.description%>");
+        $("#description").val(description);
     })
+
+
     $("#addOutcomes").click(function () {
         $(".tab-info").append(
             `<input type="text" class="form-control outcomes" placeholder="Write outcome for this class" style="margin-bottom: 15px;">`
         )
     })
-    
+
     $("#updateClass_submit").click(function () {
         if(confirm('Are you sure update class?')){
             var title = $("#classTitle").val();
@@ -209,4 +215,5 @@
             });
         }
     })
+
 </script>

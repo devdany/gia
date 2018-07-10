@@ -48,8 +48,7 @@ router.get('/', function (req, res) {
 router.get('/greeting', (req, res) => {
     classModel.findAll().then(classes => {
         teacher.findAll({
-            limit: 4,
-            order: [['no', 'DESC']]
+            limit: 4
         }).then(teachers => {
             res.render('about/greeting', {
                 loginUser: req.session.loginUser,
@@ -191,7 +190,7 @@ router.get('/notice', paginate.middleware(pageInfo.limit, 50), (req, res) => {
         const pages = paginate.getArrayPages(req)(pageInfo.pageNum, pageCount, req.query.page);
 
         if (req.query.page > pageCount && pageCount !== 0) {
-            res.redirect('/admin/notice?page=' + pageCount + '&limit=' + pageInfo.limit)
+            res.redirect('/notice?page=' + pageCount + '&limit=' + pageInfo.limit)
         }
 
         await Promise.all(result.map(value => {
@@ -234,7 +233,7 @@ router.get('/gallery', paginate.middleware(galleryPageInfo.limit, 50), (req, res
             const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
 
             if (req.query.page > pageCount && pageCount !== 0) {
-                res.redirect('/admin/gallery?page=' + pageCount + '&limit=' + galleryPageInfo.limit)
+                res.redirect('/gallery?page=' + pageCount + '&limit=' + galleryPageInfo.limit)
             }
 
             res.render('photos/gallery', {
