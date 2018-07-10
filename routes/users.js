@@ -11,35 +11,35 @@ router.post('/login', (req, res) => {
 
     classModel.findAll().then(classes => {
         teacher.findAll().then(teachers => {
-            gallery.findAll({
-                limit: 12,
-                order: [['no', 'DESC']]
-            }).then(galleryList => {
-                const userId = req.body.userId;
-                const passwd = req.body.password;
+            gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
+                gallery.findAll({
+                    limit: 12,
+                    order: [['no', 'DESC']]
+                }).then(galleryList => {
+                    const userId = req.body.userId;
+                    const passwd = req.body.password;
 
-                admin.findOne({
-                    where: {
-                        id: userId,
-                    }
-                }).then(async result => {
-
-                    let totals = 0;
-                    await Promise.all(classes.map(value => {
-                        totals += value.total;
-                    })).then(() => {
-                        if(result === null){
-                            res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals, message: 'This admin ID failed verification.'});
-                        }else if(passwd !== result.dataValues.password){
-                            res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals, message: 'Password is incorrect.'});
-                        }else{
-                            req.session.loginUser = result.dataValues;
-                            res.redirect('/');
+                    admin.findOne({
+                        where: {
+                            id: userId,
                         }
+                    }).then(async result => {
+
+                        let totals = 0;
+                        await Promise.all(classes.map(value => {
+                            totals += value.total;
+                        })).then(() => {
+                            if(result === null){
+                                res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals, message: 'This admin ID failed verification.',categories: categories});
+                            }else if(passwd !== result.dataValues.password){
+                                res.render('index', {loginUser : req.session.loginUser, contents: contents, classes: classes, teachers: teachers, galleryList: galleryList, totals: totals, message: 'Password is incorrect.',categories: categories});
+                            }else{
+                                req.session.loginUser = result.dataValues;
+                                res.redirect('/');
+                            }
+                        })
+
                     })
-
-
-
                 })
             })
         })
