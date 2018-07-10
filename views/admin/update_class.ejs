@@ -42,9 +42,7 @@
                     <div class="tab-content">
                         <div id="overview" class="tab-pane active" role="tabpanel">
                             <h3>COURSE DESCRIPTION</h3>
-                            <textarea class="form-control" style="height: 300px;" id="description">
-
-                            </textarea>
+                            <textarea class="form-control" style="height: 300px;" id="description"><%=classInfo.description%></textarea>
                             <h3>LEARNING OUTCOMES  <i class="fa fa-plus-square" style="cursor: pointer" id="addOutcomes"></i></h3>
                             <div class="tab-info">
                                 <%outcomes.forEach(function(overcome){%>
@@ -149,7 +147,7 @@
 
 <input type="hidden" id="isUpload" value="false">
 <input type="hidden" id="classNo" value="<%=classInfo.no%>">
-<input type="hidden" id="description" value="<%=classInfo.description%>">;
+<input type="hidden" id="description" value="<%=classInfo.description%>">
 
 <!--End of Class Area-->
 <% include ../include/footer_admin.ejs %>
@@ -159,14 +157,6 @@
 </script>
 
 <script>
-
-    var description = $("#description").val();
-
-    $(document).ready(function () {
-        $("#description").val(description);
-    })
-
-
     $("#addOutcomes").click(function () {
         $(".tab-info").append(
             `<input type="text" class="form-control outcomes" placeholder="Write outcome for this class" style="margin-bottom: 15px;">`
