@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e394c50-f5c9-4464-987c-b2cf01ddf622" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/views/curriculum/classInfo.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/curriculum/classInfo.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admissions/application.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admissions/application.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classInfo.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="classInfo.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/curriculum/classInfo.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="233" column="47" lean-forward="true" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
+            <state relative-caret-position="119">
+              <caret line="220" column="34" lean-forward="true" selection-start-line="220" selection-start-column="34" selection-end-line="220" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="application.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/admissions/application.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+            <state relative-caret-position="347">
+              <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -206,10 +206,10 @@
         <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/views/admissions/application.ejs" />
         <option value="$PROJECT_DIR$/views/notices/notice.ejs" />
         <option value="$PROJECT_DIR$/views/admissions/fee.ejs" />
         <option value="$PROJECT_DIR$/views/curriculum/classInfo.ejs" />
+        <option value="$PROJECT_DIR$/views/admissions/application.ejs" />
       </list>
     </option>
   </component>
@@ -556,15 +556,16 @@
       <workItem from="1531202123323" duration="327000" />
       <workItem from="1531203334484" duration="1571000" />
       <workItem from="1531211579749" duration="909000" />
-      <workItem from="1531219119951" duration="4521000" />
+      <workItem from="1531219119951" duration="5396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220024000" />
+    <option name="totallyTimeSpent" value="220899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="34" y="23" width="1440" height="794" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -577,10 +578,10 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3281027" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.25251076" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.25251076" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19027181" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19027181" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -927,13 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/admissions/application.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admissions/fee.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -968,12 +962,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/curriculum/classInfo.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="233" column="47" lean-forward="true" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
+        <state relative-caret-position="119">
+          <caret line="220" column="34" lean-forward="true" selection-start-line="220" selection-start-column="34" selection-end-line="220" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/admissions/application.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
         </state>
       </provider>
     </entry>
