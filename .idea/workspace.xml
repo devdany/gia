@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e394c50-f5c9-4464-987c-b2cf01ddf622" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admissions/application.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admissions/application.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admissions/fee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admissions/fee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/notices/notice.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/notices/notice.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/curriculum/classInfo.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/curriculum/classInfo.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,47 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="update_class.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin/update_class.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="267">
               <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5670">
-              <caret line="378" column="39" selection-start-line="378" selection-start-column="39" selection-end-line="378" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3480">
-              <caret line="232" selection-start-line="232" selection-end-line="232" />
             </state>
           </provider>
         </entry>
@@ -73,11 +32,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classInfo.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="classInfo.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/curriculum/classInfo.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2766">
-              <caret line="47" column="71" lean-forward="true" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
+            <state relative-caret-position="390">
+              <caret line="233" column="47" lean-forward="true" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,16 +54,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fee.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fee.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/admissions/fee.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="440">
               <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding>
                 <element signature="e#833#874#0#HTML" expanded="true" />
                 <element signature="e#1073#1136#0#HTML" expanded="true" />
                 <element signature="e#1676#1703#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/model/Admin.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Gallery.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/model/Gallery.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="header.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/include/header.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2457">
+              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teacherInfo.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/about/teacherInfo.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -215,10 +206,10 @@
         <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
-        <option value="$PROJECT_DIR$/views/curriculum/classInfo.ejs" />
         <option value="$PROJECT_DIR$/views/admissions/application.ejs" />
         <option value="$PROJECT_DIR$/views/notices/notice.ejs" />
         <option value="$PROJECT_DIR$/views/admissions/fee.ejs" />
+        <option value="$PROJECT_DIR$/views/curriculum/classInfo.ejs" />
       </list>
     </option>
   </component>
@@ -244,8 +235,8 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="7" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="34" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="794" />
@@ -565,16 +556,15 @@
       <workItem from="1531202123323" duration="327000" />
       <workItem from="1531203334484" duration="1571000" />
       <workItem from="1531211579749" duration="909000" />
-      <workItem from="1531219119951" duration="3602000" />
+      <workItem from="1531219119951" duration="4521000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219105000" />
+    <option name="totallyTimeSpent" value="220024000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="7" y="23" width="1440" height="794" extended-state="6" />
-    <editor active="true" />
+    <frame x="34" y="23" width="1440" height="794" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -587,10 +577,10 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3281027" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.25251076" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.25251076" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19027181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19027181" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -624,20 +614,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/admin/index_admin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3225">
-          <caret line="215" column="10" selection-start-line="215" selection-start-column="10" selection-end-line="215" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/admin/index_admin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3225">
-          <caret line="215" column="10" selection-start-line="215" selection-start-column="10" selection-end-line="215" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -806,13 +782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/about/teacherInfo.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/notices/notice_detail.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -852,13 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55470">
           <caret line="3698" column="21" selection-start-line="3698" selection-start-column="21" selection-end-line="3698" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/include/header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -958,13 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/curriculum/classInfo.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2766">
-          <caret line="47" column="71" lean-forward="true" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/notices/notice.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -981,12 +936,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admissions/fee.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="440">
           <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding>
             <element signature="e#833#874#0#HTML" expanded="true" />
             <element signature="e#1073#1136#0#HTML" expanded="true" />
             <element signature="e#1676#1703#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/model/Admin.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/model/Gallery.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/include/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2457">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/about/teacherInfo.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/curriculum/classInfo.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="233" column="47" lean-forward="true" selection-start-line="233" selection-start-column="47" selection-end-line="233" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
