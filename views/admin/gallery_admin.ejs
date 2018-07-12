@@ -1,11 +1,11 @@
 <% include ../include/header_admin.ejs %>
 <!--Breadcrumb Banner Area Start-->
-<div class="breadcrumb-banner-area gallery body-top">
+<div class="breadcrumb-banner-area gallery body-top" style="background: url('/img/gallery_back.png')">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h1 class="text-center">Gallery</h1>
+                    <h1 class="text-center"><a style="cursor: pointer; color: white"  name="gallery_back" class="img_change">Gallery</a></h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
                             <li><a href="/">Home</a></li>
@@ -81,6 +81,31 @@
             </div>
 
             <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="galleryModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
                 <input type="text" id="gallery_category" class="form-control" placeholder="Category"><br>
                 <input type="text" id="gallery_comment" class="form-control" placeholder="Comment"><br>
                 <h4>5 Images at a time</h4><br>
@@ -131,7 +156,7 @@
         $("#img_modal_title").text('gallery (800 x 686)');
         Dropzone.options.myAwesomeDropzone.params.target = 'gallery'
 
-        $("#imageModal").modal('show');
+        $("#galleryModal").modal('show');
 
         $.ajax({
             url: '/admin/initGalleryTemp',
@@ -188,4 +213,9 @@
             });
         }
     })
+</script>
+
+
+<script src="/js/admin.js">
+
 </script>

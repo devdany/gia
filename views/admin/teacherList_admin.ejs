@@ -1,12 +1,12 @@
 <% include ../include/header_admin.ejs %>
 <!--End of Header Area-->
 <!--Breadcrumb Banner Area Start-->
-<div class="breadcrumb-banner-area teachers body-top">
+<div class="breadcrumb-banner-area teachers body-top" style="background: url('/img/faculty_back.png')">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h1 class="text-center">Teachers</h1>
+                    <h1 class="text-center"><a style="cursor: pointer; color: white"  name="faculty_back" class="img_change">Teachers</a></h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
                             <li><a href="/admin/index">Home</a></li>
@@ -51,4 +51,30 @@
 </div>
 <!--End of Teacher Fullwidth Area-->
 
+
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="top:130px;">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <% include ../include/footer_admin.ejs %>
+
+<script src="/js/admin.js"> </script>

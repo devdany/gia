@@ -9,7 +9,7 @@ var contents = require('../lib/contents');
 /* GET users listing. */
 router.post('/login', (req, res) => {
 
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         teacher.findAll().then(teachers => {
             gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
                 gallery.findAll({

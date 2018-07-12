@@ -29,7 +29,7 @@ const classModel = connector.define('Class', {
     },
     total: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
     startDate: {
         type: Sequelize.STRING,

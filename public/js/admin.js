@@ -11,7 +11,15 @@ const sizes = {
     vm: '570 x 442',
     registerClass: '870 x 501',
     registerTeacher: '600 x 705',
-    teacherIntro: '570 x 670'
+    teacherIntro: '570 x 670',
+    greeting_back: '1920 x 340',
+    vm_back: '1920 x 340',
+    faculty_back: '1920 x 340',
+    fee_back: '1920 x 340',
+    application_back: '1920 x 340',
+    notice_back: '1920 x 340',
+    employment_back: '1920 x 340',
+    classInfo_back: '1920 x 340',
 }
 
 
@@ -38,7 +46,7 @@ Dropzone.options.myAwesomeDropzone = {
             var target = temp[0];
             var url = temp[1];
             $("#isUpload").val('true');
-            if(target ==='slide1' || target==='slide2' || target==='factor'){
+            if(target ==='slide1' || target==='slide2' || target==='factor' || target.split('_')[1] ==='back'){
                 location.reload();
             } else {
                 var unique = $.now();
@@ -156,10 +164,7 @@ $("#greeting_skill_bt").click(function () {
 })
 
 function isNotSkill(skill){
-    console.log(skill);
-    console.log(!isNaN(skill))
-    console.log(skill <=0 );
-    console.log(skill>100);
+
     return (isNaN(skill) || skill <=29 || skill>100);
 }
 
@@ -300,6 +305,10 @@ $(document).on('click', '.schedule_attr', function (e) {
     }else{
         $('#myModal').modal('hide')
     }
+
+})
+
+$("#back").click(function () {
 
 })
 

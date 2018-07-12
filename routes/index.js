@@ -18,7 +18,7 @@ const Op = Sequelize.Op;
 
 
 router.get('/', function (req, res) {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         teacher.findAll().then(teachers => {
             gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
                 gallery.findAll({
@@ -46,7 +46,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/greeting', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         teacher.findAll({
             limit: 4
         }).then(teachers => {
@@ -61,14 +61,14 @@ router.get('/greeting', (req, res) => {
 })
 
 router.get('/vm', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         res.render('about/vm', {loginUser: req.session.loginUser, classes: classes});
     })
 
 })
 
 router.get('/faculty', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         teacher.findAll().then(teachers => {
             res.render('about/faculty', {loginUser: req.session.loginUser, teachers: teachers, classes: classes});
         })
@@ -77,7 +77,7 @@ router.get('/faculty', (req, res) => {
 })
 
 router.get('/teacherInfo/:id', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         teacher.findOne({
             where: {
                 no: req.params.id
@@ -104,13 +104,13 @@ router.get('/teacherInfo/:id', (req, res) => {
 })
 
 router.get('/location', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         res.render('about/location', {loginUser: req.session.loginUser, classes: classes});
     })
 
 })
 router.get('/classInfo/:id', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         classModel.findOne({
             where: {
                 no: req.params.id
@@ -149,14 +149,14 @@ router.get('/classInfo/:id', (req, res) => {
 })
 
 router.get('/fee', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         res.render('admissions/fee', {loginUser: req.session.loginUser, classes: classes});
     })
 
 })
 
 router.get('/application', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         res.render('admissions/application', {loginUser: req.session.loginUser, classes: classes});
     })
 })
@@ -167,7 +167,7 @@ router.get('/downloadApplication', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         res.render('admissions/test', {loginUser: req.session.loginUser, classes: classes});
     })
 })
@@ -178,7 +178,7 @@ var pageInfo = {
 }
 
 router.get('/notice', paginate.middleware(pageInfo.limit, 50), (req, res) => {
-    classModel.findAll().then(async classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(async classes => {
         var start = ((req.query.page - 1) * pageInfo.limit);
 
         const [result, noticeCount] = await Promise.all([
@@ -220,7 +220,7 @@ var galleryPageInfo = {
 
 
 router.get('/gallery', /*paginate.middleware(galleryPageInfo.limit, 50),*/ (req, res) => {
-    classModel.findAll().then(async classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(async classes => {
         var start = ((req.query.page - 1) * galleryPageInfo.limit);
 
         /*const [result, galleryCount] = await Promise.all([
@@ -257,21 +257,21 @@ router.get('/gallery', /*paginate.middleware(galleryPageInfo.limit, 50),*/ (req,
 })
 
 router.get('/contact', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
 
         res.render('inquiry/contact', {loginUser: req.session.loginUser, classes: classes});
     })
 })
 
 router.get('/employment', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
 
         res.render('inquiry/employment', {loginUser: req.session.loginUser, classes: classes});
     })
 })
 
 router.get('/notice/detail/:id', (req, res) => {
-    classModel.findAll().then(classes => {
+    classModel.findAll({order:[['name','ASC']]}).then(classes => {
         var id = req.params.id;
 
         notice.findOne({

@@ -250,6 +250,18 @@ router.get('/updateClass/:id', loginRequired, (req, res) => {
     })
 })
 
+router.get('/fee', loginRequired, (req, res) => {
+    res.render('admin/fee_admin')
+})
+
+router.get('/application', loginRequired, (req, res) => {
+    res.render('admin/application_admin')
+})
+
+router.get('/employment', loginRequired, (req, res) => {
+    res.render('admin/employment_admin')
+})
+
 router.post('/updateClass', loginRequired, (req, res) => {
     if (req.body.isUpload === 'false') {
         classModel.update({
