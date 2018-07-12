@@ -42,8 +42,13 @@
                         <h3>About</h3>
                     </div>
                     <div class="teacher-info-text">
+                        <%if(teacher.degree !== null && teacher.degree !== "" && teacher.degree !== undefined && teacher.degree !== 'undefined'){%>
                         <span><i class="fa fa-graduation-cap"></i>Degree: <%=teacher.degree%></span>
-                        <span><i class="fa fa-star"></i>Experience: <%=teacher.experience%></span>
+                        <%}%>
+                        <span>Experience</span>
+                        <%exList.forEach(function(ex){%>
+                        <span><i class="fa fa-star"></i><%=ex%></span>
+                        <%})%>
                     </div>
                     <p><%=teacher.intro%></p>
                 </div>

@@ -36,7 +36,7 @@
         <div class="row">
             <div class="filter-items">
                 <%galleryList.forEach(function (gallery){%>
-                <div class="mix single-items <%=gallery.category%> col-md-4 col-sm-6 col-xs-12 overlay-hover">
+                <div class="mix single-items <%=gallery.category%> col-md-4 col-sm-6 col-xs-12 overlay-hover gallery-items">
                     <div class="overlay-effect">
                         <a><img src="<%=gallery.img%>" alt=""></a>
                         <div class="gallery-hover-effect">
@@ -46,29 +46,6 @@
                     </div>
                 </div>
                 <%})%>
-            </div>
-            <div class="col-md-12">
-                <div class="pagination-content">
-                    <div class="pagination-button">
-                        <ul class="pagination">
-                            <li>
-                                <a href="<%= paginate.href(true) %>" aria-label="Previous">
-                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <% pages.forEach(function(page){ %>
-                            <li class="<%= paginate.page == page.number ? 'current' : '' %>">
-                                <a href="<%= page.url %>"><%= page.number %></a>
-                            </li>
-                            <% }) %>
-                            <li>
-                                <a href="<%= paginate.href() %>">
-                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

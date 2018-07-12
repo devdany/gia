@@ -108,10 +108,12 @@ router.get('/teacherInfo/:id', loginRequired,(req, res) => {
                 [op.or]: [{mainTeacher: req.params.id}, {subTeacher: req.params.id}]
             }
         }).then(myClass => {
+            const exList = teacher.dataValues.experience.split('/');
             res.render('admin/teacherInfo_admin.ejs', {
                 loginUser: req.session.loginUser,
                 teacher: teacher,
-                myClass: myClass
+                myClass: myClass,
+                exList: exList
             })
         })
     })
@@ -124,7 +126,9 @@ router.get('/updateTeacher/:id',loginRequired, (req, res) => {
             no: req.params.id
         }
     }).then(teacher => {
-        res.render('admin/update_teacher.ejs', {loginUser: req.session.loginUser, teacher: teacher});
+        const exList = teacher.dataValues.experience.split('/');
+        console.log(exList);
+        res.render('admin/update_teacher.ejs', {loginUser: req.session.loginUser, teacher: teacher, exList: exList});
     })
 })
 

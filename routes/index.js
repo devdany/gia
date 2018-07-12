@@ -88,11 +88,15 @@ router.get('/teacherInfo/:id', (req, res) => {
                     [Op.or]: [{mainTeacher: result.no}, {subTeacher: result.no}]
                 }
             }).then(myClasses => {
+                const exList = result.dataValues.experience.split('/');
+                console.log(result.dataValues.degree);
+
                 res.render('about/teacherInfo', {
                     loginUser: req.session.loginUser,
                     teacher: result,
                     classes: classes,
-                    myClasses: myClasses
+                    myClasses: myClasses,
+                    exList: exList
                 })
             })
         })
@@ -215,35 +219,38 @@ var galleryPageInfo = {
 }
 
 
-router.get('/gallery', paginate.middleware(galleryPageInfo.limit, 50), (req, res) => {
+router.get('/gallery', /*paginate.middleware(galleryPageInfo.limit, 50),*/ (req, res) => {
     classModel.findAll().then(async classes => {
         var start = ((req.query.page - 1) * galleryPageInfo.limit);
 
-        const [result, galleryCount] = await Promise.all([
+        /*const [result, galleryCount] = await Promise.all([
             gallery.findAll({
                 order: [['no', 'DESC']],
                 limit: req.query.limit,
                 offset: start
             }),
             gallery.count()
-        ]);
+        ]);*/
 
         gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
-            const pageCount = Math.ceil(galleryCount / req.query.limit);
+            /*const pageCount = Math.ceil(galleryCount / req.query.limit);
             const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
 
             if (req.query.page > pageCount && pageCount !== 0) {
                 res.redirect('/gallery?page=' + pageCount + '&limit=' + galleryPageInfo.limit)
-            }
-
-            res.render('photos/gallery', {
-                loginUser: req.session.loginUser,
-                galleryList: result,
-                pages: pages,
-                pageCount: pageCount,
-                classes: classes,
-                categories: categories
-            });
+            }*/
+            gallery.findAll({
+                order: [['no', 'DESC']]
+            }).then(result => {
+                res.render('photos/gallery', {
+                    loginUser: req.session.loginUser,
+                    galleryList: result,
+                    /*pages: pages,
+                    pageCount: pageCount,*/
+                    classes: classes,
+                    categories: categories
+                });
+            })
 
         })
     })

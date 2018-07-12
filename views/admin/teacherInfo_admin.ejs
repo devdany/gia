@@ -51,9 +51,10 @@
                         <%if(teacher.degree !== null){%>
                         <span><i class="fa fa-graduation-cap"></i>Degree: <%=teacher.degree%></span>
                         <%}%>
-                        <%if(teacher.experience !== null){%>
-                        <span><i class="fa fa-star"></i>Experience: <%=teacher.experience%></span>
-                        <%}%>
+                        <span>Experience</span>
+                        <%exList.forEach(function(ex){%>
+                        <span><i class="fa fa-star"></i><%=ex%></span>
+                        <%})%>
                     </div>
                     <%if(teacher.intro !== null){%>
                         <p><%=teacher.intro%></p>
