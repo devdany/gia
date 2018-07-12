@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modal</title>
+    <link type="text/css" href="_modal.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="modal2" id="detailModal">
+    <div class="blackBg on"></div>
+    <div class="modalBox">
+        <div class="imageBox">
+            <img src="/images/event8.png" alt="detail page image"/>
+        </div>
+        <div class="event_txt_box">
+            <h3 class="event_title">2018 블록체인 오픈 포럼 참가</h3>
+            <p class="event_date">Jun 28</p>
+            <p class="event_desc">케이체인이 6월 28~29일, 역삼동 GS타워 Amoris Hall에서 진행된 ‘2018 블록체인 오픈 포럼’에 참가했습니다.</p>
+            <p class="event_link">
+                <a href="https://medium.com/@kchain/2018-%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EC%98%A4%ED%94%88-%ED%8F%AC%EB%9F%BC-%EC%95%88%EB%82%B4-fd1015f06db6" target="_blank" title="밋업후기 바로가기 링크">
+                    Meetup 후기 바로가기
+                </a>
+            </p>
+        </div> <!-- END event_txt_box-->
+        <div class="btnBox">
+            <button type="button" class="modalBtn modalBtn1" onclick="closeModal('detailModal');">확인</button>
+        </div>
+    </div> <!-- END modalBox-->
+</div> <!-- END modal-->
+<script>
+    function openModal(getId){
+        //// modal / class add
+
+        var modal = document.getElementById(getId);
+        modal.classList.add('on');
+        event.preventDefault();
+    }
+
+    function closeModal(getId){
+
+        ///// modal /  class close
+        var modal = document.getElementById(getId);
+        modal.classList.remove('on');
+        event.preventDefault();
+    }
+
+    function submitFile(){
+
+        ///// modal / email submit
+        ///// add modal / sweetalert modal
+    }
+</script>
+</body>
+</html>
