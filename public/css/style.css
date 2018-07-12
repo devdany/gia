@@ -3698,3 +3698,7 @@ span.schedule-time {
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
+
+#imageModal{
+    margin-top: 190px;
+}
