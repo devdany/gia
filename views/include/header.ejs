@@ -208,10 +208,9 @@
                                 </li>
                                 <li><a href="#">Curriculum <i class="fa fa-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="/tiny">Tiny Tigers</a></li>
-                                        <li><a href="/grade1-6">Grade 1 - Grade 6</a></li>
-                                        <li><a href="/graduates">TT Graduates</a></li>
-                                        <li><a href="/adult">Adults</a></li>
+                                        <%classes.forEach(function (classInfo){%>
+                                        <li><a href="/classInfo/<%=classInfo.no%>"><%=classInfo.name%></a></li>
+                                        <%})%>
                                     </ul>
                                 </li>
                                 <li><a href="#">Admissions<i class="fa fa-angle-down"></i></a>
