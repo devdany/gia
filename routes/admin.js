@@ -613,6 +613,28 @@ router.get('/gallery',paginate.middleware(galleryPageInfo.limit, 50), loginRequi
     res.render('admin/gallery_admin', {loginUser: req.session.loginUser, galleryList: result, pages:pages, pageCount:pageCount});
 })
 
+router.get('/popup', loginRequired, (req, res) => {
+
+    res.render('admin/popup_admin');
+})
+
+router.post('/deletePopup', loginRequired, (req, res) => {
+    fs.stat(uploadDir + '/' + 'popup.png', (error, stat) => {
+        //파일이 없는경우
+        if (error !== null) {
+            return 'No pop-up to delete!';
+        }else{
+            fs.unlink(uploadDir + '/' + 'popup.png', (error) => {
+                if(error){
+                    throw error;
+                }else{
+                    return 'success';
+                }
+            })
+        }
+    })
+})
+
 router.post('/editNotice/:id', loginRequired, (req, res) => {
     notice.update({
         title: req.body.title,
@@ -718,9 +740,6 @@ router.get('/message',paginate.middleware(pageInfo.limit, 50), loginRequired, as
         message.count()
     ]);
 
-    console.log(result);
-
-
 
     const pageCount = Math.ceil(messageCount / req.query.limit);
     const pages = paginate.getArrayPages(req)(pageInfo.pageNum, pageCount, req.query.page);
@@ -757,7 +776,6 @@ router.post('/uploadImg', loginRequired, (req, res) => {
     });
 
     var upload = multer({storage: storage}).array('photo', 5);
-
 
     upload(req, res, (err) => {
         if (err) {

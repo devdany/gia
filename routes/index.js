@@ -7,9 +7,11 @@ var teacher = require('../db/model/Teachers');
 const classModel = require('../db/model/Class');
 const schedule = require('../db/model/Schedule');
 const gallery = require('../db/model/Gallery');
-const message = require('../db/model/Message')
-var paginate = require('express-paginate');
+const message = require('../db/model/Message');
 const path = require('path');
+const fs = require('fs');
+const uploadDir = path.join(__dirname, '../public/img');
+var paginate = require('express-paginate');
 const refdir = path.join(__dirname, '../public/ref');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -17,7 +19,7 @@ const Op = Sequelize.Op;
 /* GET home page. */
 
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
     classModel.findAll({order:[['name','ASC']]}).then(classes => {
         teacher.findAll().then(teachers => {
             gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
@@ -29,15 +31,26 @@ router.get('/', function (req, res) {
                     await Promise.all(classes.map(value => {
                         totals += parseInt(value.total);
                     })).then(() => {
-                        res.render('index', {
-                            loginUser: req.session.loginUser,
-                            contents: contents,
-                            classes: classes,
-                            teachers: teachers,
-                            galleryList: galleryList,
-                            totals: totals,
-                            categories: categories
-                        });
+                        let isPopup;
+                        fs.stat(uploadDir + '/' + 'popup.png', (error, stat) => {
+                            //파일이 있는경우
+                            if(error === null){
+                                isPopup = true;
+                            //없는 경우
+                            }else{
+                                isPopup = false;
+                            }
+                            res.render('index', {
+                                loginUser: req.session.loginUser,
+                                contents: contents,
+                                classes: classes,
+                                teachers: teachers,
+                                galleryList: galleryList,
+                                totals: totals,
+                                categories: categories,
+                                isPopup : isPopup
+                            });
+                        })
                     })
                 })
             })

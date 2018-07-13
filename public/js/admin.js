@@ -20,6 +20,7 @@ const sizes = {
     notice_back: '1920 x 340',
     employment_back: '1920 x 340',
     classInfo_back: '1920 x 340',
+    popup: '500 x 650'
 }
 
 
