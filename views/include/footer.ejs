@@ -106,5 +106,27 @@ Gyeongsangnam-do, Republic of Korea 52533</span>
         $("#naver").css('color', '#ffffff')
     })
 </script>
+<script>
+    // function openModal(getId){
+    //     //// modal / class add
+
+    //     var modal = document.getElementById(getId);
+    //     modal.classList.add('on');
+    //     event.preventDefault();
+    // }
+
+    function closeModal(getId){
+
+        ///// modal /  class close
+        var modal = document.getElementById(getId);
+        modal.classList.remove('on');
+        event.preventDefault();
+    }
+
+    $(function(){
+        console.log('adfad');
+        $(".modal2").addClass('on');
+    });
+</script>
 </body>
 </html>
