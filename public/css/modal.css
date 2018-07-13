@@ -1,0 +1,190 @@
+.modal,
+.modal2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-grid-row-align: center;
+  justify-items: center;
+  -ms-grid-column-align: center;
+  z-index: 10;
+}
+
+.modal2 .modalBox {
+  width: 560px;
+}
+
+@media all and (min-width: 481px) and (max-width: 767px) {
+  .modal2 .modalBox {
+    width: 400px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .modal2 .modalBox {
+    width: 300px;
+  }
+}
+
+.modal2 .modalBox .modalBtn1 {
+  margin-right: 0;
+  float: inherit;
+  margin: auto;
+}
+
+.modal2 .modalBox .btnBox {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.modal2 .modalBox .imageBox {
+  height: 500px;
+  width: 500px;
+  margin-bottom: 2rem;
+  overflow-y: auto;
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+  .modal2 .modalBox .imageBox {
+    height: 500px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .modal2 .modalBox .imageBox {
+    height: 500px;
+  }
+}
+
+@media all and (min-width: 481px) and (max-width: 767px) {
+  .modal2 .modalBox .imageBox {
+    height: 342px;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .modal2 .modalBox .imageBox {
+    height: 262px;
+    width: 100%;
+  }
+}
+
+.modal2 .modalBox .imageBox img {
+  width: 100%;
+}
+
+.blackBg.on {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.modalBox {
+  background-color: #fff;
+  position: relative;
+  z-index: 3;
+  padding: 2em;
+  min-width: 320px;
+  -webkit-box-shadow: 0 0 5px #363636;
+  box-shadow: 0 0 5px #363636;
+}
+
+.modalBox .formGroup {
+  margin-bottom: 0.8em;
+}
+
+.modalBox .formGroup.formGroup2 {
+  margin-bottom: 2.5em;
+}
+
+.modalBox .modalName,
+.modalBox .modalInput {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modalBox .modalName {
+  width: 20%;
+}
+
+.modalBox .modalInput {
+  width: 77%;
+  padding-left: 1%;
+  color: #666;
+}
+
+.modalBox .modalInput1 {
+  border: 1px solid #ddd;
+  height: 35px;
+}
+
+.modalBox .formGroup3 {
+  overflow: hidden;
+  min-width: 165px;
+  width: 165px;
+  margin: auto;
+}
+
+.modalBox .formGroup2 .sub_txt {
+  margin-top: 10px;
+}
+
+.modalBox .modalBtn {
+  float: left;
+  width: 80px;
+  border: 0 none;
+  border-radius: 3px;
+  color: #fff;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  cursor: pointer;
+  display: block;
+}
+
+.modalBox .modalBtn1 {
+  margin-right: 5px;
+}
+
+.modal,
+.modal2 {
+  display: none;
+}
+
+.modal.on,
+.modal2.on {
+  display: grid;
+  display: -ms-grid;
+}
+
+.modal.ie.on {
+  display: block;
+}
+
+.event_title {
+  float: left;
+}
+
+.event_date {
+  float: right;
+}
+
+.event_desc {
+  clear: both;
+}
+
+.modalBtn {
+  background-color: #8591ff;
+}

@@ -150,7 +150,7 @@ body {
 .section-padding {padding: 60px 0 60px 0}
 .section-padding-bottom {padding-bottom: 60px}
 .section-padding-top {padding-top: 60px}
-.section-title-wrapper, .gallery-area.gallery-fullwidth .section-title-wrapper{margin-bottom: 35px; position: relative}
+.section-title-wrapper, .gallery-area.gallery-fullwidth .section-title-wrapper{margin-bottom: 55px; position: relative}
 .section-title {
     overflow: hidden;
     position: relative;
@@ -158,12 +158,12 @@ body {
 }
 .section-title h3 {
     line-height: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 .section-title > p {
     font-size: 13px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .section-title-wrapper:before {
     background: #231e61 none repeat scroll 0 0;
@@ -365,7 +365,7 @@ header.header{
 }
 
 .slider-area{
-    padding-top:180px;
+    padding-top:166px;
 }
 /*----------------------------------------*/
 /*  2.2.1 Header Logo
@@ -1440,7 +1440,7 @@ span.gallery-text {
     display: inline-block;
     font-weight: 400;
     line-height: 12px;
-    margin-right: 14px;
+    margin-right: 35px;
 }
 .footer-info > span i {
     font-size: 14px;
@@ -1513,6 +1513,7 @@ span.gallery-text {
 .footer-container {
     border-top: 1px solid #231e61;
     padding: 13px 0 10px 0;
+    text-align: center;
 }
 .footer-container .social-links {
     float: right;
@@ -3039,10 +3040,10 @@ header.header-four, header.header-five {
 }
 .class-details-tab .tab-pane h3 {
     font-size: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
-.class-details-tab .tab-pane p {margin-bottom: 29px;}
+.class-details-tab .tab-pane p {margin-bottom: 45px;}
 .class-details-tab span.icon {
     display: block;
     padding-left: 41px;
@@ -3706,4 +3707,12 @@ span.schedule-time {
 
 .modal-content{
     top: 200px;
+}
+
+.margin_top{
+    margin-top:90px;
+}
+
+.margin_bottom{
+    margin-bottom:100px;
 }
