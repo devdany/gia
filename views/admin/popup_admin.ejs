@@ -1,0 +1,85 @@
+<% include ../include/header_admin.ejs %>
+
+<div class="breadcrumb-banner-area body-top" style="background: url('/img/faculty_back.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-text">
+                    <h1 class="text-center">Register Pop up</h1>
+                    <div class="breadcrumb-bar">
+                        <ul class="breadcrumb">
+                            <li><a href="/admin/index">Home</a></li>
+                            <li>Register Pop up</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Breadcrumb Banner Area-->
+<!--About Area Start-->
+<div class="about-area section-padding-bottom" style="margin-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="greeting_text_area">
+                <div class="about-text-container" style="text-align: center; margin-top: 200px;">
+                    <button name="popup" class="btn btn-default img_change">Register Popup</button><br><br>
+                    <button class="btn btn-danger" id="delpop">Delete Popup</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="skill-image" style="height: 700px;">
+                    <img src="/img/popup.png" alt="" id="popup">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imageModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="img_modal_title"></h4>
+            </div>
+
+            <div class="modal-body form-group">
+
+                <form action="/admin/uploadImg"  enctype="multipart/form-data" class="dropzone" style="border: 2px dashed #f57b20" id="myAwesomeDropzone">
+                    <div class="dz-message needsclick">
+                        <span style="color:#231e61">Drop Image here or click to upload.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../include/footer_admin.ejs %>
+
+<script src="/js/admin.js"> </script>
+<script>
+    $("#delpop").click(function () {
+        if(confirm('Are you sure delete popup?')){
+            $.ajax({
+                url: '/admin/deletePopup',
+                type: 'POST'
+            }).done(function (result) {
+                if(result === 'success') {
+                    alert('success!');
+                    location.reload();
+                }else{
+                    alert(result);
+                }
+            }).fail(function (err) {
+                console.error(err);
+            });
+        }
+    })
+</script>
