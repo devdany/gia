@@ -1,16 +1,18 @@
 <% include ./include/header.ejs %>
 <!--End of Header Area-->
+<%if(isPopup){%>
 <div class="modal2" id="detailModal">
-        <div class="blackBg on"></div>
-        <div class="modalBox">
-            <div class="imageBox">
-                <img src="/images/event8.png" alt="detail page image"/>
-            </div>
-            <div class="btnBox">
-                <button type="button" class="modalBtn modalBtn1" onclick="closeModal('detailModal');">확인</button>
-            </div>
-        </div> <!-- END modalBox-->
-    </div> <!-- END modal-->
+    <div class="blackBg on"></div>
+    <div class="modalBox">
+        <div class="imageBox">
+            <img src="/img/popup.png" alt="detail page image"/>
+        </div>
+        <div class="btnBox">
+            <button type="button" class="modalBtn modalBtn1" onclick="closeModal('detailModal');">확인</button>
+        </div>
+    </div> <!-- END modalBox-->
+</div> <!-- END modal-->
+<%}%>
 <!--Slider Area Start-->
 <div class="slider-area">
     <div class="preview-2">
@@ -140,14 +142,14 @@
                 <div class="col-md-4">
                     <div class="single-class">
                         <div class="single-class-image">
-                            <a href="/classInfo/<%= classInfo.no%>">
-                                <img src="<%= classInfo.picture%>" alt="">
+                            <a href="/classInfo/<%= classInfo.no %>">
+                                <img src="<%= classInfo.picture %>" alt="">
                                 <span class="class-date"><%= classInfo.startDate %></span>
                             </a>
                         </div>
                         <div class="single-class-text">
                             <div class="class-des">
-                                <h4><a href="/classInfo/<%=classInfo.no%>"><%= classInfo.name %></a></h4>
+                                <h4><a href="/classInfo/<%= classInfo.no %>"><%= classInfo.name %></a></h4>
                                 <p><%= classInfo.description %>&nbsp;</p>
                             </div>
                             <div class="class-schedule">
@@ -265,7 +267,7 @@
                     <div class="fun-factor-icon">
                         <i class="fa fa-users"></i>
                     </div>
-                    <h2><span class="counter"><%=teachers.length%></span></h2>
+                    <h2><span class="counter"><%= teachers.length %></span></h2>
                     <span>Teacher</span>
                 </div>
             </div>
@@ -274,7 +276,7 @@
                     <div class="fun-factor-icon">
                         <i class="fa fa-bank"></i>
                     </div>
-                    <h2><span class="counter"><%=classes.length%></span></h2>
+                    <h2><span class="counter"><%= classes.length %></span></h2>
                     <span>Class</span>
                 </div>
             </div>
@@ -283,7 +285,7 @@
                     <div class="fun-factor-icon">
                         <i class="fa fa-user"></i>
                     </div>
-                    <h2><span class="counter"><%=totals%></span></h2>
+                    <h2><span class="counter"><%= totals %></span></h2>
                     <span>Acceptable Students</span>
                 </div>
             </div>
@@ -314,27 +316,27 @@
             <div class="col-md-6">
                 <div class="testimonial-image-text-wrapper">
                     <div class="testimonial-image-slider text-center">
-                        <%teachers.forEach(function(teacher){%>
+                        <% teachers.forEach(function(teacher){ %>
                         <div class="sin-testiImage">
                             <div class="teacher-image-carousel">
-                                <img src="<%=teacher.picture%>" alt="teacher <%=teacher.no%>"/>
+                                <img src="<%= teacher.picture %>" alt="teacher <%= teacher.no %>"/>
                             </div>
                         </div>
-                        <%})%>
+                        <% }) %>
                     </div>
                     <div class="testimonial-text-slider">
-                        <%teachers.forEach(function(teacher){%>
+                        <% teachers.forEach(function(teacher){ %>
                         <div class="sin-testiText">
-                            <h2><%=teacher.name%></h2>
-                            <span class="language"><%=teacher.role%></span>
+                            <h2><%= teacher.name %></h2>
+                            <span class="language"><%= teacher.role %></span>
                             <div class="teacher-info-container">
-                                <p><i class="fa fa-graduation-cap"></i>Degree: <%=teacher.degree%></p>
-                                <p><i class="fa fa-star"></i>Experience: <%=teacher.experience%></p>
+                                <p><i class="fa fa-graduation-cap"></i>Degree: <%= teacher.degree %></p>
+                                <p><i class="fa fa-star"></i>Experience: <%= teacher.experience %></p>
                             </div>
-                            <p><%=teacher.intro%></p>
-                            <a href="/teacherInfo/<%=teacher.no%>" class="button-default">View Profile</a>
+                            <p><%= teacher.intro %></p>
+                            <a href="/teacherInfo/<%= teacher.no %>" class="button-default">View Profile</a>
                         </div>
-                        <%})%>
+                        <% }) %>
                     </div>
                 </div>
             </div>
@@ -358,17 +360,17 @@
 
         <div class="row gallery-row">
             <div class="filter-items">
-                <%galleryList.forEach(function (gallery){%>
-                <div class="mix single-items <%=gallery.category%> col-md-3 col-sm-6 col-xs-12 overlay-hover">
+                <% galleryList.forEach(function (gallery){ %>
+                <div class="mix single-items <%= gallery.category %> col-md-3 col-sm-6 col-xs-12 overlay-hover">
                     <div class="overlay-effect">
-                        <a><img src="<%=gallery.img%>" alt=""></a>
+                        <a><img src="<%= gallery.img %>" alt=""></a>
                         <div class="gallery-hover-effect">
-                            <a class="gallery-icon venobox" href="<%=gallery.img%>"><i class="fa fa-image"></i></a>
-                            <span class="gallery-text"><%=gallery.comment%></span>
+                            <a class="gallery-icon venobox" href="<%= gallery.img %>"><i class="fa fa-image"></i></a>
+                            <span class="gallery-text"><%= gallery.comment %></span>
                         </div>
                     </div>
                 </div>
-                <%})%>
+                <% }) %>
             </div>
         </div>
         <br>

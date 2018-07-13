@@ -40,6 +40,7 @@ router.get('/', (req, res) => {
                             }else{
                                 isPopup = false;
                             }
+
                             res.render('index', {
                                 loginUser: req.session.loginUser,
                                 contents: contents,
