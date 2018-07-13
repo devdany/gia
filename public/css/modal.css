@@ -14,7 +14,7 @@
   -ms-grid-row-align: center;
   justify-items: center;
   -ms-grid-column-align: center;
-  z-index: 10;
+  z-index: 99999;
 }
 
 .modal2 .modalBox {
