@@ -1,7 +1,7 @@
 {
   "dbschema" : "gia",
-  "username" : "root",
-  "password" : "rhkr1636",
-  "host" : "localhost",
+  "username" : "gia",
+  "password" : "rhkr!636",
+  "host" : "13.209.48.7",
   "dialect" : "mysql"
 }
