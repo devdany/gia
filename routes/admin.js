@@ -622,13 +622,14 @@ router.post('/deletePopup', loginRequired, (req, res) => {
     fs.stat(uploadDir + '/' + 'popup.png', (error, stat) => {
         //파일이 없는경우
         if (error !== null) {
-            return 'No pop-up to delete!';
+            res.send('No pop-up to delete!');
         }else{
             fs.unlink(uploadDir + '/' + 'popup.png', (error) => {
                 if(error){
+                    res.send('error');
                     throw error;
                 }else{
-                    return 'success';
+                    res.send('success');
                 }
             })
         }
