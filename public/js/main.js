@@ -209,7 +209,7 @@
 	Testimonial Slick Carousel as Nav
 --------------------------------------*/
     $('.testimonial-image-slider').slick({
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         asNavFor: '.testimonial-text-slider',
         dots: false,
