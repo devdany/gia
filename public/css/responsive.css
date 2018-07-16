@@ -445,41 +445,78 @@
  
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .container {width:450px}
-    .slick-next {right: -77px;}    
-    .slick-prev {left: -77px;}
+    .container {
+        width: 450px
+    }
+
+    .slick-next {
+        right: -77px;
+    }
+
+    .slick-prev {
+        left: -77px;
+    }
+
     .teacher-image-carousel {
         height: 74px;
         margin-bottom: 28px;
         margin-top: 42px;
         width: 74px;
     }
+
     .timer-grid > div, .timer-view > div {
         height: 94px;
         width: 92px;
     }
+
     .timer-grid .cdown {
         margin-right: 5px;
         padding: 15px;
     }
+
     .timer-grid .cdown span.counting {
         font-size: 45px;
         line-height: 47px;
     }
-    .single-blog-image a img {width: 100%;}
-    .google-map-area .breadcrumb-bar {width: 56.1%;}
+
+    .single-blog-image a img {
+        width: 100%;
+    }
+
+    .google-map-area .breadcrumb-bar {
+        width: 56.1%;
+    }
+
     .teacher-about-info .teacher-info-text span i {
         width: 23px;
         margin-right: 8px
-    }  
+    }
+
     .teacher-image-carousel {
         height: 60px;
         width: 60px;
     }
+
     .testimonial-small-carousel .sin-testiImage.slick-current .teacher-image-carousel {
         height: 80px;
         margin-bottom: 9px;
         margin-top: 31px;
         width: 80px;
+    }
+
+    .fun-factor-area:after {
+        height: 313px;
+    }
+
+
+}
+
+@media only screen and (max-width: 479px) {
+    .single-fun-factor > h2 {
+        font-size: 35px;
+    }
+
+    .single-fun-factor > span {
+        font-size: 13px;
     }
 }
