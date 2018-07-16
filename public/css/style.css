@@ -1125,12 +1125,12 @@ span.arrow a:after {
 .fun-factor-area:after {
     background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
     content: "";
-    height: 254px;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: -1;
+    height: 100%;
 }
 /*----------------------------------------*/
 /*  10. Testimonial Area
