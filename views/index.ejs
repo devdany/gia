@@ -395,6 +395,11 @@
 <!--End of Google Map Area-->
 <% include ./include/footer.ejs %>
 <script>
+
+    $(document).ready(function () {
+        $(".slick-trace").css('width','432px');
+        $(".sin-testiImage").css('margin-right','10px');
+    });
     function initialize() {
         var mapOptions = {
             zoom: 15,
