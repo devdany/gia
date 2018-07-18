@@ -1142,6 +1142,7 @@ span.arrow a:after {
     display: inline-block;
     margin-bottom: 11px;
     outline: medium none;
+    margin-right: 10px!important;
 }
 .teacher-image-carousel {
     border: 1px solid #f0f0f0;
@@ -3716,3 +3717,9 @@ span.schedule-time {
 .margin_bottom{
     margin-bottom:100px;
 }
+
+.slick-track{
+    width: 432px!important;
+}
+
+.sin-
