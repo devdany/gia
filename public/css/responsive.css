@@ -523,4 +523,8 @@
     #nivoslider{
         margin-top: 31px;
     }
+
+    .single-service-icon img{
+        width: 60%;
+    }
 }
