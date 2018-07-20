@@ -166,7 +166,7 @@ $("#greeting_skill_bt").click(function () {
 
 function isNotSkill(skill){
 
-    return (isNaN(skill) || skill <=29 || skill>100);
+    return (isNaN(skill) || skill <=24 || skill>100);
 }
 
 $("#greeting_skill_ok").click(function () {
@@ -180,7 +180,7 @@ $("#greeting_skill_ok").click(function () {
     var skill8 = $("#skill8").val().trim();
 
     if(isNotSkill(skill1)||isNotSkill(skill2)||isNotSkill(skill3)||isNotSkill(skill4)||isNotSkill(skill5)||isNotSkill(skill6)||isNotSkill(skill7)||isNotSkill(skill8)){
-        alert('입력창에는 1~100까지의 숫자만 들어갈 수 있습니다!(공백도 허용되지 않습니다.)')
+        alert('입력창에는 25~100까지의 숫자만 들어갈 수 있습니다!(공백도 허용되지 않습니다.)')
 
     }else{
         if(confirm('정말 스킬정보를 변경하시겠습니까?')){
