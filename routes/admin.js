@@ -857,10 +857,11 @@ router.post('/uploadImg', loginRequired, (req, res) => {
             res.end('fail');
         } else {
             const filename = contents[req.body.target].img;
+            console.log('1'+filename);
             fs.stat(uploadDir + '/' + filename, function (error, stat) {
                 if (error === null) {
                     //파일이 있는 경우 타겟파일 삭제후
-                    console.log(filename);
+                    console.log('2'+filename);
                     fs.unlink(uploadDir + '/' + filename, (error) => {
                         if (error) {
                             throw error;
@@ -888,7 +889,7 @@ router.post('/uploadImg', loginRequired, (req, res) => {
                     })
                 } else {
                     //파일이 없는 경우 그냥 수정
-
+                    console.log('3'+filename);
                     if (filename.includes('register.png')) {
                         //임시저장인 경우
                         res.end(req.body.target + ',' + tempFileName);
