@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
         teacher.findAll().then(teachers => {
             Promise.all(teachers.map(async val => {
                 const exList = val.dataValues.experience.split('/');
-                val.dataValues.exList = exList;
+                val.exList = exList;
             })).then(() => {
                 gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
                     gallery.findAll({
