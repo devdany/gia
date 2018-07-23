@@ -324,9 +324,11 @@
                             <h2><%= teacher.name %></h2>
                             <span class="language"><%= teacher.role %></span>
                             <div class="teacher-info-container">
+                                <%if(teacher.exList){%>
                                 <%teacher.exList.forEach(function(ex){%>
                                     <p><i class="fa fa-star"></i>Experience: <%=ex%></p>
                                 <%})%>
+                                <%}%>
                             </div>
                             <p><%= teacher.intro %></p><br>
                             <a href="/teacherInfo/<%= teacher.no %>" class="button-default">View Profile</a>
