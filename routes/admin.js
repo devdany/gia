@@ -263,26 +263,58 @@ router.get('/employment', loginRequired, (req, res) => {
 })
 
 router.post('/updateClass', loginRequired, (req, res) => {
+
     if (req.body.isUpload === 'false') {
-        classModel.update({
-            name: req.body.title,
-            target: req.body.target,
-            fee: req.body.fee,
-            mainTeacher: req.body.mainTeacher,
-            description: req.body.description,
-            total: req.body.total,
-            startDate: req.body.startDate,
-            outcomes: req.body.outcomes,
-            subTeacher: req.body.subTeacher
-        }, {
+        classModel.findOne({
             where: {
                 no: req.body.no
             }
-        }).then(() => {
-            res.send('success');
-        }).catch((err) => {
-            res.send(err);
+        }).then(original => {
+
+            classModel.update({
+                name: req.body.title,
+                target: req.body.target,
+                fee: req.body.fee,
+                mainTeacher: req.body.mainTeacher,
+                description: req.body.description,
+                total: req.body.total,
+                startDate: req.body.startDate,
+                outcomes: req.body.outcomes,
+                subTeacher: req.body.subTeacher
+            }, {
+                where: {
+                    no: req.body.no
+                }
+            }).then(() => {
+                schedule.findAll({
+                    where: {
+                        classname:original.dataValues.name
+                    }
+                }).then(result => {
+                    if(result.length !== 0){
+
+
+                        for(let i = 0; i<result.length; i++){
+                            schedule.update({
+                                classname: req.body.title
+                            },{
+                                where :{
+                                    no: result[i].dataValues.no
+                                }
+                            })
+                        }
+                        res.send('success');
+                    }else{
+                        res.send('success');
+                    }
+
+                })
+            }).catch((err) => {
+                res.send(err);
+            })
         })
+
+
         //이미지가 수정된 경우
     } else {
         const profileImg = uploadDir + '/classes/' + req.body.title + '_' + new Date().dateformat() + '.png';
@@ -312,10 +344,26 @@ router.post('/updateClass', loginRequired, (req, res) => {
                             no: req.body.no
                         }
                     }).then(() => {
-                        var temp = classInfo.picture.split("img/");
-                        var filename = temp[1];
-                        fs.unlink(uploadDir + '/' + filename, (error) => {
-                            res.send('success');
+                        schedule.findAll({
+                            where: {
+                                classname:classInfo.dataValues.name
+                            }
+                        }).then(result => {
+                            for(let i = 0; i<result.length; i++){
+                                schedule.update({
+                                    classname: req.body.title
+                                },{
+                                    where :{
+                                        no: result[i].dataValues.no
+                                    }
+                                })
+                            }
+                        }).then(() => {
+                            var temp = classInfo.picture.split("img/");
+                            var filename = temp[1];
+                            fs.unlink(uploadDir + '/' + filename, (error) => {
+                                res.send('success');
+                            })
                         })
                     }).catch(err => {
                         console.log(err);
@@ -325,16 +373,42 @@ router.post('/updateClass', loginRequired, (req, res) => {
             });
         })
     }
+
+
 })
 
 router.post('/deleteClass', loginRequired, (req, res) => {
-    classModel.destroy({
-        where: {
+    classModel.findOne({
+        where:{
             no: req.body.no
         }
-    }).then(() => {
-        res.send('success');
+    }).then(result => {
+        classModel.destroy({
+            where: {
+                no: req.body.no
+            }
+        }).then(() => {
+
+            schedule.findAll({
+                where: {
+                    classname:result.dataValues.name
+                }
+            }).then(result => {
+
+                for(let i = 0; i<result.length; i++){
+                    schedule.destroy({
+                        where :{
+                            no: result[i].dataValues.no
+                        }
+                    })
+                }
+
+                res.send('success');
+
+            })
+        })
     })
+
 })
 
 router.post('/registerTeacher', loginRequired, (req, res) => {

@@ -181,7 +181,7 @@ $("#greeting_skill_ok").click(function () {
 
     if(isNotSkill(skill1)||isNotSkill(skill2)||isNotSkill(skill3)||isNotSkill(skill4)||isNotSkill(skill5)||isNotSkill(skill6)||isNotSkill(skill7)||isNotSkill(skill8)){
         alert('입력창에는 25~100까지의 숫자만 들어갈 수 있습니다!(공백도 허용되지 않습니다.)')
-
+0
     }else{
         if(confirm('정말 스킬정보를 변경하시겠습니까?')){
             var target = $("#modal_title").text();
