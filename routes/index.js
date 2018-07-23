@@ -151,6 +151,7 @@ router.get('/classInfo/:id', (req, res) => {
                             classname: classInfo.name
                         }
                     }).then(schedules => {
+                        console.log(schedules);
                         res.render('curriculum/classInfo', {
                             loginUser: req.session.loginUser,
                             classInfo: classInfo,
