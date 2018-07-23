@@ -22,35 +22,40 @@ const Op = Sequelize.Op;
 router.get('/', (req, res) => {
     classModel.findAll({order:[['no','ASC']]}).then(classes => {
         teacher.findAll().then(teachers => {
-            gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
-                gallery.findAll({
-                    limit: 12,
-                    order: [['no', 'DESC']]
-                }).then(async galleryList => {
-                    let totals = 0;
-                    await Promise.all(classes.map(value => {
-                        totals += parseInt(value.total);
-                    })).then(() => {
-                        let isPopup;
-                        fs.stat(uploadDir + '/' + 'popup.png', (error, stat) => {
-                            //파일이 있는경우
-                            if(error === null){
-                                isPopup = true;
-                            //없는 경우
-                            }else{
-                                isPopup = false;
-                            }
+            Promise.all(teachers.map(async val => {
+                const exList = val.dataValues.experience.split('/');
+                val.dataValues.exList = exList;
+            })).then(() => {
+                gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
+                    gallery.findAll({
+                        limit: 12,
+                        order: [['no', 'DESC']]
+                    }).then(async galleryList => {
+                        let totals = 0;
+                        await Promise.all(classes.map(value => {
+                            totals += parseInt(value.total);
+                        })).then(() => {
+                            let isPopup;
+                            fs.stat(uploadDir + '/' + 'popup.png', (error, stat) => {
+                                //파일이 있는경우
+                                if(error === null){
+                                    isPopup = true;
+                                    //없는 경우
+                                }else{
+                                    isPopup = false;
+                                }
 
-                            res.render('index', {
-                                loginUser: req.session.loginUser,
-                                contents: contents,
-                                classes: classes,
-                                teachers: teachers,
-                                galleryList: galleryList,
-                                totals: totals,
-                                categories: categories,
-                                isPopup : isPopup
-                            });
+                                res.render('index', {
+                                    loginUser: req.session.loginUser,
+                                    contents: contents,
+                                    classes: classes,
+                                    teachers: teachers,
+                                    galleryList: galleryList,
+                                    totals: totals,
+                                    categories: categories,
+                                    isPopup : isPopup
+                                });
+                            })
                         })
                     })
                 })
@@ -103,7 +108,6 @@ router.get('/teacherInfo/:id', (req, res) => {
                 }
             }).then(myClasses => {
                 const exList = result.dataValues.experience.split('/');
-                console.log(result.dataValues.degree);
 
                 res.render('about/teacherInfo', {
                     loginUser: req.session.loginUser,
