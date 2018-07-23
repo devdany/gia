@@ -860,6 +860,7 @@ router.post('/uploadImg', loginRequired, (req, res) => {
             fs.stat(uploadDir + '/' + filename, function (error, stat) {
                 if (error === null) {
                     //파일이 있는 경우 타겟파일 삭제후
+                    console.log(filename);
                     fs.unlink(uploadDir + '/' + filename, (error) => {
                         if (error) {
                             throw error;
