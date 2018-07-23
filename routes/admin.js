@@ -854,6 +854,7 @@ router.post('/uploadImg', loginRequired, (req, res) => {
 
     upload(req, res, (err) => {
         if (err) {
+            console.log('?');
             res.end('fail');
         } else {
             const filename = contents[req.body.target].img;
