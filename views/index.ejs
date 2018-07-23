@@ -326,7 +326,9 @@
                             <div class="teacher-info-container">
                                 <%if(teacher.exList){%>
                                 <%teacher.exList.forEach(function(ex){%>
+                                    <%if(ex && ex!==''){%>
                                     <p><i class="fa fa-star"></i>Experience: <%=ex%></p>
+                                    <%}%>
                                 <%})%>
                                 <%}%>
                             </div>
