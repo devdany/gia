@@ -45,8 +45,6 @@ router.get('/', (req, res) => {
                                     isPopup = false;
                                 }
 
-                                console.log(teachers);
-
                                 res.render('index', {
                                     loginUser: req.session.loginUser,
                                     contents: contents,

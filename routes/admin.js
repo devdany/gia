@@ -92,7 +92,7 @@ router.get('/classList',loginRequired, (req, res) => {
 
 router.get('/teacherList',loginRequired, (req, res) => {
     teacher.findAll().then(teachers => {
-        console.log(teachers);
+
         res.render('admin/teacherList_admin', {loginUser: req.session.loginUser, teachers: teachers})
     })
 })
@@ -127,7 +127,7 @@ router.get('/updateTeacher/:id',loginRequired, (req, res) => {
         }
     }).then(teacher => {
         const exList = teacher.dataValues.experience.split('/');
-        console.log(exList);
+
         res.render('admin/update_teacher.ejs', {loginUser: req.session.loginUser, teacher: teacher, exList: exList});
     })
 })
@@ -530,7 +530,7 @@ router.get('/schedule', loginRequired, (req, res) => {
     classModel.findAll().then(classes => {
         teacher.findAll().then(teacher => {
             schedule.findAll().then(schedules => {
-                console.log('?');
+
                 res.render('admin/register_schedule.ejs', {
                     loginUser: req.session.loginUser,
                     contents: contents,
