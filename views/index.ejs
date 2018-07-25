@@ -148,14 +148,18 @@
                             </a>
                         </div>
                         <div class="single-class-text">
-                            <div class="class-des">
+                            <div class="class-des" style="height: 260px;">
                                 <h4><a href="/classInfo/<%= classInfo.no %>"><%= classInfo.name %></a></h4>
-                                <p><%= classInfo.description %>&nbsp;</p>
+                                <%if(classInfo.description.length >389){%>
+                                    <p><%= classInfo.description.substring(0, 389)+ '...' %>&nbsp;</p>
+                                <%}else{%>
+                                    <p><%= classInfo.description %>&nbsp;</p>
+                                }
                             </div>
                             <div class="class-schedule">
                                 <span>AGE: <%= classInfo.target %></span>
                                 <span>CLASS SIZE: <%= classInfo.total %></span>
-                                <span class="arrow"><a href="#"><i class="fa fa-angle-right"></i></a></span>
+                                <span class="arrow"><a href="/classInfo/<%= classInfo.no %>"><i class="fa fa-angle-right"></i></a></span>
                             </div>
                         </div>
                     </div>
