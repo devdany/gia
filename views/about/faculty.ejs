@@ -41,6 +41,8 @@
                         <%if(teacher.intro !== null){%>
                         <%if(teacher.intro.length > 360){%>
                         <p><%=teacher.intro.substring(0, 360)+'...'%></p>
+                        <%}else{%>
+                            <p><%=teacher.intro%></p>
                         <%}%>
                         <%}%>
                     </div>
