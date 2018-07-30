@@ -121,12 +121,6 @@ router.get('/teacherInfo/:id', (req, res) => {
     })
 })
 
-router.get('/location', (req, res) => {
-    classModel.findAll({order:[['no','ASC']]}).then(classes => {
-        res.render('about/location', {loginUser: req.session.loginUser, classes: classes});
-    })
-
-})
 router.get('/classInfo/:id', (req, res) => {
     classModel.findAll({order:[['no','ASC']]}).then(classes => {
         classModel.findOne({
