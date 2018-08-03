@@ -235,8 +235,8 @@ router.get('/gallery',  (req, res) => {
         gallery.aggregate('category', 'DISTINCT', {plain: false}).then(async categories => {
             categories = await categories.sort((a, b) => {
 
-                if(a === 'TinyTigers'){
-                    return -1;
+                if(a.DISTINCT === 'TinyTigers'){
+                    return 1;
                 }else{
                     const x = a.DISTINCT.toLowerCase();
                     const y = b.DISTINCT.toLowerCase();
