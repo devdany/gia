@@ -236,7 +236,7 @@ router.get('/gallery',  (req, res) => {
             categories = await categories.sort((a, b) => {
 
                 if(a === 'TinyTigers'){
-                    return 1;
+                    return -1;
                 }else{
                     const x = a.DISTINCT.toLowerCase();
                     const y = b.DISTINCT.toLowerCase();
