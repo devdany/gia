@@ -239,20 +239,16 @@ router.get('/gallery', (req, res) => {
                 const y = b.DISTINCT.toLowerCase();
 
 
-                console.log('------')
-                console.log(x, y);
-
                 if(x === 'tinytigers'){
-                    return -1
+                    return -1;
                 }else if(y === 'tinytigers'){
-                    return 1
+                    return 1;
                 } else{
 
                     return x < y ? -1 : x > y ? 1 : 0;
                 }
             })
 
-            console.log(categories);
             await gallery.findAll({
                 order: [['no', 'DESC']]
             }).then(result => {
