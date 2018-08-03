@@ -243,9 +243,9 @@ router.get('/gallery', (req, res) => {
                 console.log(x, y);
 
                 if(x === 'tinytigers'){
-                    return 1
-                }else if(y === 'tinytigers'){
                     return -1
+                }else if(y === 'tinytigers'){
+                    return 1
                 } else{
 
                     return x < y ? -1 : x > y ? 1 : 0;
