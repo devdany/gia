@@ -243,6 +243,7 @@ router.get('/gallery', /*paginate.middleware(galleryPageInfo.limit, 50),*/ (req,
         ]);*/
 
         gallery.aggregate('category', 'DISTINCT', {plain: false},{order:[['no','ASC']]}).then(categories => {
+            console.log(categories);
             /*const pageCount = Math.ceil(galleryCount / req.query.limit);
             const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
 
