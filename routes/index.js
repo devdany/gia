@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
                 const exList = val.dataValues.experience.split('/');
                 val.exList = exList;
             })).then(() => {
-                gallery.aggregate('category', 'DISTINCT', {plain: false},{order:[['no','ASC']]}).then(categories => {
+                gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
                     gallery.findAll({
                         limit: 12,
                         order: [['no', 'DESC']]
@@ -242,7 +242,7 @@ router.get('/gallery', /*paginate.middleware(galleryPageInfo.limit, 50),*/ (req,
             gallery.count()
         ]);*/
 
-        gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
+        gallery.aggregate('category', 'DISTINCT', {plain: false},{order:[['no','ASC']]}).then(categories => {
             /*const pageCount = Math.ceil(galleryCount / req.query.limit);
             const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
 
