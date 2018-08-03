@@ -229,35 +229,24 @@ var galleryPageInfo = {
 }
 
 
-router.get('/gallery', /*paginate.middleware(galleryPageInfo.limit, 50),*/ (req, res) => {
+router.get('/gallery',  (req, res) => {
     classModel.findAll({order:[['no','ASC']]}).then(async classes => {
-        var start = ((req.query.page - 1) * galleryPageInfo.limit);
 
-        /*const [result, galleryCount] = await Promise.all([
-            gallery.findAll({
-                order: [['no', 'DESC']],
-                limit: req.query.limit,
-                offset: start
-            }),
-            gallery.count()
-        ]);*/
+        gallery.aggregate('category', 'DISTINCT', {plain: false}).then(async categories => {
+            categories = await categories.sort((a, b) => {
+                const x = a.DISTINCT.toLowerCase();
+                const y = b.DISTINCT.toLowerCase();
 
-        gallery.aggregate('category', 'DISTINCT', {plain: false},{order:[['no','ASC']]}).then(categories => {
+                return x < y ? -1 : x > y ? 1 : 0;
+            })
+
             console.log(categories);
-            /*const pageCount = Math.ceil(galleryCount / req.query.limit);
-            const pages = paginate.getArrayPages(req)(galleryPageInfo.pageNum, pageCount, req.query.page);
-
-            if (req.query.page > pageCount && pageCount !== 0) {
-                res.redirect('/gallery?page=' + pageCount + '&limit=' + galleryPageInfo.limit)
-            }*/
-            gallery.findAll({
+            await gallery.findAll({
                 order: [['no', 'DESC']]
             }).then(result => {
                 res.render('photos/gallery', {
                     loginUser: req.session.loginUser,
                     galleryList: result,
-                    /*pages: pages,
-                    pageCount: pageCount,*/
                     classes: classes,
                     categories: categories
                 });
