@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumb-text">
-                    <h1 class="text-center">Register Class</h1>
+                    <h1 class="text-center">Update Class</h1>
                     <div class="breadcrumb-bar">
                         <ul class="breadcrumb">
                             <li><a href="/admin/index">Home</a></li>
@@ -77,11 +77,11 @@
                         </p>
                         <select class="form-control" id="mainTeacher">
                             <% teachers.forEach(function(teacher){%>
-                            <%if(classInfo.mainTeacher == teacher.no){%>
-                            <option value="<%=teacher.no%>" selected><%=teacher.name%></option>
-                            <%}else{%>
-                            <option value="<%=teacher.no%>"><%=teacher.name%></option>
-                            <%}%>
+                                <%if(classInfo.mainTeacher == teacher.no){%>
+                                <option value="<%=teacher.no%>" selected><%=teacher.name%></option>
+                                <%}else{%>
+                                <option value="<%=teacher.no%>"><%=teacher.name%></option>
+                                <%}%>
                             <%});%>
                         </select>
                         <br>
@@ -91,7 +91,6 @@
                         </p>
                         <%if(classInfo.subTeacher === ''){%>
                         <select class="form-control" id="subTeacher">
-
                             <option selected="selected" value="">Select sub-teacher</option>
                             <% teachers.forEach(function(teacher){%>
                             <option value="<%=teacher.no%>"><%=teacher.name%></option>
@@ -100,12 +99,13 @@
                         <%}else{%>
                         <select class="form-control" id="subTeacher">
                             <% teachers.forEach(function(teacher){%>
-                            <%if(classInfo.subTeacher == teacher.no){%>
-                            <option value="<%=teacher.no%>" selected><%=teacher.name%></option>
-                            <%}else{%>
-                            <option value="<%=teacher.no%>"><%=teacher.name%></option>
-                            <%}%>
+                                <%if(classInfo.subTeacher == teacher.no){%>
+                                <option value="<%=teacher.no%>" selected><%=teacher.name%></option>
+                                <%}else{%>
+                                <option value="<%=teacher.no%>"><%=teacher.name%></option>
+                                <%}%>
                             <%});%>
+                            <option selected="selected" value="">No Sub-Teacher</option>
                         </select>
                         <%}%>
                     </div>
