@@ -238,17 +238,18 @@ router.get('/gallery', (req, res) => {
                 const x = a.DISTINCT.toLowerCase();
                 const y = b.DISTINCT.toLowerCase();
 
-                if(x === 'tinytigers'){
-
-                }
 
                 console.log('------')
                 console.log(x, y);
 
+                if(x === 'tinytigers'){
+                    return 1
+                }else if(y === 'tinytigers'){
+                    return -1
+                } else{
 
-                return x < y ? -1 : x > y ? 1 : 0;
-
-
+                    return x < y ? -1 : x > y ? 1 : 0;
+                }
             })
 
             console.log(categories);
