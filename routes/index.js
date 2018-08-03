@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
                 const exList = val.dataValues.experience.split('/');
                 val.exList = exList;
             })).then(() => {
-                gallery.aggregate('category', 'DISTINCT', {plain: false}).then(categories => {
+                gallery.aggregate('category', 'DISTINCT', {plain: false},{order:[['no','ASC']]}).then(categories => {
                     gallery.findAll({
                         limit: 12,
                         order: [['no', 'DESC']]
@@ -66,9 +66,7 @@ router.get('/', (req, res) => {
 
 router.get('/greeting', (req, res) => {
     classModel.findAll({order:[['no','ASC']]}).then(classes => {
-        teacher.findAll({
-            limit: 4
-        }).then(teachers => {
+        teacher.findAll().then(teachers => {
             res.render('about/greeting', {
                 loginUser: req.session.loginUser,
                 contents: contents,
