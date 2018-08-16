@@ -125,8 +125,74 @@ Gyeongsangnam-do, Republic of Korea 52533</span>
 
     $(function(){
 
-        $(".modal2").addClass('on');
+        if(getCookie("notToday")!="Y"){
+
+            $(".modal2").addClass('on');
+
+        }
     });
+
+    function closePopupNotToday(getId){
+
+        setCookie('notToday','Y', 1);
+
+        var modal = document.getElementById(getId);
+        modal.classList.remove('on');
+        event.preventDefault();
+
+    }
+
+    function setCookie(name, value, expiredays) {
+
+        var today = new Date();
+
+        today.setDate(today.getDate() + expiredays);
+
+
+
+        document.cookie = name + '=' + escape(value) + '; path=/; expires=' + today.toGMTString() + ';'
+
+    }
+
+    function getCookie(name)
+
+    {
+
+        var cName = name + "=";
+
+        var x = 0;
+
+        while ( i <= document.cookie.length )
+
+        {
+
+            var y = (x+cName.length);
+
+            if ( document.cookie.substring( x, y ) == cName )
+
+            {
+
+                if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+
+                    endOfCookie = document.cookie.length;
+
+                return unescape( document.cookie.substring( y, endOfCookie ) );
+
+            }
+
+            x = document.cookie.indexOf( " ", x ) + 1;
+
+            if ( x == 0 )
+
+                break;
+
+        }
+
+        return "";
+
+    }
+
+
 </script>
 </body>
 </html>
