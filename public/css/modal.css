@@ -34,9 +34,9 @@
 }
 
 .modal2 .modalBox .modalBtn1 {
-  margin-right: 0;
-  float: inherit;
-  margin: auto;
+  margin-right: 5px;
+  float: right;
+
 }
 
 .modal2 .modalBox .btnBox {
