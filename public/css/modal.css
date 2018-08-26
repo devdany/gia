@@ -146,7 +146,7 @@
   float: left;
   width: 80px;
   border: 0 none;
-  border-radius: 3px;
+  border-radius: 30px;
   color: #fff;
   padding-top: 0.8em;
   padding-bottom: 0.8em;
@@ -187,5 +187,4 @@
 
 .modalBtn {
   background-color: #f57b20;
-  border-radius: 30px;
 }
