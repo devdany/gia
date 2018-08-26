@@ -39,7 +39,7 @@
       <find>sin-te</find>
       <find>{order:[['name'</find>
       <find>slick</find>
-      <find>our ser</find>
+      <find />
       <find>console.log</find>
       <find>datefor</find>
       <find>panel</find>
@@ -148,11 +148,9 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1754" />
-    <option name="y" value="39" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="794" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
