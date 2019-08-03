@@ -27,6 +27,10 @@
                         <td><input type="text" name="title" class="form-control" id="notice_title"/></td>
                     </tr>
                     <tr>
+                        <th>VideoUrl</th>
+                        <td><input placeholder="https://youtu.be/VIDEO_URL" type="text" name="video" class="form-control" id="notice_video"/></td>
+                    </tr>
+                    <tr>
                         <th>Notice</th>
                         <td>
                             <textarea name="content" class="form-control" id="summernote"></textarea>
@@ -82,11 +86,12 @@
     $("#write_notice").click(function () {
         var title = $("#notice_title").val();
         var content = $("#summernote").val();
+        var video = $("#notice_video").val();
 
         $.ajax({
             url: '/admin/writeNotice',
             type: 'POST',
-            data: {title:title, content:content}
+            data: {title:title, video: video, content:content}
         }).done(function (result) {
             if(result.message === 'success') {
                 alert('write success!');

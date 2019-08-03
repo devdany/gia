@@ -12,6 +12,7 @@ const admin = require('./db/model/Admin');
 const notice = require('./db/model/Notice');
 const schedule = require('./db/model/Schedule');
 const message = require('./db/model/Message');
+const videoPopup = require('./db/model/VideoPopup')
 
 const dbConnector = require('./db/Connector');
 dbConnector.authenticate()
@@ -34,6 +35,7 @@ admin.sync({force: false});
 notice.sync({force: false});
 schedule.sync({force: false});
 message.sync({force: false});
+videoPopup.sync({force: false});
 
 
 var app = express();

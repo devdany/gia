@@ -132,6 +132,12 @@ Gyeongsangnam-do, Republic of Korea 52533</span>
         }
     });
 
+    $(function(){
+      if(getCookie("video")!="Y"){
+        $(".videoModal").addClass('on');
+      }
+    });
+
     function closePopupNotToday(getId){
 
         setCookie('notToday','Y', 1);
@@ -139,6 +145,16 @@ Gyeongsangnam-do, Republic of Korea 52533</span>
         var modal = document.getElementById(getId);
         modal.classList.remove('on');
         event.preventDefault();
+
+    }
+
+    function closePopupNotVideoToday(getId){
+
+      setCookie('video','Y', 1);
+
+      var modal = document.getElementById(getId);
+      modal.classList.remove('on');
+      event.preventDefault();
 
     }
 

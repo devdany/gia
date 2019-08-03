@@ -15,6 +15,10 @@ const notice = connector.define('Notice', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    video: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
     content: {
         type: Sequelize.STRING,
         allowNull: false

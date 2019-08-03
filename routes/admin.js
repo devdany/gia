@@ -15,6 +15,7 @@ const copyFile = require('fs-copy-file');
 const Sequelize = require('sequelize');
 const notice = require('../db/model/Notice');
 const gallery = require('../db/model/Gallery');
+const videoPopup = require('../db/model/VideoPopup');
 var dateformat = require('../lib/DateFormatConverter');
 var paginate = require('express-paginate');
 
@@ -624,10 +625,25 @@ router.get('/notice/detail/:id', loginRequired, (req, res) => {
             no: id
         }
     }).then(result => {
-        res.render('admin/notice_detail_admin', {
-            loginUser: req.session.loginUser,
-            notice: result
+        videoPopup.findOne({
+            where: {
+                no: 1
+            }
         })
+          .then(popup =>  {
+              let popupNoticeId
+              if(popup) {
+                  popupNoticeId = popup.dataValues.notice_id;
+              }
+
+
+              res.render('admin/notice_detail_admin', {
+                  loginUser: req.session.loginUser,
+                  notice: result,
+                  isPopup: popupNoticeId === result.dataValues.no
+              })
+          })
+
     })
 
 })
@@ -730,6 +746,7 @@ router.post('/writeNotice', loginRequired, (req, res) => {
     notice.create({
         title: req.body.title,
         writer: req.session.loginUser.id,
+        video: req.body.video,
         content: req.body.content,
         date: new Date().dateformat()
     }).then(result => {
@@ -836,6 +853,53 @@ router.get('/message/detail/:id', loginRequired, (req, res) => {
     }).then(message => {
         res.render('admin/message_detail_admin', {loginUser: req.session.loginUser, messagede: message});
     })
+})
+
+router.get('/addVideoPopup/:notice_id', loginRequired, (req, res) => {
+    const {notice_id} = req.params;
+    videoPopup.findOne({
+        where: {
+            no: 1
+        }
+    })
+      .then(currentPopup => {
+          if(currentPopup) {
+              videoPopup.update({
+                  notice_id: notice_id
+              },{
+                  where: {
+                      no: 1
+                  }
+              })
+                .then(() => {
+                    res.redirect('/admin/notice/detail/'+notice_id)
+                })
+          } else {
+              videoPopup.create({
+                  notice_id: notice_id
+              })
+                .then(() => {
+                    res.redirect('/admin/notice/detail/'+notice_id)
+                })
+          }
+
+
+      })
+})
+
+router.get('/deleteVideoPopup/:notice_id', loginRequired, (req, res) => {
+    const {notice_id} = req.params;
+
+    videoPopup.update({
+        notice_id: 0
+    }, {
+        where: {
+            no: 1
+        }
+    })
+      .then(() => {
+          res.redirect('/admin/notice/detail/'+notice_id)
+      })
 })
 
 router.post('/uploadImg', loginRequired, (req, res) => {

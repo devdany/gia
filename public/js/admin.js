@@ -113,6 +113,10 @@ $(".img_change").click(function () {
     $("#imageModal").modal('show');
 })
 
+$(".video_change").click(function () {
+    $("#videoModal").modal('show');
+})
+
 $(".factor-area").hover(function () {
 
     $(".fun-factor-area").css('opacity', '0.5');

@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var notice = require('../db/model/Notice');
 var dateformat = require('../lib/DateFormatConverter');
 var contents = require('../lib/contents');
 var teacher = require('../db/model/Teachers');
@@ -8,6 +7,8 @@ const classModel = require('../db/model/Class');
 const schedule = require('../db/model/Schedule');
 const gallery = require('../db/model/Gallery');
 const message = require('../db/model/Message');
+const videoPopup = require('../db/model/VideoPopup');
+const notice = require('../db/model/Notice')
 const path = require('path');
 const fs = require('fs');
 const uploadDir = path.join(__dirname, '../public/img');
@@ -45,16 +46,54 @@ router.get('/', (req, res) => {
                                     isPopup = false;
                                 }
 
-                                res.render('index', {
-                                    loginUser: req.session.loginUser,
-                                    contents: contents,
-                                    classes: classes,
-                                    teachers: teachers,
-                                    galleryList: galleryList,
-                                    totals: totals,
-                                    categories: categories,
-                                    isPopup: isPopup
-                                });
+                                videoPopup.findOne({
+                                    where: {
+                                        no: 1,
+                                        notice_id: {
+                                            $ne: 0
+                                        }
+                                    }
+                                })
+                                  .then(videoPopup => {
+
+                                      if(videoPopup) {
+                                          notice.findOne({
+                                              where: {
+                                                  no: videoPopup.dataValues.notice_id
+                                              }
+                                          })
+                                            .then(videoPopupNotice => {
+                                                res.render('index', {
+                                                    loginUser: req.session.loginUser,
+                                                    contents: contents,
+                                                    classes: classes,
+                                                    teachers: teachers,
+                                                    galleryList: galleryList,
+                                                    totals: totals,
+                                                    categories: categories,
+                                                    isPopup: isPopup,
+                                                    videoPopup: videoPopupNotice,
+                                                    isDoublePopup: isPopup && videoPopupNotice
+                                                });
+                                            })
+
+                                      } else {
+                                          res.render('index', {
+                                              loginUser: req.session.loginUser,
+                                              contents: contents,
+                                              classes: classes,
+                                              teachers: teachers,
+                                              galleryList: galleryList,
+                                              totals: totals,
+                                              categories: categories,
+                                              isPopup: isPopup,
+                                              videoPopup: null,
+                                              isDoublePopup: false
+                                          });
+                                      }
+
+                                  })
+
                             })
                         })
                     })
@@ -244,7 +283,6 @@ router.get('/gallery', (req, res) => {
                 }else if(y === 'tinytigers'){
                     return 1;
                 } else{
-
                     return x < y ? -1 : x > y ? 1 : 0;
                 }
             })

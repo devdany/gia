@@ -31,7 +31,11 @@
                        <%=notice.date%>
                     </div>
                     <hr />
-
+                    <%if(notice.video){%>
+                    <iframe width="600" height="400"
+                            src="https://www.youtube.com/embed/<%=notice.video%>">
+                    </iframe>
+                    <%}%>
                     <%-notice.content%>
 
                     <hr />

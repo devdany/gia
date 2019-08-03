@@ -30,10 +30,22 @@
                         date :
                        <%=notice.date%>
                     </div>
-
+                    <%if(notice.video){%>
+                    <iframe width="600" height="400"
+                            src="https://www.youtube.com/embed/<%=notice.video%>">
+                    </iframe>
+                    <%}%>
                     <%-notice.content%>
 
                     <hr />
+                    <%if(notice.video){%>
+                        <%if(isPopup){%>
+                            <span style="margin-right: 20px">이 영상은 현재 팝업으로 등록되어 있습니다.</span>
+                            <a href="/admin/deleteVideoPopup/<%=notice.no%>" class="btn btn-danger">영상 팝업 삭제</a>
+                        <%} else {%>
+                            <a href="/admin/addVideoPopup/<%=notice.no%>" class="btn btn-default">이 영상을 팝업으로 등록</a>
+                        <%}%>
+                    <%}%>
                 </div>
             </div>
             </div>
