@@ -666,6 +666,23 @@ router.get('/notice/edit/:id', loginRequired, (req, res) => {
 router.get('/notice/delete/:id', loginRequired, (req, res) => {
     var id = req.params.id;
 
+    videoPopup.findOne({
+      where: {
+        notice_id: id
+      }
+    })
+      .then(isVideopopup => {
+        if(isVideopopup) {
+          videoPopup.update({
+            notice_id: 0
+          }, {
+              where: {
+                  no: 1
+              }
+          })
+        }
+      })
+
     notice.destroy({
         where:{
             no: id
