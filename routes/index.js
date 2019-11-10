@@ -126,7 +126,18 @@ router.get('/vm', (req, res) => {
 router.get('/faculty', (req, res) => {
     classModel.findAll({order: [['no', 'ASC']]}).then(classes => {
         teacher.findAll().then(teachers => {
-            res.render('about/faculty', {loginUser: req.session.loginUser, teachers: teachers, classes: classes});
+            const rows = []
+            for (let i = 0; i<Math.ceil(teachers.length/4); i++) {
+              const row = []
+              for (let j = 0; j<4; j++) {
+                if (teachers[(i*4) + j]) {
+                  row.push(teachers[(i*4) + j])
+                }
+              }
+              rows.push(row)
+            }
+            console.log(rows)
+            res.render('about/faculty', {loginUser: req.session.loginUser, teacherRows: rows, classes: classes});
         })
     })
 

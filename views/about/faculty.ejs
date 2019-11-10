@@ -21,7 +21,8 @@
 <!--Teacher Fullwidth Area Start-->
 <div class="teacher-fullwidth-area section-padding">
     <div class="container">
-        <div class="row">
+        <%teacherRows.forEach(function(teachers){%>
+          <div class="row">
             <%teachers.forEach(function(teacher){%>
             <div class="col-md-3 col-sm-4">
                 <div class="single-teachers-column text-center">
@@ -49,7 +50,8 @@
                 </div>
             </div>
             <%})%>
-        </div>
+          </div>
+        <%})%>
     </div>
 </div>
 <!--End of Teacher Fullwidth Area-->
